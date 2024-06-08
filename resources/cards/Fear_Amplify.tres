@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://csx8reigv7t8p"]
+
+[ext_resource type="Texture2D" uid="uid://dve6igbtux6fb" path="res://resources/TestDepiction.tres" id="1_hasmk"]
+[ext_resource type="Script" path="res://resources/card.gd" id="1_wd0h5"]
+
+[resource]
+script = ExtResource("1_wd0h5")
+name = "Amplifying Terror"
+depiction = ExtResource("1_hasmk")
+emotion = 1
+base_effect = 1
+base_effect_value = 1
+secondary_emotion = 2
+secondary_effect = 2
+secondary_effect_value = 1.5

@@ -1,0 +1,24 @@
+{
+  "hidden_columns": {
+    "res://cards/": {
+      "resource_local_to_scene": true,
+      "resource_name": true
+    },
+    "res://resources/cards/": {
+      "resource_local_to_scene": true,
+      "resource_name": true
+    }
+  },
+  "recent_paths": [
+    "res://cards/",
+    "res://resources/cards/"
+  ],
+  "table_functions": {
+    "filter": [
+      "return true"
+    ],
+    "process": [
+      "return value"
+    ]
+  }
+}

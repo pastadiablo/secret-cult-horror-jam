@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://brcoutrax346"]
+
+[ext_resource type="Script" path="res://resources/card.gd" id="1_ovao0"]
+[ext_resource type="Texture2D" uid="uid://dve6igbtux6fb" path="res://resources/TestDepiction.tres" id="1_ugfcm"]
+
+[resource]
+script = ExtResource("1_ovao0")
+name = "Unseen Threat"
+depiction = ExtResource("1_ugfcm")
+emotion = 1
+base_effect = 1
+base_effect_value = -1
+secondary_emotion = 3
+secondary_effect = 2
+secondary_effect_value = 0.5

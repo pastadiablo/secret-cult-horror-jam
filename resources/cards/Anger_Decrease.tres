@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://c606b22jsnw53"]
+
+[ext_resource type="Texture2D" uid="uid://dve6igbtux6fb" path="res://resources/TestDepiction.tres" id="1_nvx8n"]
+[ext_resource type="Script" path="res://resources/card.gd" id="1_s66lj"]
+
+[resource]
+script = ExtResource("1_s66lj")
+name = "Soothing Words"
+depiction = ExtResource("1_nvx8n")
+emotion = 2
+base_effect = 1
+base_effect_value = -2
+secondary_emotion = 0
+secondary_effect = 0
+secondary_effect_value = 0.0

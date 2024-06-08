@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://ycvfewsm2i56"]
+
+[ext_resource type="Texture2D" uid="uid://dve6igbtux6fb" path="res://resources/TestDepiction.tres" id="1_mehl4"]
+[ext_resource type="Script" path="res://resources/card.gd" id="1_yp5oy"]
+
+[resource]
+script = ExtResource("1_yp5oy")
+name = "Inspiring Hope"
+depiction = ExtResource("1_mehl4")
+emotion = 3
+base_effect = 1
+base_effect_value = -2
+secondary_emotion = 0
+secondary_effect = 0
+secondary_effect_value = 0.0
