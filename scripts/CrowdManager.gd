@@ -1,29 +1,36 @@
 @tool
-extends Node
+class_name CrowdManager extends Node
 
-var emotions = { 
+static var emotions = { 
 	CultConstants.Emotion.FEAR: 0,
 	CultConstants.Emotion.ANGER: 0,
 	CultConstants.Emotion.DESPAIR: 0
 }
 
-var _nextCardMultiplierDefault = { 
+static var _nextCardMultiplierDefault = { 
 	CultConstants.Emotion.FEAR: 1.0,
 	CultConstants.Emotion.ANGER: 1.0,
 	CultConstants.Emotion.DESPAIR: 1.0
 }
 	
-var nextCardMultiplier = { 
+static var nextCardMultiplier = { 
 	CultConstants.Emotion.FEAR: 1.0,
 	CultConstants.Emotion.ANGER: 1.0,
 	CultConstants.Emotion.DESPAIR: 1.0
 }
 
-@export var CrowdContainer: Container
+@export var _crowdContainer: Container
 
+static var Instance : CrowdManager
+static var CrowdContainer: Container:
+	get: return Instance._crowdContainer
+
+static func Play(node: CardNode):
+	Instance._Play(node)
+	
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	CrowdContainer = get_node("/root/Main/VBoxContainer/CrowdContainer")
+	Instance = self
 	pass # Replace with function body.
 
 
@@ -31,7 +38,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-func Play(node: CardNode):
+func _Play(node: CardNode):
 	print("Playing card into crowd!")
 	node.card.PlayCard()
 	HandManager.cards.erase(node.card)

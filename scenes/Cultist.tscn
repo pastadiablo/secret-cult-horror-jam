@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://bs7mvgg7ql4ty"]
+
+[node name="Cultist" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="Button" type="Button" parent="."]
+offset_right = 8.0
+offset_bottom = 8.0
+mouse_default_cursor_shape = 8
+flat = true

@@ -10,7 +10,7 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s1vl5"]
 
-[sub_resource type="Curve" id="Curve_e4aai"]
+[sub_resource type="Curve" id="Curve_inf6r"]
 _data = [Vector2(0, 0), 0.0, 3.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
@@ -22,7 +22,7 @@ gradient = SubResource("Gradient_prwd4")
 fill_from = Vector2(0.5, 0)
 fill_to = Vector2(0.5, 1)
 
-[node name="PanelContainer" type="PanelContainer" node_paths=PackedStringArray("subviewportContainer", "cardRootContainer", "backPanelContainer", "title", "depiction", "effects", "cardBack", "elementContainers")]
+[node name="PanelContainer" type="PanelContainer" node_paths=PackedStringArray("subviewportContainer", "cardRootContainer", "backPanelContainer", "title", "depiction", "effects", "cardBack")]
 custom_minimum_size = Vector2(150, 210)
 offset_right = 150.0
 offset_bottom = 210.0
@@ -39,9 +39,7 @@ title = NodePath("CardNode/SubViewport/CardRootContainer/BackColorPanelContainer
 depiction = NodePath("CardNode/SubViewport/CardRootContainer/BackColorPanelContainer/VBoxContainer/DepictionPanelContainer/DepictionRect")
 effects = NodePath("CardNode/SubViewport/CardRootContainer/BackColorPanelContainer/VBoxContainer/EffectPanelContainer/VBoxContainer/EffectsLabel")
 cardBack = NodePath("CardNode/SubViewport/CardRootContainer/CardBack")
-elementContainers = [NodePath("CardNode/SubViewport/CardRootContainer/BackColorPanelContainer/VBoxContainer/HeaderPanelContainer"), NodePath("CardNode/SubViewport/CardRootContainer/BackColorPanelContainer/VBoxContainer/DepictionPanelContainer"), NodePath("CardNode/SubViewport/CardRootContainer/BackColorPanelContainer/VBoxContainer/EffectPanelContainer")]
-snapBackTime = 0.5
-snapBackCurve = SubResource("Curve_e4aai")
+snapBackCurve = SubResource("Curve_inf6r")
 scaleGrowSpeed = 100.0
 scaleShrinkSpeed = 100.0
 

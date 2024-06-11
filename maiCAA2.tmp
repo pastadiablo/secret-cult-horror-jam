@@ -94,14 +94,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="CrowdManager" type="Node" parent="." node_paths=PackedStringArray("_crowdContainer")]
-script = ExtResource("10_gdecm")
-_crowdContainer = NodePath("../VBoxContainer/CrowdContainer")
-
-[node name="HandManager" parent="." node_paths=PackedStringArray("dealButton") instance=ExtResource("11_52v37")]
-_cards = null
-dealButton = NodePath("../VBoxContainer/CardBlock/MarginContainer/DealButton")
-
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
@@ -350,3 +342,9 @@ script = ExtResource("1_c0vq5")
 [node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/CardBlock"]
 layout_mode = 2
 size_flags_horizontal = 3
+
+[node name="CrowdManager" type="Node" parent="."]
+script = ExtResource("10_gdecm")
+
+[node name="HandManager" parent="." node_paths=PackedStringArray("dealButton") instance=ExtResource("11_52v37")]
+dealButton = NodePath("../VBoxContainer/CardBlock/MarginContainer/DealButton")

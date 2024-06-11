@@ -27,9 +27,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-CrowdManager="*res://scripts/CrowdManager.gd"
 CursorSetter="*res://scripts/CursorSetter.gd"
-HandManager="*res://scenes/HandManager.tscn"
 CardCatalogue="*res://scripts/CardCatalogue.gd"
 
 [display]

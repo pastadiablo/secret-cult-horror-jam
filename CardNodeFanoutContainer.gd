@@ -11,7 +11,9 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	
 	var cards = node_map.keys()
-	var tracked = HandManager.cards
+	var tracked = []
+	if HandManager._instance:
+		tracked = HandManager.cards
 	
 	for card in cards:
 		if (!tracked.has(card)):
