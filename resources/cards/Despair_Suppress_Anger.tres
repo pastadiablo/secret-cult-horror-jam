@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="Card" load_steps=8 format=3 uid="uid://b25kcyn3ws2yf"]
+
+[ext_resource type="Texture2D" uid="uid://dve6igbtux6fb" path="res://resources/TestDepiction.tres" id="1_jtm27"]
+[ext_resource type="Script" path="res://resources/Effect.gd" id="2_j3pfo"]
+[ext_resource type="Script" path="res://resources/effects/ModifyEmotionEffect.gd" id="3_pbpk4"]
+[ext_resource type="Script" path="res://resources/effects/AmplifyNextEmotionEffect.gd" id="4_42eqf"]
+[ext_resource type="Script" path="res://resources/Card.gd" id="5_ouhol"]
+
+[sub_resource type="Resource" id="Resource_oh1kc"]
+script = ExtResource("3_pbpk4")
+emotion = 3
+value = -1
+
+[sub_resource type="Resource" id="Resource_br8cv"]
+script = ExtResource("4_42eqf")
+emotion = 2
+value = 0.5
+
+[resource]
+script = ExtResource("5_ouhol")
+name = "Crushing Reality"
+depiction = ExtResource("1_jtm27")
+emotion = 3
+effects = Array[ExtResource("2_j3pfo")]([SubResource("Resource_oh1kc"), SubResource("Resource_br8cv")])

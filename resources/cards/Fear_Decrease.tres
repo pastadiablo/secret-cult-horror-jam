@@ -1,15 +1,18 @@
-[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://c27r7l0govnds"]
+[gd_resource type="Resource" script_class="Card" load_steps=6 format=3 uid="uid://c27r7l0govnds"]
 
 [ext_resource type="Texture2D" uid="uid://dve6igbtux6fb" path="res://resources/TestDepiction.tres" id="1_n547i"]
-[ext_resource type="Script" path="res://resources/card.gd" id="1_pphxa"]
+[ext_resource type="Script" path="res://resources/Card.gd" id="1_pphxa"]
+[ext_resource type="Script" path="res://resources/Effect.gd" id="2_47wvc"]
+[ext_resource type="Script" path="res://resources/effects/ModifyEmotionEffect.gd" id="3_oxx3w"]
+
+[sub_resource type="Resource" id="Resource_vjmfc"]
+script = ExtResource("3_oxx3w")
+emotion = 1
+value = -2
 
 [resource]
 script = ExtResource("1_pphxa")
 name = "Calming Presence"
 depiction = ExtResource("1_n547i")
 emotion = 1
-base_effect = 1
-base_effect_value = -2
-secondary_emotion = 0
-secondary_effect = 0
-secondary_effect_value = 0.0
+effects = Array[ExtResource("2_47wvc")]([SubResource("Resource_vjmfc")])

@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="Card" load_steps=8 format=3 uid="uid://bga4x86hhb5vb"]
+
+[ext_resource type="Texture2D" uid="uid://dve6igbtux6fb" path="res://resources/TestDepiction.tres" id="1_ta0eb"]
+[ext_resource type="Script" path="res://resources/Card.gd" id="1_wu5o3"]
+[ext_resource type="Script" path="res://resources/Effect.gd" id="2_tc4qb"]
+[ext_resource type="Script" path="res://resources/effects/ModifyEmotionEffect.gd" id="3_q08vh"]
+[ext_resource type="Script" path="res://resources/effects/AmplifyNextEmotionEffect.gd" id="4_k01rk"]
+
+[sub_resource type="Resource" id="Resource_s8nnk"]
+script = ExtResource("3_q08vh")
+emotion = 2
+value = -1
+
+[sub_resource type="Resource" id="Resource_wfmbk"]
+script = ExtResource("4_k01rk")
+emotion = 1
+value = 0.5
+
+[resource]
+script = ExtResource("1_wu5o3")
+name = "Boiling Rage"
+depiction = ExtResource("1_ta0eb")
+emotion = 2
+effects = Array[ExtResource("2_tc4qb")]([SubResource("Resource_s8nnk"), SubResource("Resource_wfmbk")])

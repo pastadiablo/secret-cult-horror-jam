@@ -1,0 +1,63 @@
+[gd_scene load_steps=5 format=3 uid="uid://cxexqmnd7b4kq"]
+
+[ext_resource type="Texture2D" uid="uid://colnsvrlkxbeb" path="res://resources/textures/Anger9Rect.png" id="1_fbg66"]
+[ext_resource type="Script" path="res://scenes/CultProgressBar.gd" id="1_mp8ca"]
+[ext_resource type="Texture2D" uid="uid://bqlpa6i317gpf" path="res://resources/textures/Anger9RectProgress.png" id="2_pf487"]
+[ext_resource type="Texture2D" uid="uid://c04hkhk01dkby" path="res://resources/textures/Anger9RectOver.png" id="3_oti26"]
+
+[node name="Control" type="Control"]
+texture_filter = 1
+custom_minimum_size = Vector2(30, 124.58)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 30.0
+offset_bottom = 128.0
+script = ExtResource("1_mp8ca")
+underTexture = ExtResource("1_fbg66")
+progressTexture = ExtResource("2_pf487")
+overTexture = ExtResource("3_oti26")
+progress = 0.1
+
+[node name="UnderBar" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_fbg66")
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+axis_stretch_vertical = 1
+
+[node name="ProgressBar" type="NinePatchRect" parent="."]
+custom_minimum_size = Vector2(30, 12)
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -20.0
+grow_vertical = 0
+texture = ExtResource("2_pf487")
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+axis_stretch_vertical = 1
+
+[node name="OverBar" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_oti26")
+patch_margin_left = 10
+patch_margin_top = 8
+patch_margin_right = 10
+patch_margin_bottom = 8
+axis_stretch_vertical = 1

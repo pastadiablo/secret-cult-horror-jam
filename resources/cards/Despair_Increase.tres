@@ -1,15 +1,18 @@
-[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://ccbfjifafxnj0"]
+[gd_resource type="Resource" script_class="Card" load_steps=6 format=3 uid="uid://ccbfjifafxnj0"]
 
 [ext_resource type="Texture2D" uid="uid://dve6igbtux6fb" path="res://resources/TestDepiction.tres" id="1_ocxi2"]
-[ext_resource type="Script" path="res://resources/card.gd" id="1_sqavb"]
+[ext_resource type="Script" path="res://resources/Card.gd" id="1_sqavb"]
+[ext_resource type="Script" path="res://resources/Effect.gd" id="2_6votf"]
+[ext_resource type="Script" path="res://resources/effects/ModifyEmotionEffect.gd" id="3_hegjk"]
+
+[sub_resource type="Resource" id="Resource_jnt27"]
+script = ExtResource("3_hegjk")
+emotion = 3
+value = 2
 
 [resource]
 script = ExtResource("1_sqavb")
 name = "Mournful Dirge"
 depiction = ExtResource("1_ocxi2")
 emotion = 3
-base_effect = 1
-base_effect_value = 2
-secondary_emotion = 0
-secondary_effect = 0
-secondary_effect_value = 0.0
+effects = Array[ExtResource("2_6votf")]([SubResource("Resource_jnt27")])

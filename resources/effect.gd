@@ -1,7 +1,8 @@
+@tool
 class_name Effect extends Resource
 
-func GetEffectDescription():
-	return ""
+func GetEffectDescription(baseEmotion: CultConstants.Emotion) -> String:
+	return "Base Effect"
 	
-func ApplyEffect():
+func ApplyEffect(baseEmotion: CultConstants.Emotion):
 	push_error("Effect Not Implemented!")
