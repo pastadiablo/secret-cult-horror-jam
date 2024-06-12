@@ -1,0 +1,125 @@
+[gd_scene load_steps=12 format=3 uid="uid://dor22jdcwtvbn"]
+
+[ext_resource type="Script" path="res://scenes/SummoningBoard.gd" id="1_3yrfo"]
+[ext_resource type="Script" path="res://resources/Cultist.gd" id="2_2okbd"]
+[ext_resource type="Shader" path="res://scenes/DragWobble.gdshader" id="3_1ilsk"]
+[ext_resource type="PackedScene" uid="uid://bs7mvgg7ql4ty" path="res://scenes/CultistAgent.tscn" id="4_0eoqa"]
+[ext_resource type="Texture2D" uid="uid://b752of2rtvplb" path="res://resources/textures/circles/small.png" id="4_ly2ou"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_enrct"]
+shader = ExtResource("3_1ilsk")
+shader_parameter/fov = 90.0
+shader_parameter/cull_back = true
+shader_parameter/y_rot = 8.55e-06
+shader_parameter/x_rot = 45.0
+shader_parameter/inset = 0.0
+
+[sub_resource type="Resource" id="Resource_i3whs"]
+script = ExtResource("2_2okbd")
+position = Vector2(-42, 40)
+emotion = 0
+
+[sub_resource type="Resource" id="Resource_7d4ae"]
+script = ExtResource("2_2okbd")
+position = Vector2(0, -34)
+emotion = 0
+
+[sub_resource type="Resource" id="Resource_vq6nx"]
+script = ExtResource("2_2okbd")
+position = Vector2(-42, -6)
+emotion = 0
+
+[sub_resource type="Resource" id="Resource_u1bvt"]
+script = ExtResource("2_2okbd")
+position = Vector2(41, 38)
+emotion = 0
+
+[sub_resource type="Resource" id="Resource_egbh6"]
+script = ExtResource("2_2okbd")
+position = Vector2(42, -6)
+emotion = 0
+
+[node name="SummoningBoard" type="Node2D"]
+y_sort_enabled = true
+position = Vector2(384, 244)
+script = ExtResource("1_3yrfo")
+
+[node name="Circle" type="Sprite2D" parent="."]
+z_index = -1
+texture_filter = 1
+material = SubResource("ShaderMaterial_enrct")
+texture = ExtResource("4_ly2ou")
+
+[node name="Cultists" type="Node2D" parent="Circle"]
+visible = false
+y_sort_enabled = true
+
+[node name="Cultist" parent="Circle/Cultists" node_paths=PackedStringArray("sprite", "button", "animationPlayer", "animationTree") instance=ExtResource("4_0eoqa")]
+position = Vector2(-42, 40)
+cultist = SubResource("Resource_i3whs")
+sprite = NodePath("Sprite2D")
+button = NodePath("Sprite2D/Button")
+animationPlayer = NodePath("AnimationPlayer")
+animationTree = NodePath("AnimationTree")
+
+[node name="@Node2D@209354" parent="Circle/Cultists" node_paths=PackedStringArray("sprite", "button", "animationPlayer", "animationTree") instance=ExtResource("4_0eoqa")]
+position = Vector2(0, -34)
+cultist = SubResource("Resource_7d4ae")
+sprite = NodePath("Sprite2D")
+button = NodePath("Sprite2D/Button")
+animationPlayer = NodePath("AnimationPlayer")
+animationTree = NodePath("AnimationTree")
+
+[node name="@Node2D@209355" parent="Circle/Cultists" node_paths=PackedStringArray("sprite", "button", "animationPlayer", "animationTree") instance=ExtResource("4_0eoqa")]
+position = Vector2(-42, -6)
+cultist = SubResource("Resource_vq6nx")
+sprite = NodePath("Sprite2D")
+button = NodePath("Sprite2D/Button")
+animationPlayer = NodePath("AnimationPlayer")
+animationTree = NodePath("AnimationTree")
+
+[node name="@Node2D@209357" parent="Circle/Cultists" node_paths=PackedStringArray("sprite", "button", "animationPlayer", "animationTree") instance=ExtResource("4_0eoqa")]
+position = Vector2(41, 38)
+cultist = SubResource("Resource_u1bvt")
+sprite = NodePath("Sprite2D")
+button = NodePath("Sprite2D/Button")
+animationPlayer = NodePath("AnimationPlayer")
+animationTree = NodePath("AnimationTree")
+
+[node name="_Node2D_209356" parent="Circle/Cultists" node_paths=PackedStringArray("sprite", "button", "animationPlayer", "animationTree") instance=ExtResource("4_0eoqa")]
+position = Vector2(42, -6)
+cultist = SubResource("Resource_egbh6")
+sprite = NodePath("Sprite2D")
+button = NodePath("Sprite2D/Button")
+animationPlayer = NodePath("AnimationPlayer")
+animationTree = NodePath("AnimationTree")
+
+[node name="_Node2D_209357" parent="Circle/Cultists" node_paths=PackedStringArray("sprite", "button", "animationPlayer", "animationTree") instance=ExtResource("4_0eoqa")]
+position = Vector2(41, 38)
+cultist = SubResource("Resource_u1bvt")
+sprite = NodePath("Sprite2D")
+button = NodePath("Sprite2D/Button")
+animationPlayer = NodePath("AnimationPlayer")
+animationTree = NodePath("AnimationTree")
+
+[node name="Circle2" type="Sprite2D" parent="."]
+z_index = -2
+texture_filter = 1
+material = SubResource("ShaderMaterial_enrct")
+scale = Vector2(2, 2)
+texture = ExtResource("4_ly2ou")
+
+[node name="Cultists" type="Node2D" parent="Circle2"]
+visible = false
+y_sort_enabled = true
+
+[node name="Circle3" type="Sprite2D" parent="."]
+z_index = -3
+texture_filter = 1
+material = SubResource("ShaderMaterial_enrct")
+scale = Vector2(3, 3)
+texture = ExtResource("4_ly2ou")
+
+[node name="Cultists" type="Node2D" parent="Circle3"]
+visible = false
+y_sort_enabled = true

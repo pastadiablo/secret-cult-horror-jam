@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://clxvx00imj1yn"]
+[gd_scene load_steps=22 format=3 uid="uid://clxvx00imj1yn"]
 
 [ext_resource type="Script" path="res://CardNodeFanoutContainer.gd" id="1_c0vq5"]
 [ext_resource type="StyleBox" uid="uid://bcdrpokw5qbo8" path="res://resources/CardElementBackingStyle-Anger.tres" id="1_ixhdm"]
@@ -11,6 +11,10 @@
 [ext_resource type="StyleBox" uid="uid://b78ulru0bqfjk" path="res://resources/CardBackingStyle-Fear.tres" id="6_ase00"]
 [ext_resource type="Script" path="res://scripts/CrowdManager.gd" id="10_gdecm"]
 [ext_resource type="PackedScene" uid="uid://c7x2kayfhkv1d" path="res://scenes/HandManager.tscn" id="11_52v37"]
+[ext_resource type="Texture2D" uid="uid://xaryq1uw14jh" path="res://resources/textures/backgrounds/Dungeon1.png" id="12_3q77v"]
+[ext_resource type="PackedScene" uid="uid://dor22jdcwtvbn" path="res://scenes/SummoningBoard.tscn" id="12_5qj86"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_07c1h"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y134w"]
 bg_color = Color(0.188235, 0.113725, 0.105882, 1)
@@ -93,38 +97,61 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 
-[node name="CrowdManager" type="Node" parent="." node_paths=PackedStringArray("_crowdContainer")]
+[node name="CrowdManager" type="Node" parent="."]
 script = ExtResource("10_gdecm")
-_crowdContainer = NodePath("../VBoxContainer/CrowdContainer")
 
 [node name="HandManager" parent="." node_paths=PackedStringArray("dealButton") instance=ExtResource("11_52v37")]
-_cards = null
-dealButton = NodePath("../VBoxContainer/CardBlock/MarginContainer/DealButton")
+dealButton = NodePath("../GUI/PanelContainer/CardBlock/MarginContainer/DealButton")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 1
+[node name="SummoningBoard" parent="." instance=ExtResource("12_5qj86")]
+position = Vector2(648, 344)
+
+[node name="GUI" type="CanvasLayer" parent="."]
+
+[node name="PanelContainer" type="PanelContainer" parent="GUI"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_07c1h")
 
-[node name="CrowdContainer" type="MarginContainer" parent="VBoxContainer"]
+[node name="CardBlock" type="HBoxContainer" parent="GUI/PanelContainer"]
 layout_mode = 2
-size_flags_vertical = 3
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
+size_flags_vertical = 8
 
-[node name="ColorRect" type="ColorRect" parent="VBoxContainer/CrowdContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="GUI/PanelContainer/CardBlock"]
 layout_mode = 2
-color = Color(0.803922, 0.764706, 0.823529, 1)
+size_flags_horizontal = 3
 
-[node name="CrowdEmotionBars" type="HBoxContainer" parent="VBoxContainer/CrowdContainer" node_paths=PackedStringArray("angerBar", "despairBar", "fearBar", "angerAmplified", "angerSuppressed", "despairAmplified", "despairSuppressed", "fearAmplified", "fearSuppressed", "angerMultiplierLabel", "despairMultiplierLabel", "fearMultiplierLabel")]
+[node name="DealButton" type="Button" parent="GUI/PanelContainer/CardBlock/MarginContainer"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 28
+text = "Deal"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GUI/PanelContainer/CardBlock"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+theme_override_constants/separation = 10
+script = ExtResource("1_c0vq5")
+
+[node name="MarginContainer2" type="MarginContainer" parent="GUI/PanelContainer/CardBlock"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CrowdEmotionBars" type="HBoxContainer" parent="GUI/PanelContainer" node_paths=PackedStringArray("angerBar", "despairBar", "fearBar", "angerAmplified", "angerSuppressed", "despairAmplified", "despairSuppressed", "fearAmplified", "fearSuppressed", "angerMultiplierLabel", "despairMultiplierLabel", "fearMultiplierLabel")]
+custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
 size_flags_horizontal = 8
+size_flags_vertical = 4
 theme_override_constants/separation = 8
 script = ExtResource("1_kk715")
 angerBar = NodePath("AngerProgressBar")
@@ -140,7 +167,7 @@ angerMultiplierLabel = NodePath("AngerProgressBar/AngerMultiplierLabel")
 despairMultiplierLabel = NodePath("DespairProgressBar/DespairMultiplierLabel")
 fearMultiplierLabel = NodePath("FearProgressBar/FearMultiplierLabel")
 
-[node name="AngerProgressBar" type="ProgressBar" parent="VBoxContainer/CrowdContainer/CrowdEmotionBars"]
+[node name="AngerProgressBar" type="ProgressBar" parent="GUI/PanelContainer/CrowdEmotionBars"]
 custom_minimum_size = Vector2(30, 0)
 layout_mode = 2
 size_flags_vertical = 1
@@ -153,7 +180,7 @@ value = 2.0
 fill_mode = 3
 show_percentage = false
 
-[node name="AngerSuppressed" type="PanelContainer" parent="VBoxContainer/CrowdContainer/CrowdEmotionBars/AngerProgressBar"]
+[node name="AngerSuppressed" type="PanelContainer" parent="GUI/PanelContainer/CrowdEmotionBars/AngerProgressBar"]
 visible = false
 show_behind_parent = true
 layout_mode = 1
@@ -164,7 +191,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_y134w")
 
-[node name="AngerAmplified" type="PanelContainer" parent="VBoxContainer/CrowdContainer/CrowdEmotionBars/AngerProgressBar"]
+[node name="AngerAmplified" type="PanelContainer" parent="GUI/PanelContainer/CrowdEmotionBars/AngerProgressBar"]
 show_behind_parent = true
 material = SubResource("ShaderMaterial_u02fq")
 layout_mode = 1
@@ -175,7 +202,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_nnjxt")
 
-[node name="AngerMultiplierLabel" type="Label" parent="VBoxContainer/CrowdContainer/CrowdEmotionBars/AngerProgressBar"]
+[node name="AngerMultiplierLabel" type="Label" parent="GUI/PanelContainer/CrowdEmotionBars/AngerProgressBar"]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 1.0
@@ -189,7 +216,7 @@ theme_override_colors/font_outline_color = Color(0.0627451, 0.054902, 0.0470588,
 theme_override_constants/outline_size = 10
 text = "x1.5"
 
-[node name="DespairProgressBar" type="ProgressBar" parent="VBoxContainer/CrowdContainer/CrowdEmotionBars"]
+[node name="DespairProgressBar" type="ProgressBar" parent="GUI/PanelContainer/CrowdEmotionBars"]
 custom_minimum_size = Vector2(30, 0)
 layout_mode = 2
 size_flags_vertical = 1
@@ -201,7 +228,7 @@ value = 2.0
 fill_mode = 3
 show_percentage = false
 
-[node name="DespairSuppressed" type="PanelContainer" parent="VBoxContainer/CrowdContainer/CrowdEmotionBars/DespairProgressBar"]
+[node name="DespairSuppressed" type="PanelContainer" parent="GUI/PanelContainer/CrowdEmotionBars/DespairProgressBar"]
 visible = false
 show_behind_parent = true
 layout_mode = 1
@@ -212,7 +239,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_178vq")
 
-[node name="DespairAmplified" type="PanelContainer" parent="VBoxContainer/CrowdContainer/CrowdEmotionBars/DespairProgressBar"]
+[node name="DespairAmplified" type="PanelContainer" parent="GUI/PanelContainer/CrowdEmotionBars/DespairProgressBar"]
 visible = false
 show_behind_parent = true
 layout_mode = 1
@@ -223,7 +250,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_pqhja")
 
-[node name="DespairMultiplierLabel" type="Label" parent="VBoxContainer/CrowdContainer/CrowdEmotionBars/DespairProgressBar"]
+[node name="DespairMultiplierLabel" type="Label" parent="GUI/PanelContainer/CrowdEmotionBars/DespairProgressBar"]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 1.0
@@ -237,7 +264,7 @@ theme_override_colors/font_outline_color = Color(0.0627451, 0.054902, 0.0470588,
 theme_override_constants/outline_size = 10
 text = "x1.5"
 
-[node name="FearProgressBar" type="ProgressBar" parent="VBoxContainer/CrowdContainer/CrowdEmotionBars"]
+[node name="FearProgressBar" type="ProgressBar" parent="GUI/PanelContainer/CrowdEmotionBars"]
 custom_minimum_size = Vector2(30, 0)
 layout_mode = 2
 size_flags_vertical = 1
@@ -249,7 +276,7 @@ value = 2.0
 fill_mode = 3
 show_percentage = false
 
-[node name="FearSuppressed" type="PanelContainer" parent="VBoxContainer/CrowdContainer/CrowdEmotionBars/FearProgressBar"]
+[node name="FearSuppressed" type="PanelContainer" parent="GUI/PanelContainer/CrowdEmotionBars/FearProgressBar"]
 visible = false
 show_behind_parent = true
 layout_mode = 1
@@ -260,7 +287,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_ewqb5")
 
-[node name="FearAmplified" type="PanelContainer" parent="VBoxContainer/CrowdContainer/CrowdEmotionBars/FearProgressBar"]
+[node name="FearAmplified" type="PanelContainer" parent="GUI/PanelContainer/CrowdEmotionBars/FearProgressBar"]
 visible = false
 show_behind_parent = true
 layout_mode = 1
@@ -271,7 +298,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_ntsfp")
 
-[node name="FearMultiplierLabel" type="Label" parent="VBoxContainer/CrowdContainer/CrowdEmotionBars/FearProgressBar"]
+[node name="FearMultiplierLabel" type="Label" parent="GUI/PanelContainer/CrowdEmotionBars/FearProgressBar"]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 1.0
@@ -285,11 +312,13 @@ theme_override_colors/font_outline_color = Color(0.0627451, 0.054902, 0.0470588,
 theme_override_constants/outline_size = 10
 text = "x1.5"
 
-[node name="TargetValues" type="HBoxContainer" parent="VBoxContainer/CrowdContainer"]
+[node name="TargetValues" type="HBoxContainer" parent="GUI/PanelContainer"]
+custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
 size_flags_horizontal = 0
+size_flags_vertical = 4
 
-[node name="AngerProgressBar" type="ProgressBar" parent="VBoxContainer/CrowdContainer/TargetValues"]
+[node name="AngerProgressBar" type="ProgressBar" parent="GUI/PanelContainer/TargetValues"]
 custom_minimum_size = Vector2(30, 0)
 layout_mode = 2
 size_flags_vertical = 1
@@ -302,7 +331,7 @@ value = 2.0
 fill_mode = 3
 show_percentage = false
 
-[node name="DespairProgressBar" type="ProgressBar" parent="VBoxContainer/CrowdContainer/TargetValues"]
+[node name="DespairProgressBar" type="ProgressBar" parent="GUI/PanelContainer/TargetValues"]
 custom_minimum_size = Vector2(30, 0)
 layout_mode = 2
 size_flags_vertical = 1
@@ -314,7 +343,7 @@ value = 2.0
 fill_mode = 3
 show_percentage = false
 
-[node name="FearProgressBar" type="ProgressBar" parent="VBoxContainer/CrowdContainer/TargetValues"]
+[node name="FearProgressBar" type="ProgressBar" parent="GUI/PanelContainer/TargetValues"]
 custom_minimum_size = Vector2(30, 0)
 layout_mode = 2
 size_flags_vertical = 1
@@ -326,27 +355,11 @@ value = 2.0
 fill_mode = 3
 show_percentage = false
 
-[node name="CardBlock" type="HBoxContainer" parent="VBoxContainer"]
-layout_mode = 2
+[node name="Skybox" type="CanvasLayer" parent="."]
+layer = -1
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/CardBlock"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="DealButton" type="Button" parent="VBoxContainer/CardBlock/MarginContainer"]
-custom_minimum_size = Vector2(200, 100)
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 4
-theme_override_font_sizes/font_size = 28
-text = "Deal"
-
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/CardBlock"]
-custom_minimum_size = Vector2(0, 300)
-layout_mode = 2
-theme_override_constants/separation = 10
-script = ExtResource("1_c0vq5")
-
-[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/CardBlock"]
-layout_mode = 2
-size_flags_horizontal = 3
+[node name="TextureRect" type="TextureRect" parent="Skybox"]
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+texture = ExtResource("12_3q77v")
