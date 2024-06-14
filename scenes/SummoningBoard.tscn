@@ -1,125 +1,602 @@
-[gd_scene load_steps=12 format=3 uid="uid://dor22jdcwtvbn"]
+[gd_scene load_steps=40 format=3 uid="uid://dor22jdcwtvbn"]
 
 [ext_resource type="Script" path="res://scenes/SummoningBoard.gd" id="1_3yrfo"]
-[ext_resource type="Script" path="res://resources/Cultist.gd" id="2_2okbd"]
-[ext_resource type="Shader" path="res://scenes/DragWobble.gdshader" id="3_1ilsk"]
-[ext_resource type="PackedScene" uid="uid://bs7mvgg7ql4ty" path="res://scenes/CultistAgent.tscn" id="4_0eoqa"]
-[ext_resource type="Texture2D" uid="uid://b752of2rtvplb" path="res://resources/textures/circles/small.png" id="4_ly2ou"]
+[ext_resource type="Resource" uid="uid://c8ejxj6xaa5h8" path="res://resources/summonings/Level1.tres" id="2_ku8mu"]
+[ext_resource type="PackedScene" uid="uid://bs7mvgg7ql4ty" path="res://scenes/CultistAgent.tscn" id="5_ccokj"]
+[ext_resource type="Script" path="res://scenes/CultistAgent.gd" id="6_bftkr"]
+[ext_resource type="Script" path="res://resources/Cultist.gd" id="7_ppb0e"]
+[ext_resource type="Texture2D" uid="uid://ds87auvq7q4gf" path="res://resources/textures/circles/pentagram.png" id="8_g813u"]
+[ext_resource type="Texture2D" uid="uid://baixlqavvq21o" path="res://resources/textures/circles/large.png" id="9_woc07"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_enrct"]
-shader = ExtResource("3_1ilsk")
-shader_parameter/fov = 90.0
-shader_parameter/cull_back = true
-shader_parameter/y_rot = 8.55e-06
-shader_parameter/x_rot = 45.0
-shader_parameter/inset = 0.0
-
-[sub_resource type="Resource" id="Resource_i3whs"]
-script = ExtResource("2_2okbd")
-position = Vector2(-42, 40)
+[sub_resource type="Resource" id="Resource_xkoar"]
+script = ExtResource("7_ppb0e")
 emotion = 0
+state = 0
+souls = 1
 
-[sub_resource type="Resource" id="Resource_7d4ae"]
-script = ExtResource("2_2okbd")
-position = Vector2(0, -34)
+[sub_resource type="Resource" id="Resource_ml6r0"]
+script = ExtResource("7_ppb0e")
 emotion = 0
+state = 0
+souls = 1
 
-[sub_resource type="Resource" id="Resource_vq6nx"]
-script = ExtResource("2_2okbd")
-position = Vector2(-42, -6)
+[sub_resource type="Resource" id="Resource_8ilfo"]
+script = ExtResource("7_ppb0e")
 emotion = 0
+state = 0
+souls = 1
 
-[sub_resource type="Resource" id="Resource_u1bvt"]
-script = ExtResource("2_2okbd")
-position = Vector2(41, 38)
+[sub_resource type="Resource" id="Resource_n7nuy"]
+script = ExtResource("7_ppb0e")
 emotion = 0
+state = 0
+souls = 1
 
-[sub_resource type="Resource" id="Resource_egbh6"]
-script = ExtResource("2_2okbd")
-position = Vector2(42, -6)
+[sub_resource type="Resource" id="Resource_5xlxt"]
+script = ExtResource("7_ppb0e")
 emotion = 0
+state = 0
+souls = 1
+
+[sub_resource type="Resource" id="Resource_7ra51"]
+script = ExtResource("7_ppb0e")
+emotion = 0
+state = 0
+souls = 1
+
+[sub_resource type="Resource" id="Resource_c74dx"]
+script = ExtResource("7_ppb0e")
+emotion = 0
+state = 0
+souls = 1
+
+[sub_resource type="Resource" id="Resource_y284k"]
+script = ExtResource("7_ppb0e")
+emotion = 0
+state = 0
+souls = 1
+
+[sub_resource type="Resource" id="Resource_jci03"]
+script = ExtResource("7_ppb0e")
+emotion = 0
+state = 0
+souls = 1
+
+[sub_resource type="Resource" id="Resource_fxk64"]
+script = ExtResource("7_ppb0e")
+emotion = 0
+state = 0
+souls = 1
+
+[sub_resource type="Resource" id="Resource_8x7sq"]
+script = ExtResource("7_ppb0e")
+emotion = 0
+state = 0
+souls = 1
+
+[sub_resource type="Resource" id="Resource_dbbn6"]
+script = ExtResource("7_ppb0e")
+emotion = 0
+state = 0
+souls = 1
+
+[sub_resource type="Resource" id="Resource_s7o78"]
+script = ExtResource("7_ppb0e")
+emotion = 0
+state = 0
+souls = 1
+
+[sub_resource type="Resource" id="Resource_1xr6o"]
+script = ExtResource("7_ppb0e")
+emotion = 0
+state = 0
+souls = 1
+
+[sub_resource type="Resource" id="Resource_bdjtn"]
+script = ExtResource("7_ppb0e")
+emotion = 0
+state = 0
+souls = 1
+
+[sub_resource type="Resource" id="Resource_mx8qa"]
+script = ExtResource("7_ppb0e")
+emotion = 0
+state = 0
+souls = 1
+
+[sub_resource type="Resource" id="Resource_akvxx"]
+script = ExtResource("7_ppb0e")
+emotion = 0
+state = 0
+souls = 1
+
+[sub_resource type="Resource" id="Resource_ypbd7"]
+script = ExtResource("7_ppb0e")
+emotion = 0
+state = 0
+souls = 1
+
+[sub_resource type="Resource" id="Resource_72r3e"]
+script = ExtResource("7_ppb0e")
+emotion = 0
+state = 0
+souls = 1
+
+[sub_resource type="Resource" id="Resource_4j3dd"]
+script = ExtResource("7_ppb0e")
+emotion = 0
+state = 0
+souls = 1
+
+[sub_resource type="Resource" id="Resource_7cegy"]
+script = ExtResource("7_ppb0e")
+emotion = 0
+state = 0
+souls = 1
+
+[sub_resource type="Resource" id="Resource_5bjiy"]
+script = ExtResource("7_ppb0e")
+emotion = 0
+state = 0
+souls = 1
+
+[sub_resource type="Resource" id="Resource_l3gf1"]
+script = ExtResource("7_ppb0e")
+emotion = 0
+state = 0
+souls = 1
+
+[sub_resource type="Resource" id="Resource_odiu6"]
+script = ExtResource("7_ppb0e")
+emotion = 0
+state = 0
+souls = 1
+
+[sub_resource type="Resource" id="Resource_1aks3"]
+script = ExtResource("7_ppb0e")
+emotion = 0
+state = 0
+souls = 1
+
+[sub_resource type="Resource" id="Resource_81ydx"]
+script = ExtResource("7_ppb0e")
+emotion = 0
+state = 0
+souls = 1
+
+[sub_resource type="Resource" id="Resource_ubv0u"]
+script = ExtResource("7_ppb0e")
+emotion = 0
+state = 0
+souls = 1
+
+[sub_resource type="Resource" id="Resource_ulghw"]
+script = ExtResource("7_ppb0e")
+emotion = 0
+state = 0
+souls = 1
+
+[sub_resource type="Resource" id="Resource_f6pc8"]
+script = ExtResource("7_ppb0e")
+emotion = 0
+state = 0
+souls = 1
+
+[sub_resource type="Resource" id="Resource_fmhyp"]
+script = ExtResource("7_ppb0e")
+emotion = 0
+state = 0
+souls = 1
+
+[sub_resource type="Resource" id="Resource_x6wkx"]
+script = ExtResource("7_ppb0e")
+emotion = 0
+state = 0
+souls = 1
+
+[sub_resource type="Resource" id="Resource_i6edy"]
+script = ExtResource("7_ppb0e")
+emotion = 0
+state = 0
+souls = 1
 
 [node name="SummoningBoard" type="Node2D"]
 y_sort_enabled = true
-position = Vector2(384, 244)
+texture_filter = 1
+position = Vector2(640, 360)
 script = ExtResource("1_3yrfo")
+summoning = ExtResource("2_ku8mu")
 
-[node name="Circle" type="Sprite2D" parent="."]
+[node name="@Sprite2D@17748" type="Sprite2D" parent="."]
 z_index = -1
+scale = Vector2(1, 0.5)
+texture = ExtResource("9_woc07")
+
+[node name="@Node2D@17749" type="Node2D" parent="." node_paths=PackedStringArray("sprite", "button", "animationPlayer", "animationTree") instance=ExtResource("5_ccokj")]
 texture_filter = 1
-material = SubResource("ShaderMaterial_enrct")
-texture = ExtResource("4_ly2ou")
-
-[node name="Cultists" type="Node2D" parent="Circle"]
-visible = false
-y_sort_enabled = true
-
-[node name="Cultist" parent="Circle/Cultists" node_paths=PackedStringArray("sprite", "button", "animationPlayer", "animationTree") instance=ExtResource("4_0eoqa")]
-position = Vector2(-42, 40)
-cultist = SubResource("Resource_i3whs")
-sprite = NodePath("Sprite2D")
-button = NodePath("Sprite2D/Button")
-animationPlayer = NodePath("AnimationPlayer")
-animationTree = NodePath("AnimationTree")
-
-[node name="@Node2D@209354" parent="Circle/Cultists" node_paths=PackedStringArray("sprite", "button", "animationPlayer", "animationTree") instance=ExtResource("4_0eoqa")]
-position = Vector2(0, -34)
-cultist = SubResource("Resource_7d4ae")
-sprite = NodePath("Sprite2D")
-button = NodePath("Sprite2D/Button")
-animationPlayer = NodePath("AnimationPlayer")
-animationTree = NodePath("AnimationTree")
-
-[node name="@Node2D@209355" parent="Circle/Cultists" node_paths=PackedStringArray("sprite", "button", "animationPlayer", "animationTree") instance=ExtResource("4_0eoqa")]
-position = Vector2(-42, -6)
-cultist = SubResource("Resource_vq6nx")
-sprite = NodePath("Sprite2D")
-button = NodePath("Sprite2D/Button")
-animationPlayer = NodePath("AnimationPlayer")
-animationTree = NodePath("AnimationTree")
-
-[node name="@Node2D@209357" parent="Circle/Cultists" node_paths=PackedStringArray("sprite", "button", "animationPlayer", "animationTree") instance=ExtResource("4_0eoqa")]
-position = Vector2(41, 38)
-cultist = SubResource("Resource_u1bvt")
-sprite = NodePath("Sprite2D")
-button = NodePath("Sprite2D/Button")
-animationPlayer = NodePath("AnimationPlayer")
-animationTree = NodePath("AnimationTree")
-
-[node name="_Node2D_209356" parent="Circle/Cultists" node_paths=PackedStringArray("sprite", "button", "animationPlayer", "animationTree") instance=ExtResource("4_0eoqa")]
-position = Vector2(42, -6)
-cultist = SubResource("Resource_egbh6")
-sprite = NodePath("Sprite2D")
-button = NodePath("Sprite2D/Button")
-animationPlayer = NodePath("AnimationPlayer")
-animationTree = NodePath("AnimationTree")
-
-[node name="_Node2D_209357" parent="Circle/Cultists" node_paths=PackedStringArray("sprite", "button", "animationPlayer", "animationTree") instance=ExtResource("4_0eoqa")]
-position = Vector2(41, 38)
-cultist = SubResource("Resource_u1bvt")
-sprite = NodePath("Sprite2D")
-button = NodePath("Sprite2D/Button")
-animationPlayer = NodePath("AnimationPlayer")
-animationTree = NodePath("AnimationTree")
-
-[node name="Circle2" type="Sprite2D" parent="."]
-z_index = -2
-texture_filter = 1
-material = SubResource("ShaderMaterial_enrct")
+position = Vector2(256, -24.0113)
 scale = Vector2(2, 2)
-texture = ExtResource("4_ly2ou")
+script = ExtResource("6_bftkr")
+cultist = SubResource("Resource_xkoar")
+sprite = NodePath("Sprite2D")
+button = NodePath("Sprite2D/Button")
+animationPlayer = NodePath("AnimationPlayer")
+animationTree = NodePath("AnimationTree")
+playerTurn = true
 
-[node name="Cultists" type="Node2D" parent="Circle2"]
-visible = false
-y_sort_enabled = true
-
-[node name="Circle3" type="Sprite2D" parent="."]
-z_index = -3
+[node name="@Node2D@17750" type="Node2D" parent="." node_paths=PackedStringArray("sprite", "button", "animationPlayer", "animationTree") instance=ExtResource("5_ccokj")]
 texture_filter = 1
-material = SubResource("ShaderMaterial_enrct")
-scale = Vector2(3, 3)
-texture = ExtResource("4_ly2ou")
+position = Vector2(247.277, 9.11751)
+scale = Vector2(2, 2)
+script = ExtResource("6_bftkr")
+cultist = SubResource("Resource_ml6r0")
+sprite = NodePath("Sprite2D")
+button = NodePath("Sprite2D/Button")
+animationPlayer = NodePath("AnimationPlayer")
+animationTree = NodePath("AnimationTree")
+playerTurn = true
 
-[node name="Cultists" type="Node2D" parent="Circle3"]
-visible = false
-y_sort_enabled = true
+[node name="@Node2D@17751" type="Node2D" parent="." node_paths=PackedStringArray("sprite", "button", "animationPlayer", "animationTree") instance=ExtResource("5_ccokj")]
+texture_filter = 1
+position = Vector2(221.702, 39.9887)
+scale = Vector2(2, 2)
+script = ExtResource("6_bftkr")
+cultist = SubResource("Resource_8ilfo")
+sprite = NodePath("Sprite2D")
+button = NodePath("Sprite2D/Button")
+animationPlayer = NodePath("AnimationPlayer")
+animationTree = NodePath("AnimationTree")
+playerTurn = true
+
+[node name="@Node2D@17752" type="Node2D" parent="." node_paths=PackedStringArray("sprite", "button", "animationPlayer", "animationTree") instance=ExtResource("5_ccokj")]
+texture_filter = 1
+position = Vector2(181.019, 66.4983)
+scale = Vector2(2, 2)
+script = ExtResource("6_bftkr")
+cultist = SubResource("Resource_n7nuy")
+sprite = NodePath("Sprite2D")
+button = NodePath("Sprite2D/Button")
+animationPlayer = NodePath("AnimationPlayer")
+animationTree = NodePath("AnimationTree")
+playerTurn = true
+
+[node name="@Node2D@17753" type="Node2D" parent="." node_paths=PackedStringArray("sprite", "button", "animationPlayer", "animationTree") instance=ExtResource("5_ccokj")]
+texture_filter = 1
+position = Vector2(128, 86.8399)
+scale = Vector2(2, 2)
+script = ExtResource("6_bftkr")
+cultist = SubResource("Resource_5xlxt")
+sprite = NodePath("Sprite2D")
+button = NodePath("Sprite2D/Button")
+animationPlayer = NodePath("AnimationPlayer")
+animationTree = NodePath("AnimationTree")
+playerTurn = true
+
+[node name="@Node2D@17754" type="Node2D" parent="." node_paths=PackedStringArray("sprite", "button", "animationPlayer", "animationTree") instance=ExtResource("5_ccokj")]
+texture_filter = 1
+position = Vector2(66.2577, 99.6272)
+scale = Vector2(2, 2)
+script = ExtResource("6_bftkr")
+cultist = SubResource("Resource_7ra51")
+sprite = NodePath("Sprite2D")
+button = NodePath("Sprite2D/Button")
+animationPlayer = NodePath("AnimationPlayer")
+animationTree = NodePath("AnimationTree")
+playerTurn = true
+
+[node name="@Node2D@17755" type="Node2D" parent="." node_paths=PackedStringArray("sprite", "button", "animationPlayer", "animationTree") instance=ExtResource("5_ccokj")]
+texture_filter = 1
+position = Vector2(1.5675e-14, 103.989)
+scale = Vector2(2, 2)
+script = ExtResource("6_bftkr")
+cultist = SubResource("Resource_c74dx")
+sprite = NodePath("Sprite2D")
+button = NodePath("Sprite2D/Button")
+animationPlayer = NodePath("AnimationPlayer")
+animationTree = NodePath("AnimationTree")
+playerTurn = true
+
+[node name="@Node2D@17756" type="Node2D" parent="." node_paths=PackedStringArray("sprite", "button", "animationPlayer", "animationTree") instance=ExtResource("5_ccokj")]
+texture_filter = 1
+position = Vector2(-66.2577, 99.6272)
+scale = Vector2(2, 2)
+script = ExtResource("6_bftkr")
+cultist = SubResource("Resource_y284k")
+sprite = NodePath("Sprite2D")
+button = NodePath("Sprite2D/Button")
+animationPlayer = NodePath("AnimationPlayer")
+animationTree = NodePath("AnimationTree")
+playerTurn = true
+
+[node name="@Node2D@17757" type="Node2D" parent="." node_paths=PackedStringArray("sprite", "button", "animationPlayer", "animationTree") instance=ExtResource("5_ccokj")]
+texture_filter = 1
+position = Vector2(-128, 86.8399)
+scale = Vector2(2, 2)
+script = ExtResource("6_bftkr")
+cultist = SubResource("Resource_jci03")
+sprite = NodePath("Sprite2D")
+button = NodePath("Sprite2D/Button")
+animationPlayer = NodePath("AnimationPlayer")
+animationTree = NodePath("AnimationTree")
+playerTurn = true
+
+[node name="@Node2D@17758" type="Node2D" parent="." node_paths=PackedStringArray("sprite", "button", "animationPlayer", "animationTree") instance=ExtResource("5_ccokj")]
+texture_filter = 1
+position = Vector2(-181.019, 66.4983)
+scale = Vector2(2, 2)
+script = ExtResource("6_bftkr")
+cultist = SubResource("Resource_fxk64")
+sprite = NodePath("Sprite2D")
+button = NodePath("Sprite2D/Button")
+animationPlayer = NodePath("AnimationPlayer")
+animationTree = NodePath("AnimationTree")
+playerTurn = true
+
+[node name="@Node2D@17759" type="Node2D" parent="." node_paths=PackedStringArray("sprite", "button", "animationPlayer", "animationTree") instance=ExtResource("5_ccokj")]
+texture_filter = 1
+position = Vector2(-221.702, 39.9887)
+scale = Vector2(2, 2)
+script = ExtResource("6_bftkr")
+cultist = SubResource("Resource_8x7sq")
+sprite = NodePath("Sprite2D")
+button = NodePath("Sprite2D/Button")
+animationPlayer = NodePath("AnimationPlayer")
+animationTree = NodePath("AnimationTree")
+playerTurn = true
+
+[node name="@Node2D@17760" type="Node2D" parent="." node_paths=PackedStringArray("sprite", "button", "animationPlayer", "animationTree") instance=ExtResource("5_ccokj")]
+texture_filter = 1
+position = Vector2(-247.277, 9.11751)
+scale = Vector2(2, 2)
+script = ExtResource("6_bftkr")
+cultist = SubResource("Resource_dbbn6")
+sprite = NodePath("Sprite2D")
+button = NodePath("Sprite2D/Button")
+animationPlayer = NodePath("AnimationPlayer")
+animationTree = NodePath("AnimationTree")
+playerTurn = true
+
+[node name="@Node2D@17761" type="Node2D" parent="." node_paths=PackedStringArray("sprite", "button", "animationPlayer", "animationTree") instance=ExtResource("5_ccokj")]
+texture_filter = 1
+position = Vector2(-256, -24.0113)
+scale = Vector2(2, 2)
+script = ExtResource("6_bftkr")
+cultist = SubResource("Resource_s7o78")
+sprite = NodePath("Sprite2D")
+button = NodePath("Sprite2D/Button")
+animationPlayer = NodePath("AnimationPlayer")
+animationTree = NodePath("AnimationTree")
+playerTurn = true
+
+[node name="@Node2D@17762" type="Node2D" parent="." node_paths=PackedStringArray("sprite", "button", "animationPlayer", "animationTree") instance=ExtResource("5_ccokj")]
+texture_filter = 1
+position = Vector2(-247.277, -57.1402)
+scale = Vector2(2, 2)
+script = ExtResource("6_bftkr")
+cultist = SubResource("Resource_1xr6o")
+sprite = NodePath("Sprite2D")
+button = NodePath("Sprite2D/Button")
+animationPlayer = NodePath("AnimationPlayer")
+animationTree = NodePath("AnimationTree")
+playerTurn = true
+
+[node name="@Node2D@17763" type="Node2D" parent="." node_paths=PackedStringArray("sprite", "button", "animationPlayer", "animationTree") instance=ExtResource("5_ccokj")]
+texture_filter = 1
+position = Vector2(-221.702, -88.0113)
+scale = Vector2(2, 2)
+script = ExtResource("6_bftkr")
+cultist = SubResource("Resource_bdjtn")
+sprite = NodePath("Sprite2D")
+button = NodePath("Sprite2D/Button")
+animationPlayer = NodePath("AnimationPlayer")
+animationTree = NodePath("AnimationTree")
+playerTurn = true
+
+[node name="@Node2D@17764" type="Node2D" parent="." node_paths=PackedStringArray("sprite", "button", "animationPlayer", "animationTree") instance=ExtResource("5_ccokj")]
+texture_filter = 1
+position = Vector2(-181.019, -114.521)
+scale = Vector2(2, 2)
+script = ExtResource("6_bftkr")
+cultist = SubResource("Resource_mx8qa")
+sprite = NodePath("Sprite2D")
+button = NodePath("Sprite2D/Button")
+animationPlayer = NodePath("AnimationPlayer")
+animationTree = NodePath("AnimationTree")
+playerTurn = true
+
+[node name="@Node2D@17765" type="Node2D" parent="." node_paths=PackedStringArray("sprite", "button", "animationPlayer", "animationTree") instance=ExtResource("5_ccokj")]
+texture_filter = 1
+position = Vector2(-128, -134.863)
+scale = Vector2(2, 2)
+script = ExtResource("6_bftkr")
+cultist = SubResource("Resource_akvxx")
+sprite = NodePath("Sprite2D")
+button = NodePath("Sprite2D/Button")
+animationPlayer = NodePath("AnimationPlayer")
+animationTree = NodePath("AnimationTree")
+playerTurn = true
+
+[node name="@Node2D@17766" type="Node2D" parent="." node_paths=PackedStringArray("sprite", "button", "animationPlayer", "animationTree") instance=ExtResource("5_ccokj")]
+texture_filter = 1
+position = Vector2(-66.2577, -147.65)
+scale = Vector2(2, 2)
+script = ExtResource("6_bftkr")
+cultist = SubResource("Resource_ypbd7")
+sprite = NodePath("Sprite2D")
+button = NodePath("Sprite2D/Button")
+animationPlayer = NodePath("AnimationPlayer")
+animationTree = NodePath("AnimationTree")
+playerTurn = true
+
+[node name="@Node2D@17767" type="Node2D" parent="." node_paths=PackedStringArray("sprite", "button", "animationPlayer", "animationTree") instance=ExtResource("5_ccokj")]
+texture_filter = 1
+position = Vector2(-4.70249e-14, -152.011)
+scale = Vector2(2, 2)
+script = ExtResource("6_bftkr")
+cultist = SubResource("Resource_72r3e")
+sprite = NodePath("Sprite2D")
+button = NodePath("Sprite2D/Button")
+animationPlayer = NodePath("AnimationPlayer")
+animationTree = NodePath("AnimationTree")
+playerTurn = true
+
+[node name="@Node2D@17768" type="Node2D" parent="." node_paths=PackedStringArray("sprite", "button", "animationPlayer", "animationTree") instance=ExtResource("5_ccokj")]
+texture_filter = 1
+position = Vector2(66.2577, -147.65)
+scale = Vector2(2, 2)
+script = ExtResource("6_bftkr")
+cultist = SubResource("Resource_4j3dd")
+sprite = NodePath("Sprite2D")
+button = NodePath("Sprite2D/Button")
+animationPlayer = NodePath("AnimationPlayer")
+animationTree = NodePath("AnimationTree")
+playerTurn = true
+
+[node name="@Node2D@17769" type="Node2D" parent="." node_paths=PackedStringArray("sprite", "button", "animationPlayer", "animationTree") instance=ExtResource("5_ccokj")]
+texture_filter = 1
+position = Vector2(128, -134.863)
+scale = Vector2(2, 2)
+script = ExtResource("6_bftkr")
+cultist = SubResource("Resource_7cegy")
+sprite = NodePath("Sprite2D")
+button = NodePath("Sprite2D/Button")
+animationPlayer = NodePath("AnimationPlayer")
+animationTree = NodePath("AnimationTree")
+playerTurn = true
+
+[node name="@Node2D@17770" type="Node2D" parent="." node_paths=PackedStringArray("sprite", "button", "animationPlayer", "animationTree") instance=ExtResource("5_ccokj")]
+texture_filter = 1
+position = Vector2(181.019, -114.521)
+scale = Vector2(2, 2)
+script = ExtResource("6_bftkr")
+cultist = SubResource("Resource_5bjiy")
+sprite = NodePath("Sprite2D")
+button = NodePath("Sprite2D/Button")
+animationPlayer = NodePath("AnimationPlayer")
+animationTree = NodePath("AnimationTree")
+playerTurn = true
+
+[node name="@Node2D@17771" type="Node2D" parent="." node_paths=PackedStringArray("sprite", "button", "animationPlayer", "animationTree") instance=ExtResource("5_ccokj")]
+texture_filter = 1
+position = Vector2(221.702, -88.0113)
+scale = Vector2(2, 2)
+script = ExtResource("6_bftkr")
+cultist = SubResource("Resource_l3gf1")
+sprite = NodePath("Sprite2D")
+button = NodePath("Sprite2D/Button")
+animationPlayer = NodePath("AnimationPlayer")
+animationTree = NodePath("AnimationTree")
+playerTurn = true
+
+[node name="@Node2D@17772" type="Node2D" parent="." node_paths=PackedStringArray("sprite", "button", "animationPlayer", "animationTree") instance=ExtResource("5_ccokj")]
+texture_filter = 1
+position = Vector2(247.277, -57.1402)
+scale = Vector2(2, 2)
+script = ExtResource("6_bftkr")
+cultist = SubResource("Resource_odiu6")
+sprite = NodePath("Sprite2D")
+button = NodePath("Sprite2D/Button")
+animationPlayer = NodePath("AnimationPlayer")
+animationTree = NodePath("AnimationTree")
+playerTurn = true
+
+[node name="@Sprite2D@17773" type="Sprite2D" parent="."]
+z_index = -1
+scale = Vector2(1, 0.5)
+texture = ExtResource("8_g813u")
+
+[node name="@Node2D@17774" type="Node2D" parent="." node_paths=PackedStringArray("sprite", "button", "animationPlayer", "animationTree") instance=ExtResource("5_ccokj")]
+texture_filter = 1
+position = Vector2(64, -18.0085)
+scale = Vector2(2, 2)
+script = ExtResource("6_bftkr")
+cultist = SubResource("Resource_1aks3")
+sprite = NodePath("Sprite2D")
+button = NodePath("Sprite2D/Button")
+animationPlayer = NodePath("AnimationPlayer")
+animationTree = NodePath("AnimationTree")
+playerTurn = true
+
+[node name="@Node2D@17775" type="Node2D" parent="." node_paths=PackedStringArray("sprite", "button", "animationPlayer", "animationTree") instance=ExtResource("5_ccokj")]
+texture_filter = 1
+position = Vector2(45.2548, 4.61892)
+scale = Vector2(2, 2)
+script = ExtResource("6_bftkr")
+cultist = SubResource("Resource_81ydx")
+sprite = NodePath("Sprite2D")
+button = NodePath("Sprite2D/Button")
+animationPlayer = NodePath("AnimationPlayer")
+animationTree = NodePath("AnimationTree")
+playerTurn = true
+
+[node name="@Node2D@17776" type="Node2D" parent="." node_paths=PackedStringArray("sprite", "button", "animationPlayer", "animationTree") instance=ExtResource("5_ccokj")]
+texture_filter = 1
+position = Vector2(3.91874e-15, 13.9915)
+scale = Vector2(2, 2)
+script = ExtResource("6_bftkr")
+cultist = SubResource("Resource_ubv0u")
+sprite = NodePath("Sprite2D")
+button = NodePath("Sprite2D/Button")
+animationPlayer = NodePath("AnimationPlayer")
+animationTree = NodePath("AnimationTree")
+playerTurn = true
+
+[node name="@Node2D@17777" type="Node2D" parent="." node_paths=PackedStringArray("sprite", "button", "animationPlayer", "animationTree") instance=ExtResource("5_ccokj")]
+texture_filter = 1
+position = Vector2(-45.2548, 4.61892)
+scale = Vector2(2, 2)
+script = ExtResource("6_bftkr")
+cultist = SubResource("Resource_ulghw")
+sprite = NodePath("Sprite2D")
+button = NodePath("Sprite2D/Button")
+animationPlayer = NodePath("AnimationPlayer")
+animationTree = NodePath("AnimationTree")
+playerTurn = true
+
+[node name="@Node2D@17778" type="Node2D" parent="." node_paths=PackedStringArray("sprite", "button", "animationPlayer", "animationTree") instance=ExtResource("5_ccokj")]
+texture_filter = 1
+position = Vector2(-64, -18.0085)
+scale = Vector2(2, 2)
+script = ExtResource("6_bftkr")
+cultist = SubResource("Resource_f6pc8")
+sprite = NodePath("Sprite2D")
+button = NodePath("Sprite2D/Button")
+animationPlayer = NodePath("AnimationPlayer")
+animationTree = NodePath("AnimationTree")
+playerTurn = true
+
+[node name="@Node2D@17779" type="Node2D" parent="." node_paths=PackedStringArray("sprite", "button", "animationPlayer", "animationTree") instance=ExtResource("5_ccokj")]
+texture_filter = 1
+position = Vector2(-45.2548, -40.6359)
+scale = Vector2(2, 2)
+script = ExtResource("6_bftkr")
+cultist = SubResource("Resource_fmhyp")
+sprite = NodePath("Sprite2D")
+button = NodePath("Sprite2D/Button")
+animationPlayer = NodePath("AnimationPlayer")
+animationTree = NodePath("AnimationTree")
+playerTurn = true
+
+[node name="@Node2D@17780" type="Node2D" parent="." node_paths=PackedStringArray("sprite", "button", "animationPlayer", "animationTree") instance=ExtResource("5_ccokj")]
+texture_filter = 1
+position = Vector2(-1.17562e-14, -50.0085)
+scale = Vector2(2, 2)
+script = ExtResource("6_bftkr")
+cultist = SubResource("Resource_x6wkx")
+sprite = NodePath("Sprite2D")
+button = NodePath("Sprite2D/Button")
+animationPlayer = NodePath("AnimationPlayer")
+animationTree = NodePath("AnimationTree")
+playerTurn = true
+
+[node name="@Node2D@17781" type="Node2D" parent="." node_paths=PackedStringArray("sprite", "button", "animationPlayer", "animationTree") instance=ExtResource("5_ccokj")]
+texture_filter = 1
+position = Vector2(45.2548, -40.6359)
+scale = Vector2(2, 2)
+script = ExtResource("6_bftkr")
+cultist = SubResource("Resource_i6edy")
+sprite = NodePath("Sprite2D")
+button = NodePath("Sprite2D/Button")
+animationPlayer = NodePath("AnimationPlayer")
+animationTree = NodePath("AnimationTree")
+playerTurn = true

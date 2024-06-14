@@ -5,9 +5,18 @@ class_name Card extends Resource
 @export var depiction: Texture2D
 @export var emotion: CultConstants.Emotion
 @export var effects: Array[Effect] = []
+@export var cost: int = 1
 
-func PlayCard():
+func CardCanBePlayed(cultist: Cultist) -> bool:
+	if !effects: return false
+	var withinCost = SummoningBoard.instance.summoning.souls >= cost
+	var effectsValid = effects.any(func(effect: Effect): return effect.ValidForCultist(cultist))
+	return withinCost && effectsValid
+
+func PlayCard(cultist: Cultist):
 	if !effects: return
 	for effect in effects:
 		if !effect: continue
-		effect.ApplyEffect(emotion)
+		effect.ApplyEffect(emotion, cultist)
+	#SummoningBoard.instance.summoning.souls -= cost
+	SummoningBoard.instance.ConsumeSouls(cost)

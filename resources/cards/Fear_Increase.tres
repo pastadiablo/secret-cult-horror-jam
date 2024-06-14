@@ -7,8 +7,7 @@
 
 [sub_resource type="Resource" id="Resource_iaqti"]
 script = ExtResource("3_5eyc4")
-emotion = 1
-value = 2
+cultistCount = 1
 
 [resource]
 script = ExtResource("1_yv7w7")
@@ -16,3 +15,4 @@ name = "Shadowy Apparitions"
 depiction = ExtResource("1_8dnw6")
 emotion = 1
 effects = Array[ExtResource("2_6duow")]([SubResource("Resource_iaqti")])
+cost = 1

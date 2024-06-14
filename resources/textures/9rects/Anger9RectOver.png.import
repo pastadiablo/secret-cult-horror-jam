@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c8u66jcbaaufq"
-path="res://.godot/imported/Fear9Rect.png-45e87459a9ad71ee4443651d8f12dc6e.ctex"
+uid="uid://c04hkhk01dkby"
+path="res://.godot/imported/Anger9RectOver.png-6188ccc26d381ac2095ebef1f69bf7b8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/textures/Fear9Rect.png"
-dest_files=["res://.godot/imported/Fear9Rect.png-45e87459a9ad71ee4443651d8f12dc6e.ctex"]
+source_file="res://resources/textures/9rects/Anger9RectOver.png"
+dest_files=["res://.godot/imported/Anger9RectOver.png-6188ccc26d381ac2095ebef1f69bf7b8.ctex"]
 
 [params]
 

@@ -1,21 +1,17 @@
 @tool
 class_name ModifyEmotionEffect extends Effect
 
-@export var emotion: CultConstants.Emotion
-@export var value: int
+@export var cultistCount: int = 1
 
-func GetEffectDescription(baseEmotion: CultConstants.Emotion) -> String:
-	if !CrowdManager: return ""
-	var multiplier = CrowdManager.nextCardMultiplier[baseEmotion]
-	if multiplier == 1.0:
-		return "%+d %s" % [value * multiplier,
-		CultConstants.EmotionName(emotion)]
-	else:
-		return "[color=#%s]%+d[/color] (%d) %s" % [ 
-			CultConstants.IncreaseColor.to_html() if multiplier >= 1.0 else CultConstants.DecreaseColor.to_html(),
-			value * multiplier,
-			value,
-			CultConstants.EmotionName(emotion)]
+func GetEffectDescription(cardEmotion: CultConstants.Emotion) -> String:
+	return "[center]%sx[img=32]res://resources/textures/counters/CultistCounter-None.png[/img]->[img=32]res://resources/textures/counters/CultistCounter-%s.png[/img][/center]" % [
+		cultistCount, 
+		CultConstants.EmotionName(cardEmotion)
+	]
 	
-func ApplyEffect(baseEmotion: CultConstants.Emotion):
-	CrowdManager.emotions[emotion] += value * CrowdManager.nextCardMultiplier[baseEmotion]
+func ApplyEffect(cardEmotion: CultConstants.Emotion, cultist: Cultist):
+	print("applying emotion")
+	cultist.emotion = cardEmotion
+	
+func ValidForCultist(cultist: Cultist) -> bool:
+	return cultist.state == Cultist.State.ALIVE

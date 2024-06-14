@@ -1,12 +1,15 @@
-[gd_scene load_steps=12 format=3 uid="uid://cko3vrg67gkay"]
+[gd_scene load_steps=15 format=3 uid="uid://cko3vrg67gkay"]
 
 [ext_resource type="Script" path="res://scenes/CardNode.gd" id="1_hrqn8"]
 [ext_resource type="Material" uid="uid://bcp44qa8peu3o" path="res://scenes/DragWobbleMaterial.tres" id="1_njqjc"]
-[ext_resource type="StyleBox" uid="uid://cx7aw8dfom4j7" path="res://resources/CardNodeStyle.tres" id="1_yatdy"]
-[ext_resource type="Resource" uid="uid://bga4x86hhb5vb" path="res://resources/cards/Anger_Suppress_Fear.tres" id="2_tak73"]
+[ext_resource type="StyleBox" uid="uid://cx7aw8dfom4j7" path="res://resources/stylebox/CardNodeStyle.tres" id="1_yatdy"]
+[ext_resource type="Resource" uid="uid://bcgtm5fhnrn2d" path="res://resources/cards/Fear_Increase.tres" id="2_ysj14"]
 [ext_resource type="Texture2D" uid="uid://dve6igbtux6fb" path="res://resources/TestDepiction.tres" id="4_0fxbu"]
-[ext_resource type="StyleBox" uid="uid://hpgtq6qgwpej" path="res://resources/CardBackingStyle-Anger.tres" id="5_vch80"]
-[ext_resource type="StyleBox" uid="uid://bcdrpokw5qbo8" path="res://resources/CardElementBackingStyle-Anger.tres" id="6_eei6x"]
+[ext_resource type="StyleBox" uid="uid://b78ulru0bqfjk" path="res://resources/stylebox/CardBackingStyle-Fear.tres" id="5_22vao"]
+[ext_resource type="StyleBox" uid="uid://ddm1mm3amnxdx" path="res://resources/stylebox/CardElementBackingStyle-Fear.tres" id="6_wvxsv"]
+[ext_resource type="FontFile" uid="uid://c768msn7u7u6r" path="res://resources/fonts/m5x7.ttf" id="7_1suap"]
+[ext_resource type="Texture2D" uid="uid://cfmc18qhea7hv" path="res://resources/textures/counters/SoulCounter.png" id="9_3b6dt"]
+[ext_resource type="Texture2D" uid="uid://c8el3m88q3ph5" path="res://resources/textures/CardBack.png" id="10_3ecay"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s1vl5"]
 
@@ -14,31 +17,46 @@
 _data = [Vector2(0, 0), 0.0, 3.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="Gradient" id="Gradient_prwd4"]
-colors = PackedColorArray(0.200963, 0.0207379, 0.0118665, 1, 1, 1, 1, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cv1e1"]
+bg_color = Color(0.729412, 0.670588, 0.701961, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.105882, 0.0823529, 0.0705882, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+anti_aliasing = false
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_jwcya"]
-gradient = SubResource("Gradient_prwd4")
-fill_from = Vector2(0.5, 0)
-fill_to = Vector2(0.5, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qufag"]
+bg_color = Color(0.0627451, 0.054902, 0.0470588, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
-[node name="PanelContainer" type="PanelContainer" node_paths=PackedStringArray("subviewportContainer", "cardRootContainer", "backPanelContainer", "title", "depiction", "effects", "cardBack")]
+[node name="PanelContainer" type="PanelContainer" node_paths=PackedStringArray("subviewportContainer", "cardRootContainer", "backPanelContainer", "title", "depiction", "effects", "cardBack", "elementContainers", "soulCostContainer")]
 custom_minimum_size = Vector2(150, 210)
 offset_right = 150.0
 offset_bottom = 210.0
 pivot_offset = Vector2(75, 105)
 size_flags_horizontal = 4
 size_flags_vertical = 4
+mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxEmpty_s1vl5")
 script = ExtResource("1_hrqn8")
-card = ExtResource("2_tak73")
+card = ExtResource("2_ysj14")
 subviewportContainer = NodePath("CardNode")
 cardRootContainer = NodePath("CardNode/SubViewport/CardRootContainer")
 backPanelContainer = NodePath("CardNode/SubViewport/CardRootContainer/BackColorPanelContainer")
 title = NodePath("CardNode/SubViewport/CardRootContainer/BackColorPanelContainer/VBoxContainer/HeaderPanelContainer/TitleLabel")
 depiction = NodePath("CardNode/SubViewport/CardRootContainer/BackColorPanelContainer/VBoxContainer/DepictionPanelContainer/DepictionRect")
 effects = NodePath("CardNode/SubViewport/CardRootContainer/BackColorPanelContainer/VBoxContainer/EffectPanelContainer/VBoxContainer/EffectsLabel")
-cardBack = NodePath("CardNode/SubViewport/CardRootContainer/CardBack")
+cardBack = NodePath("CardNode/SubViewport/CardRootContainer/PanelContainer")
+elementContainers = [NodePath("CardNode/SubViewport/CardRootContainer/BackColorPanelContainer/VBoxContainer/HeaderPanelContainer"), NodePath("CardNode/SubViewport/CardRootContainer/BackColorPanelContainer/VBoxContainer/EffectPanelContainer"), NodePath("CardNode/SubViewport/CardRootContainer/BackColorPanelContainer/VBoxContainer/CostPanelContainer")]
+soulCostContainer = NodePath("CardNode/SubViewport/CardRootContainer/BackColorPanelContainer/VBoxContainer/CostPanelContainer/HBoxContainer/SoulCostContainer")
 snapBackCurve = SubResource("Curve_inf6r")
 scaleGrowSpeed = 100.0
 scaleShrinkSpeed = 100.0
@@ -48,6 +66,7 @@ material = ExtResource("1_njqjc")
 layout_mode = 2
 
 [node name="SubViewport" type="SubViewport" parent="CardNode"]
+transparent_bg = true
 handle_input_locally = false
 snap_2d_transforms_to_pixel = true
 snap_2d_vertices_to_pixel = true
@@ -59,7 +78,6 @@ texture_filter = 1
 custom_minimum_size = Vector2(150, 210)
 offset_right = 150.0
 offset_bottom = 210.0
-pivot_offset = Vector2(75, 105)
 mouse_filter = 1
 mouse_default_cursor_shape = 2
 theme_override_styles/panel = ExtResource("1_yatdy")
@@ -67,7 +85,7 @@ theme_override_styles/panel = ExtResource("1_yatdy")
 [node name="BackColorPanelContainer" type="PanelContainer" parent="CardNode/SubViewport/CardRootContainer"]
 layout_mode = 2
 mouse_filter = 1
-theme_override_styles/panel = ExtResource("5_vch80")
+theme_override_styles/panel = ExtResource("5_22vao")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CardNode/SubViewport/CardRootContainer/BackColorPanelContainer"]
 layout_mode = 2
@@ -76,49 +94,89 @@ theme_override_constants/separation = 5
 [node name="HeaderPanelContainer" type="PanelContainer" parent="CardNode/SubViewport/CardRootContainer/BackColorPanelContainer/VBoxContainer"]
 layout_mode = 2
 mouse_filter = 1
-theme_override_styles/panel = ExtResource("6_eei6x")
+theme_override_styles/panel = ExtResource("6_wvxsv")
 
 [node name="TitleLabel" type="Label" parent="CardNode/SubViewport/CardRootContainer/BackColorPanelContainer/VBoxContainer/HeaderPanelContainer"]
+custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 mouse_filter = 1
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 14
-text = "Boiling Rage"
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("7_1suap")
+theme_override_font_sizes/font_size = 32
+text = "Shadowy Apparitions"
+horizontal_alignment = 1
+autowrap_mode = 2
 clip_text = true
-text_overrun_behavior = 3
 
 [node name="DepictionPanelContainer" type="PanelContainer" parent="CardNode/SubViewport/CardRootContainer/BackColorPanelContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
 mouse_filter = 1
-theme_override_styles/panel = ExtResource("6_eei6x")
+theme_override_styles/panel = SubResource("StyleBoxFlat_cv1e1")
 
 [node name="DepictionRect" type="TextureRect" parent="CardNode/SubViewport/CardRootContainer/BackColorPanelContainer/VBoxContainer/DepictionPanelContainer"]
 show_behind_parent = true
-custom_minimum_size = Vector2(0, 50)
+custom_minimum_size = Vector2(0, 65)
 layout_mode = 2
 texture = ExtResource("4_0fxbu")
+expand_mode = 2
 
 [node name="EffectPanelContainer" type="PanelContainer" parent="CardNode/SubViewport/CardRootContainer/BackColorPanelContainer/VBoxContainer"]
+texture_filter = 1
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 1
-theme_override_styles/panel = ExtResource("6_eei6x")
+theme_override_styles/panel = ExtResource("6_wvxsv")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CardNode/SubViewport/CardRootContainer/BackColorPanelContainer/VBoxContainer/EffectPanelContainer"]
 layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 1
 
 [node name="EffectsLabel" type="RichTextLabel" parent="CardNode/SubViewport/CardRootContainer/BackColorPanelContainer/VBoxContainer/EffectPanelContainer/VBoxContainer"]
+texture_filter = 1
 layout_mode = 2
 mouse_filter = 1
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 14
+theme_override_constants/outline_size = 5
+theme_override_fonts/normal_font = ExtResource("7_1suap")
+theme_override_font_sizes/normal_font_size = 32
 bbcode_enabled = true
-text = "-1 Anger
-Next Fear is 50% effective
+text = "[center]1x[img=32]res://resources/textures/counters/CultistCounter-None.png[/img]->[img=32]res://resources/textures/counters/CultistCounter-Fear.png[/img][/center]
 "
 fit_content = true
 
-[node name="CardBack" type="TextureRect" parent="CardNode/SubViewport/CardRootContainer"]
+[node name="CostPanelContainer" type="PanelContainer" parent="CardNode/SubViewport/CardRootContainer/BackColorPanelContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+theme_override_styles/panel = ExtResource("6_wvxsv")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CardNode/SubViewport/CardRootContainer/BackColorPanelContainer/VBoxContainer/CostPanelContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CardNode/SubViewport/CardRootContainer/BackColorPanelContainer/VBoxContainer/CostPanelContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("7_1suap")
+theme_override_font_sizes/font_size = 32
+text = "Cost"
+
+[node name="SoulCostContainer" type="FlowContainer" parent="CardNode/SubViewport/CardRootContainer/BackColorPanelContainer/VBoxContainer/CostPanelContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 1
+alignment = 1
+
+[node name="Soul" type="TextureRect" parent="CardNode/SubViewport/CardRootContainer/BackColorPanelContainer/VBoxContainer/CostPanelContainer/HBoxContainer/SoulCostContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("9_3b6dt")
+
+[node name="PanelContainer" type="PanelContainer" parent="CardNode/SubViewport/CardRootContainer"]
 visible = false
 layout_mode = 2
-texture = SubResource("GradientTexture2D_jwcya")
+theme_override_styles/panel = SubResource("StyleBoxFlat_qufag")
+
+[node name="CardBack" type="TextureRect" parent="CardNode/SubViewport/CardRootContainer/PanelContainer"]
+layout_mode = 2
+texture = ExtResource("10_3ecay")

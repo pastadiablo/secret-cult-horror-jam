@@ -1,20 +1,50 @@
-[gd_scene load_steps=22 format=3 uid="uid://clxvx00imj1yn"]
+[gd_scene load_steps=36 format=3 uid="uid://clxvx00imj1yn"]
 
 [ext_resource type="Script" path="res://CardNodeFanoutContainer.gd" id="1_c0vq5"]
-[ext_resource type="StyleBox" uid="uid://bcdrpokw5qbo8" path="res://resources/CardElementBackingStyle-Anger.tres" id="1_ixhdm"]
+[ext_resource type="StyleBox" uid="uid://bcdrpokw5qbo8" path="res://resources/stylebox/CardElementBackingStyle-Anger.tres" id="1_ixhdm"]
 [ext_resource type="Script" path="res://CrowdEmotionBars.gd" id="1_kk715"]
-[ext_resource type="StyleBox" uid="uid://hpgtq6qgwpej" path="res://resources/CardBackingStyle-Anger.tres" id="2_h56lr"]
-[ext_resource type="StyleBox" uid="uid://cueu7vsspx87a" path="res://resources/CardElementBackingStyle-Despair.tres" id="3_ymkv8"]
-[ext_resource type="StyleBox" uid="uid://bju1ntp5v2wh8" path="res://resources/CardBackingStyle-Despair.tres" id="4_bi2fo"]
+[ext_resource type="StyleBox" uid="uid://hpgtq6qgwpej" path="res://resources/stylebox/CardBackingStyle-Anger.tres" id="2_h56lr"]
+[ext_resource type="Script" path="res://resources/Card.gd" id="3_lc5r7"]
+[ext_resource type="StyleBox" uid="uid://cueu7vsspx87a" path="res://resources/stylebox/CardElementBackingStyle-Despair.tres" id="3_ymkv8"]
+[ext_resource type="Resource" uid="uid://cl66d4siyoqjp" path="res://resources/cards/Anger_Increase.tres" id="4_8nmfu"]
+[ext_resource type="StyleBox" uid="uid://bju1ntp5v2wh8" path="res://resources/stylebox/CardBackingStyle-Despair.tres" id="4_bi2fo"]
 [ext_resource type="Shader" path="res://emotion_bar.gdshader" id="4_eqxbw"]
-[ext_resource type="StyleBox" uid="uid://ddm1mm3amnxdx" path="res://resources/CardElementBackingStyle-Fear.tres" id="5_dr8l2"]
-[ext_resource type="StyleBox" uid="uid://b78ulru0bqfjk" path="res://resources/CardBackingStyle-Fear.tres" id="6_ase00"]
-[ext_resource type="Script" path="res://scripts/CrowdManager.gd" id="10_gdecm"]
+[ext_resource type="StyleBox" uid="uid://ddm1mm3amnxdx" path="res://resources/stylebox/CardElementBackingStyle-Fear.tres" id="5_dr8l2"]
+[ext_resource type="Resource" uid="uid://ccbfjifafxnj0" path="res://resources/cards/Despair_Increase.tres" id="5_yq3hw"]
+[ext_resource type="StyleBox" uid="uid://b78ulru0bqfjk" path="res://resources/stylebox/CardBackingStyle-Fear.tres" id="6_ase00"]
+[ext_resource type="Resource" uid="uid://bcgtm5fhnrn2d" path="res://resources/cards/Fear_Increase.tres" id="6_iytds"]
+[ext_resource type="Texture2D" uid="uid://ctbggs35yj2ci" path="res://resources/textures/entities/Eldritch.png" id="7_1bqar"]
+[ext_resource type="Texture2D" uid="uid://c8u66jcbaaufq" path="res://resources/textures/9rects/Fear9Rect.png" id="8_fjp6g"]
+[ext_resource type="Texture2D" uid="uid://colnsvrlkxbeb" path="res://resources/textures/9rects/Anger9Rect.png" id="8_rs1nl"]
+[ext_resource type="FontFile" uid="uid://c768msn7u7u6r" path="res://resources/fonts/m5x7.ttf" id="8_s1yto"]
 [ext_resource type="PackedScene" uid="uid://c7x2kayfhkv1d" path="res://scenes/HandManager.tscn" id="11_52v37"]
 [ext_resource type="Texture2D" uid="uid://xaryq1uw14jh" path="res://resources/textures/backgrounds/Dungeon1.png" id="12_3q77v"]
 [ext_resource type="PackedScene" uid="uid://dor22jdcwtvbn" path="res://scenes/SummoningBoard.tscn" id="12_5qj86"]
+[ext_resource type="PackedScene" uid="uid://cko3vrg67gkay" path="res://scenes/CardNode.tscn" id="12_37umh"]
+[ext_resource type="Texture2D" uid="uid://bnccxp8k0kfdf" path="res://resources/textures/counters/SoulCounters.png" id="16_6kdh0"]
+[ext_resource type="FontFile" uid="uid://cljyjctp754r2" path="res://resources/fonts/m3x6.ttf" id="17_hjrsv"]
+
+[sub_resource type="Theme" id="Theme_tyjpo"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_07c1h"]
+content_margin_left = 20.0
+content_margin_top = 20.0
+content_margin_right = 20.0
+content_margin_bottom = 20.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g4pcp"]
+texture = ExtResource("8_rs1nl")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rh3c8"]
+texture = ExtResource("8_fjp6g")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y134w"]
 bg_color = Color(0.188235, 0.113725, 0.105882, 1)
@@ -90,7 +120,12 @@ expand_margin_top = 4.0
 expand_margin_right = 4.0
 expand_margin_bottom = 4.0
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_4hnf3"]
+atlas = ExtResource("16_6kdh0")
+region = Rect2(0, 0, 16, 16)
+
 [node name="Main" type="Control"]
+y_sort_enabled = true
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -99,14 +134,20 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 
-[node name="CrowdManager" type="Node" parent="."]
-script = ExtResource("10_gdecm")
-
 [node name="HandManager" parent="." node_paths=PackedStringArray("dealButton") instance=ExtResource("11_52v37")]
-dealButton = NodePath("../GUI/PanelContainer/CardBlock/MarginContainer/DealButton")
+_cards = Array[ExtResource("3_lc5r7")]([ExtResource("4_8nmfu"), ExtResource("5_yq3hw"), ExtResource("6_iytds")])
+dealButton = NodePath("../GUI/PanelContainer/CardBlock/MarginContainer/VBoxContainer/DrawButton")
 
-[node name="SummoningBoard" parent="." instance=ExtResource("12_5qj86")]
-position = Vector2(648, 344)
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(638, 314)
+scale = Vector2(2, 2)
+texture = ExtResource("7_1bqar")
+offset = Vector2(0, -32)
+
+[node name="SummoningBoard" parent="." node_paths=PackedStringArray("soulLabel") instance=ExtResource("12_5qj86")]
+position = Vector2(638, 321)
+soulLabel = NodePath("../GUI/PanelContainer/SoulCounters/BaseSoulCounter")
 
 [node name="GUI" type="CanvasLayer" parent="."]
 
@@ -117,6 +158,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+theme = SubResource("Theme_tyjpo")
 theme_override_styles/panel = SubResource("StyleBoxEmpty_07c1h")
 
 [node name="CardBlock" type="HBoxContainer" parent="GUI/PanelContainer"]
@@ -127,27 +169,150 @@ size_flags_vertical = 8
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="DealButton" type="Button" parent="GUI/PanelContainer/CardBlock/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="GUI/PanelContainer/CardBlock/MarginContainer"]
+layout_mode = 2
+
+[node name="SacrificeButton" type="Button" parent="GUI/PanelContainer/CardBlock/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(200, 100)
 layout_mode = 2
-size_flags_horizontal = 0
+size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_font_sizes/font_size = 28
-text = "Deal"
+theme_override_font_sizes/font_size = 64
+theme_override_styles/normal = SubResource("StyleBoxTexture_g4pcp")
+text = "Sacrifice"
+
+[node name="Label" type="Label" parent="GUI/PanelContainer/CardBlock/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("8_s1yto")
+theme_override_font_sizes/font_size = 48
+text = "-OR-"
+horizontal_alignment = 1
+
+[node name="DrawButton" type="Button" parent="GUI/PanelContainer/CardBlock/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 64
+theme_override_styles/normal = SubResource("StyleBoxTexture_rh3c8")
+text = "Draw"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="GUI/PanelContainer/CardBlock"]
 custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 8
-theme_override_constants/separation = 10
+theme_override_constants/separation = -50
 script = ExtResource("1_c0vq5")
 
 [node name="MarginContainer2" type="MarginContainer" parent="GUI/PanelContainer/CardBlock"]
 layout_mode = 2
 size_flags_horizontal = 3
 
+[node name="Control" type="Control" parent="GUI/PanelContainer/CardBlock/MarginContainer2"]
+layout_mode = 2
+
+[node name="PanelContainer4" parent="GUI/PanelContainer/CardBlock/MarginContainer2/Control" node_paths=PackedStringArray("subviewportContainer", "cardRootContainer", "backPanelContainer", "title", "depiction", "effects", "cardBack", "elementContainers", "soulCostContainer") instance=ExtResource("12_37umh")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -60.0
+offset_top = -90.0
+offset_right = 85.0
+offset_bottom = 120.0
+grow_horizontal = 2
+grow_vertical = 2
+subviewportContainer = NodePath("CardNode")
+cardRootContainer = NodePath("CardNode/SubViewport/CardRootContainer")
+backPanelContainer = NodePath("CardNode/SubViewport/CardRootContainer/BackColorPanelContainer")
+title = NodePath("CardNode/SubViewport/CardRootContainer/BackColorPanelContainer/VBoxContainer/HeaderPanelContainer/TitleLabel")
+depiction = NodePath("CardNode/SubViewport/CardRootContainer/BackColorPanelContainer/VBoxContainer/DepictionPanelContainer/DepictionRect")
+effects = NodePath("CardNode/SubViewport/CardRootContainer/BackColorPanelContainer/VBoxContainer/EffectPanelContainer/VBoxContainer/EffectsLabel")
+cardBack = NodePath("CardNode/SubViewport/CardRootContainer/PanelContainer")
+elementContainers = [NodePath("CardNode/SubViewport/CardRootContainer/BackColorPanelContainer/VBoxContainer/HeaderPanelContainer"), NodePath("CardNode/SubViewport/CardRootContainer/BackColorPanelContainer/VBoxContainer/EffectPanelContainer"), NodePath("CardNode/SubViewport/CardRootContainer/BackColorPanelContainer/VBoxContainer/CostPanelContainer")]
+soulCostContainer = NodePath("CardNode/SubViewport/CardRootContainer/BackColorPanelContainer/VBoxContainer/CostPanelContainer/HBoxContainer/SoulCostContainer")
+inHand = false
+rotationY = 180.0
+
+[node name="PanelContainer3" parent="GUI/PanelContainer/CardBlock/MarginContainer2/Control" node_paths=PackedStringArray("subviewportContainer", "cardRootContainer", "backPanelContainer", "title", "depiction", "effects", "cardBack", "elementContainers", "soulCostContainer") instance=ExtResource("12_37umh")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -65.0
+offset_top = -95.0
+offset_right = 85.0
+offset_bottom = 115.0
+grow_horizontal = 2
+grow_vertical = 2
+subviewportContainer = NodePath("CardNode")
+cardRootContainer = NodePath("CardNode/SubViewport/CardRootContainer")
+backPanelContainer = NodePath("CardNode/SubViewport/CardRootContainer/BackColorPanelContainer")
+title = NodePath("CardNode/SubViewport/CardRootContainer/BackColorPanelContainer/VBoxContainer/HeaderPanelContainer/TitleLabel")
+depiction = NodePath("CardNode/SubViewport/CardRootContainer/BackColorPanelContainer/VBoxContainer/DepictionPanelContainer/DepictionRect")
+effects = NodePath("CardNode/SubViewport/CardRootContainer/BackColorPanelContainer/VBoxContainer/EffectPanelContainer/VBoxContainer/EffectsLabel")
+cardBack = NodePath("CardNode/SubViewport/CardRootContainer/PanelContainer")
+elementContainers = [NodePath("CardNode/SubViewport/CardRootContainer/BackColorPanelContainer/VBoxContainer/HeaderPanelContainer"), NodePath("CardNode/SubViewport/CardRootContainer/BackColorPanelContainer/VBoxContainer/EffectPanelContainer"), NodePath("CardNode/SubViewport/CardRootContainer/BackColorPanelContainer/VBoxContainer/CostPanelContainer")]
+soulCostContainer = NodePath("CardNode/SubViewport/CardRootContainer/BackColorPanelContainer/VBoxContainer/CostPanelContainer/HBoxContainer/SoulCostContainer")
+inHand = false
+rotationY = 180.0
+
+[node name="PanelContainer2" parent="GUI/PanelContainer/CardBlock/MarginContainer2/Control" node_paths=PackedStringArray("subviewportContainer", "cardRootContainer", "backPanelContainer", "title", "depiction", "effects", "cardBack", "elementContainers", "soulCostContainer") instance=ExtResource("12_37umh")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -70.0
+offset_top = -100.0
+offset_right = 80.0
+offset_bottom = 110.0
+grow_horizontal = 2
+grow_vertical = 2
+subviewportContainer = NodePath("CardNode")
+cardRootContainer = NodePath("CardNode/SubViewport/CardRootContainer")
+backPanelContainer = NodePath("CardNode/SubViewport/CardRootContainer/BackColorPanelContainer")
+title = NodePath("CardNode/SubViewport/CardRootContainer/BackColorPanelContainer/VBoxContainer/HeaderPanelContainer/TitleLabel")
+depiction = NodePath("CardNode/SubViewport/CardRootContainer/BackColorPanelContainer/VBoxContainer/DepictionPanelContainer/DepictionRect")
+effects = NodePath("CardNode/SubViewport/CardRootContainer/BackColorPanelContainer/VBoxContainer/EffectPanelContainer/VBoxContainer/EffectsLabel")
+cardBack = NodePath("CardNode/SubViewport/CardRootContainer/PanelContainer")
+elementContainers = [NodePath("CardNode/SubViewport/CardRootContainer/BackColorPanelContainer/VBoxContainer/HeaderPanelContainer"), NodePath("CardNode/SubViewport/CardRootContainer/BackColorPanelContainer/VBoxContainer/EffectPanelContainer"), NodePath("CardNode/SubViewport/CardRootContainer/BackColorPanelContainer/VBoxContainer/CostPanelContainer")]
+soulCostContainer = NodePath("CardNode/SubViewport/CardRootContainer/BackColorPanelContainer/VBoxContainer/CostPanelContainer/HBoxContainer/SoulCostContainer")
+inHand = false
+rotationY = 180.0
+
+[node name="PanelContainer" parent="GUI/PanelContainer/CardBlock/MarginContainer2/Control" node_paths=PackedStringArray("subviewportContainer", "cardRootContainer", "backPanelContainer", "title", "depiction", "effects", "cardBack", "elementContainers", "soulCostContainer") instance=ExtResource("12_37umh")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
+subviewportContainer = NodePath("CardNode")
+cardRootContainer = NodePath("CardNode/SubViewport/CardRootContainer")
+backPanelContainer = NodePath("CardNode/SubViewport/CardRootContainer/BackColorPanelContainer")
+title = NodePath("CardNode/SubViewport/CardRootContainer/BackColorPanelContainer/VBoxContainer/HeaderPanelContainer/TitleLabel")
+depiction = NodePath("CardNode/SubViewport/CardRootContainer/BackColorPanelContainer/VBoxContainer/DepictionPanelContainer/DepictionRect")
+effects = NodePath("CardNode/SubViewport/CardRootContainer/BackColorPanelContainer/VBoxContainer/EffectPanelContainer/VBoxContainer/EffectsLabel")
+cardBack = NodePath("CardNode/SubViewport/CardRootContainer/PanelContainer")
+elementContainers = [NodePath("CardNode/SubViewport/CardRootContainer/BackColorPanelContainer/VBoxContainer/HeaderPanelContainer"), NodePath("CardNode/SubViewport/CardRootContainer/BackColorPanelContainer/VBoxContainer/EffectPanelContainer"), NodePath("CardNode/SubViewport/CardRootContainer/BackColorPanelContainer/VBoxContainer/CostPanelContainer")]
+soulCostContainer = NodePath("CardNode/SubViewport/CardRootContainer/BackColorPanelContainer/VBoxContainer/CostPanelContainer/HBoxContainer/SoulCostContainer")
+inHand = false
+rotationY = 180.0
+
 [node name="CrowdEmotionBars" type="HBoxContainer" parent="GUI/PanelContainer" node_paths=PackedStringArray("angerBar", "despairBar", "fearBar", "angerAmplified", "angerSuppressed", "despairAmplified", "despairSuppressed", "fearAmplified", "fearSuppressed", "angerMultiplierLabel", "despairMultiplierLabel", "fearMultiplierLabel")]
+visible = false
 custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
 size_flags_horizontal = 8
@@ -313,6 +478,7 @@ theme_override_constants/outline_size = 10
 text = "x1.5"
 
 [node name="TargetValues" type="HBoxContainer" parent="GUI/PanelContainer"]
+visible = false
 custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -355,11 +521,32 @@ value = 2.0
 fill_mode = 3
 show_percentage = false
 
+[node name="SoulCounters" type="HBoxContainer" parent="GUI/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_constants/separation = 10
+
+[node name="TextureRect" type="TextureRect" parent="GUI/PanelContainer/SoulCounters"]
+texture_filter = 1
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = SubResource("AtlasTexture_4hnf3")
+stretch_mode = 5
+
+[node name="BaseSoulCounter" type="Label" parent="GUI/PanelContainer/SoulCounters"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("17_hjrsv")
+theme_override_font_sizes/font_size = 64
+text = "x 0"
+
 [node name="Skybox" type="CanvasLayer" parent="."]
 layer = -1
+visible = false
 
 [node name="TextureRect" type="TextureRect" parent="Skybox"]
 offset_right = 40.0
 offset_bottom = 40.0
+pivot_offset = Vector2(640, 360)
 mouse_filter = 2
 texture = ExtResource("12_3q77v")

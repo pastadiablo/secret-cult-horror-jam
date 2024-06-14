@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bqlpa6i317gpf"
-path="res://.godot/imported/Anger9RectProgress.png-dc421f8f3e946fd143469e4e40d6edc6.ctex"
+uid="uid://cfmc18qhea7hv"
+path="res://.godot/imported/SoulCounter.png-43b4ff441661ce3385c655c154daa1f7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/textures/Anger9RectProgress.png"
-dest_files=["res://.godot/imported/Anger9RectProgress.png-dc421f8f3e946fd143469e4e40d6edc6.ctex"]
+source_file="res://resources/textures/counters/SoulCounter.png"
+dest_files=["res://.godot/imported/SoulCounter.png-43b4ff441661ce3385c655c154daa1f7.ctex"]
 
 [params]
 

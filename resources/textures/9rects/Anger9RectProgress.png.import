@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bua5y3pcacwl"
-path="res://.godot/imported/Anger9RectUnder.png-d67c22989e870f274890ce3901b08734.ctex"
+uid="uid://bqlpa6i317gpf"
+path="res://.godot/imported/Anger9RectProgress.png-8723955576a80392ad5b52eba0887aea.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/textures/Anger9RectUnder.png"
-dest_files=["res://.godot/imported/Anger9RectUnder.png-d67c22989e870f274890ce3901b08734.ctex"]
+source_file="res://resources/textures/9rects/Anger9RectProgress.png"
+dest_files=["res://.godot/imported/Anger9RectProgress.png-8723955576a80392ad5b52eba0887aea.ctex"]
 
 [params]
 

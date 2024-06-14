@@ -7,8 +7,7 @@
 
 [sub_resource type="Resource" id="Resource_jnt27"]
 script = ExtResource("3_hegjk")
-emotion = 3
-value = 2
+cultistCount = 1
 
 [resource]
 script = ExtResource("1_sqavb")
@@ -16,3 +15,4 @@ name = "Mournful Dirge"
 depiction = ExtResource("1_ocxi2")
 emotion = 3
 effects = Array[ExtResource("2_6votf")]([SubResource("Resource_jnt27")])
+cost = 1

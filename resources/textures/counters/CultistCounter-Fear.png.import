@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b58mgfgyucl8x"
-path="res://.godot/imported/Despair9Rect.png-97a4f482aede1c5b2360ea35a5eacbac.ctex"
+uid="uid://ct6g2kbcashui"
+path="res://.godot/imported/CultistCounter-Fear.png-d9726c115e40bfeca1f59331e11a7d8e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/textures/Despair9Rect.png"
-dest_files=["res://.godot/imported/Despair9Rect.png-97a4f482aede1c5b2360ea35a5eacbac.ctex"]
+source_file="res://resources/textures/counters/CultistCounter-Fear.png"
+dest_files=["res://.godot/imported/CultistCounter-Fear.png-d9726c115e40bfeca1f59331e11a7d8e.ctex"]
 
 [params]
 

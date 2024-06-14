@@ -1,21 +1,24 @@
-[gd_scene load_steps=31 format=3 uid="uid://bs7mvgg7ql4ty"]
+[gd_scene load_steps=17 format=3 uid="uid://bs7mvgg7ql4ty"]
 
 [ext_resource type="Script" path="res://scenes/CultistAgent.gd" id="1_7ir7w"]
 [ext_resource type="Script" path="res://resources/Cultist.gd" id="2_oo581"]
 [ext_resource type="Texture2D" uid="uid://bjuq0xuly1jgj" path="res://resources/textures/AngerCultist.png" id="3_y07wu"]
+[ext_resource type="AnimationNodeStateMachine" uid="uid://bjpnbmnuvwocf" path="res://resources/CultistAgentAnimationSM.tres" id="4_l7jbg"]
 
-[sub_resource type="Resource" id="Resource_yh8l2"]
+[sub_resource type="Resource" id="Resource_sqi2c"]
 script = ExtResource("2_oo581")
-position = Vector2(150, 150)
 emotion = 2
+state = 0
+souls = 1
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j7qbx"]
 resource_local_to_scene = true
 atlas = ExtResource("3_y07wu")
-region = Rect2(32, 0, 32, 32)
+region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="Animation" id="Animation_ic2xk"]
-length = 0.001
+length = 0.1
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -26,7 +29,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Rect2(32, 0, 32, 32)]
+"values": [Rect2(0, 0, 32, 32)]
 }
 
 [sub_resource type="Animation" id="Animation_5bgh1"]
@@ -45,6 +48,22 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [Rect2(96, 0, 32, 32), Rect2(128, 0, 32, 32), Rect2(160, 0, 32, 32), Rect2(128, 0, 32, 32)]
+}
+
+[sub_resource type="Animation" id="Animation_vvol8"]
+resource_name = "dead"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture:region")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(160, 64, 32, 32)]
 }
 
 [sub_resource type="Animation" id="Animation_1ecfw"]
@@ -116,6 +135,23 @@ tracks/0/keys = {
 "values": [Rect2(160, 64, 32, 32), Rect2(0, 96, 32, 32), Rect2(32, 96, 32, 32), Rect2(64, 96, 32, 32), Rect2(96, 96, 32, 32), Rect2(128, 96, 32, 32), Rect2(160, 96, 32, 32), Rect2(64, 128, 32, 32)]
 }
 
+[sub_resource type="Animation" id="Animation_h8ah7"]
+resource_name = "soul_consume"
+length = 2.2
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture:region")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0999999, 0.2, 0.3, 0.399999, 0.499999, 0.6, 0.7, 0.799999, 0.899999, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2, 2.1, 2.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Rect2(96, 128, 32, 32), Rect2(128, 128, 32, 32), Rect2(160, 128, 32, 32), Rect2(0, 160, 32, 32), Rect2(32, 160, 32, 32), Rect2(64, 160, 32, 32), Rect2(96, 160, 32, 32), Rect2(128, 160, 32, 32), Rect2(160, 160, 32, 32), Rect2(0, 192, 32, 32), Rect2(32, 192, 32, 32), Rect2(64, 192, 32, 32), Rect2(96, 192, 32, 32), Rect2(128, 192, 32, 32), Rect2(160, 192, 32, 32), Rect2(0, 224, 32, 32), Rect2(32, 224, 32, 32), Rect2(96, 224, 32, 32), Rect2(128, 224, 32, 32), Rect2(160, 224, 32, 32), Rect2(0, 256, 32, 32), Rect2(32, 256, 32, 32), Rect2(64, 256, 32, 32)]
+}
+
 [sub_resource type="Animation" id="Animation_5ww4h"]
 resource_name = "soul_idle"
 length = 2.0
@@ -138,92 +174,26 @@ tracks/0/keys = {
 _data = {
 "RESET": SubResource("Animation_ic2xk"),
 "chant": SubResource("Animation_5bgh1"),
+"dead": SubResource("Animation_vvol8"),
 "idle": SubResource("Animation_1ecfw"),
 "ritual": SubResource("Animation_8um3s"),
 "sacrifice": SubResource("Animation_2wnym"),
 "soul_birth": SubResource("Animation_t6uc3"),
+"soul_consume": SubResource("Animation_h8ah7"),
 "soul_idle": SubResource("Animation_5ww4h")
 }
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0vtuj"]
-animation = &"chant"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_dr17d"]
-animation = &"idle"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_vjs6r"]
-animation = &"ritual"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_grenp"]
-animation = &"sacrifice"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ikrwl"]
-animation = &"soul_birth"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_n4r4i"]
-animation = &"soul_idle"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_y66cv"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7wg4f"]
-switch_mode = 1
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_psrx4"]
-switch_mode = 1
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_1k87b"]
-switch_mode = 1
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_tayat"]
-switch_mode = 1
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ofpb7"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_d8y2d"]
-switch_mode = 2
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_0ax3c"]
-switch_mode = 2
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_tb0i2"]
-switch_mode = 1
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_p2wim"]
-switch_mode = 1
-
-[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_3cjxl"]
-states/End/position = Vector2(684, 119)
-states/Start/position = Vector2(201, 100)
-states/chant/node = SubResource("AnimationNodeAnimation_0vtuj")
-states/chant/position = Vector2(342, -32)
-states/idle/node = SubResource("AnimationNodeAnimation_dr17d")
-states/idle/position = Vector2(370, 100)
-states/ritual/node = SubResource("AnimationNodeAnimation_vjs6r")
-states/ritual/position = Vector2(505, 46)
-states/sacrifice/node = SubResource("AnimationNodeAnimation_grenp")
-states/sacrifice/position = Vector2(370, 183)
-states/soul_birth/node = SubResource("AnimationNodeAnimation_ikrwl")
-states/soul_birth/position = Vector2(370, 278)
-states/soul_idle/node = SubResource("AnimationNodeAnimation_n4r4i")
-states/soul_idle/position = Vector2(505, 183)
-transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_y66cv"), "chant", "ritual", SubResource("AnimationNodeStateMachineTransition_7wg4f"), "ritual", "chant", SubResource("AnimationNodeStateMachineTransition_psrx4"), "ritual", "idle", SubResource("AnimationNodeStateMachineTransition_1k87b"), "idle", "ritual", SubResource("AnimationNodeStateMachineTransition_tayat"), "idle", "sacrifice", SubResource("AnimationNodeStateMachineTransition_ofpb7"), "sacrifice", "soul_birth", SubResource("AnimationNodeStateMachineTransition_d8y2d"), "soul_birth", "soul_idle", SubResource("AnimationNodeStateMachineTransition_0ax3c"), "idle", "chant", SubResource("AnimationNodeStateMachineTransition_tb0i2"), "chant", "idle", SubResource("AnimationNodeStateMachineTransition_p2wim")]
-graph_offset = Vector2(-126, -82)
-
 [node name="Cultist" type="Node2D" node_paths=PackedStringArray("sprite", "button", "animationPlayer", "animationTree")]
 texture_filter = 1
-position = Vector2(126, 110)
 scale = Vector2(2, 2)
 script = ExtResource("1_7ir7w")
-cultist = SubResource("Resource_yh8l2")
+cultist = SubResource("Resource_sqi2c")
 sprite = NodePath("Sprite2D")
 button = NodePath("Sprite2D/Button")
 animationPlayer = NodePath("AnimationPlayer")
 animationTree = NodePath("AnimationTree")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-0.5, -10)
 texture = SubResource("AtlasTexture_j7qbx")
 
 [node name="Button" type="Button" parent="Sprite2D"]
@@ -247,11 +217,11 @@ libraries = {
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource("AnimationNodeStateMachine_3cjxl")
+tree_root = ExtResource("4_l7jbg")
 anim_player = NodePath("../AnimationPlayer")
 parameters/current_length = 2.0
-parameters/current_position = 0.447821
-parameters/current_delta = 0.00666667
+parameters/current_position = 1.15116
+parameters/current_delta = 0.00692367
 parameters/End/current_length = null
 parameters/End/current_position = null
 parameters/End/current_delta = null
@@ -259,20 +229,23 @@ parameters/Start/current_length = 0.0
 parameters/Start/current_position = 0.0
 parameters/Start/current_delta = 0.0
 parameters/chant/current_length = 2.0
-parameters/chant/current_position = 1.84042
+parameters/chant/current_position = 0.16898
 parameters/chant/current_delta = 0.01
 parameters/idle/current_length = 2.0
-parameters/idle/current_position = 0.447821
-parameters/idle/current_delta = 0.00666667
+parameters/idle/current_position = 1.15116
+parameters/idle/current_delta = 0.00692367
 parameters/ritual/current_length = 2.0
 parameters/ritual/current_position = 0.97125
 parameters/ritual/current_delta = 0.01
 parameters/sacrifice/current_length = 1.0
 parameters/sacrifice/current_position = 1.0
-parameters/sacrifice/current_delta = 0.01
+parameters/sacrifice/current_delta = 0.0119003
 parameters/soul_birth/current_length = 1.4
 parameters/soul_birth/current_position = 1.4
-parameters/soul_birth/current_delta = 0.0108334
+parameters/soul_birth/current_delta = 0.01
+parameters/soul_consume/current_length = 2.2
+parameters/soul_consume/current_position = 2.2
+parameters/soul_consume/current_delta = 0.0
 parameters/soul_idle/current_length = 2.0
-parameters/soul_idle/current_position = 0.751928
+parameters/soul_idle/current_position = 0.74196
 parameters/soul_idle/current_delta = 0.01

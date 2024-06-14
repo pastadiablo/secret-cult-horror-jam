@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bnccxp8k0kfdf"
-path="res://.godot/imported/SoulCounters.png-8d4603fd4936bde7797d87801490394b.ctex"
+path="res://.godot/imported/SoulCounters.png-171384434f4fcaf336daef7aa97930d4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/textures/SoulCounters.png"
-dest_files=["res://.godot/imported/SoulCounters.png-8d4603fd4936bde7797d87801490394b.ctex"]
+source_file="res://resources/textures/counters/SoulCounters.png"
+dest_files=["res://.godot/imported/SoulCounters.png-171384434f4fcaf336daef7aa97930d4.ctex"]
 
 [params]
 

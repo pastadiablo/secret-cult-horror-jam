@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://cxexqmnd7b4kq"]
 
-[ext_resource type="Texture2D" uid="uid://colnsvrlkxbeb" path="res://resources/textures/Anger9Rect.png" id="1_fbg66"]
+[ext_resource type="Texture2D" uid="uid://colnsvrlkxbeb" path="res://resources/textures/9rects/Anger9Rect.png" id="1_fbg66"]
 [ext_resource type="Script" path="res://scenes/CultProgressBar.gd" id="1_mp8ca"]
-[ext_resource type="Texture2D" uid="uid://bqlpa6i317gpf" path="res://resources/textures/Anger9RectProgress.png" id="2_pf487"]
-[ext_resource type="Texture2D" uid="uid://c04hkhk01dkby" path="res://resources/textures/Anger9RectOver.png" id="3_oti26"]
+[ext_resource type="Texture2D" uid="uid://bqlpa6i317gpf" path="res://resources/textures/9rects/Anger9RectProgress.png" id="2_pf487"]
+[ext_resource type="Texture2D" uid="uid://c04hkhk01dkby" path="res://resources/textures/9rects/Anger9RectOver.png" id="3_oti26"]
 
 [node name="Control" type="Control"]
 texture_filter = 1

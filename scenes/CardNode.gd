@@ -11,17 +11,19 @@ class_name CardNode extends Control
 @export var effects: RichTextLabel
 @export var cardBack: Control
 @export var elementContainers: Array[PanelContainer] = []
+@export var soulCostContainer: Container
 
 @export_group("Card Drag Animation Properties")
 @export_subgroup("Position")
 @export var targetPosition: Vector2 = Vector2.ZERO
-@export var snapBackTime = 300.0
+@export var snapBackTime = 1.0
 @export var snapBackCurve: Curve
 
 @export_subgroup("Tilt")
 @export var dragTiltMaxAngle = 10.0
 @export var dragTiltSpeed = 2.0
 @export var tiltSnapBackSpeed = 30.0
+@export var inHand = true
 
 @export_range(-360, 360) var rotationX: float:
 	get: return rotationX
@@ -68,8 +70,8 @@ var _scale_progress: float = 0.0
 static func create(card: Card) -> CardNode:
 	var node: CardNode = load("res://scenes/CardNode.tscn").instantiate()
 	node.card = card
-	var backingStyle: StyleBoxFlat = load("res://resources/CardBackingStyle-%s.tres" % CultConstants.EmotionName(card.emotion))
-	var elementStyle: StyleBoxFlat = load("res://resources/CardElementBackingStyle-%s.tres" % CultConstants.EmotionName(card.emotion))
+	var backingStyle: StyleBoxFlat = load("res://resources/stylebox/CardBackingStyle-%s.tres" % CultConstants.EmotionName(card.emotion))
+	var elementStyle: StyleBoxFlat = load("res://resources/stylebox/CardElementBackingStyle-%s.tres" % CultConstants.EmotionName(card.emotion))
 	node.backPanelContainer.add_theme_stylebox_override("panel", backingStyle)
 	for container in node.elementContainers:
 		container.add_theme_stylebox_override("panel", elementStyle)
@@ -84,8 +86,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	var backingStyle: StyleBoxFlat = load("res://resources/CardBackingStyle-%s.tres" % CultConstants.EmotionName(card.emotion))
-	var elementStyle: StyleBoxFlat = load("res://resources/CardElementBackingStyle-%s.tres" % CultConstants.EmotionName(card.emotion))
+	var backingStyle: StyleBoxFlat = load("res://resources/stylebox/CardBackingStyle-%s.tres" % CultConstants.EmotionName(card.emotion))
+	var elementStyle: StyleBoxFlat = load("res://resources/stylebox/CardElementBackingStyle-%s.tres" % CultConstants.EmotionName(card.emotion))
 	backPanelContainer.add_theme_stylebox_override("panel", backingStyle)
 	for container in elementContainers:
 		container.add_theme_stylebox_override("panel", elementStyle)
@@ -93,10 +95,17 @@ func _process(delta: float) -> void:
 	title.text = card.name
 	depiction.texture = card.depiction
 	
-	if (_hovering || _dragging):
+	if (_hovering || _dragging) && inHand:
 		scale = Vector2.ONE.move_toward(hoverScale, scaleGrowSpeed * delta)
+		z_index = 1
 	else:
 		scale = hoverScale.move_toward(Vector2.ONE, scaleShrinkSpeed * delta)
+		z_index = 0
+	
+	cardRootContainer.modulate = Color(cardRootContainer.modulate.r, 
+										cardRootContainer.modulate.g, 
+										cardRootContainer.modulate.b, 
+										0.25 if _dragging else 1.0)
 	
 	if (!_dragging && global_position != targetPosition && _snap_back_active):
 		_snap_back_progress += delta
@@ -107,10 +116,11 @@ func _process(delta: float) -> void:
 		else:
 			_snap_back_active = false
 	
-	if (rotationX != 0):
-		rotationX = move_toward(rotationX, 0, tiltSnapBackSpeed * delta)
-	if (rotationY != 0):
-		rotationY = move_toward(rotationY, 0, tiltSnapBackSpeed * delta)
+	if inHand:
+		if (rotationX != 0):
+			rotationX = move_toward(rotationX, 0, tiltSnapBackSpeed * delta)
+		if (rotationY != 0):
+			rotationY = move_toward(rotationY, 0, tiltSnapBackSpeed * delta)
 		
 	if !card: return
 	var effectsText = ""
@@ -141,14 +151,22 @@ func _gui_input(event: InputEvent) -> void:
 				else:
 					if event.is_released():
 						_dragging = false
-						if (CrowdManager.CrowdContainer.get_global_rect().has_point(global_position + pivot_offset)):
-							CrowdManager.Play(self)
-						else:
-							_snap_back_start = global_position
-							_snap_back_progress = 0
-							_snap_back_active = true
-							_drag_offset = Vector2.ZERO
+						_hovering = false
 						cardRootContainer.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
+						_snap_back_start = global_position
+						_snap_back_progress = 0
+						_snap_back_active = true
+						_drag_offset = Vector2.ZERO
+
+						if !SummoningBoard.instance: return
+						print("dropping on cultist")
+						var agent = SummoningBoard.instance.GetCultistAtMousePosition()
+						print(agent)
+						if agent && card.CardCanBePlayed(agent.cultist):
+							print("playing card")
+							card.PlayCard(agent.cultist)
+							queue_free()
+						
 				
 func _mouse_entered() -> void:
 	_hovering = true

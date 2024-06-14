@@ -44,6 +44,10 @@ project/assembly_name="Secret-Cult-Horror-Jam"
 
 enabled=PackedStringArray("res://addons/resources_spreadsheet_view/plugin.cfg")
 
+[gui]
+
+theme/custom_font="res://resources/fonts/m5x7.ttf"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"

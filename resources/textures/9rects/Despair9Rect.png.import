@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://colnsvrlkxbeb"
-path="res://.godot/imported/Anger9Rect.png-a557a3da623ce8ae5a302aeef819bd88.ctex"
+uid="uid://b58mgfgyucl8x"
+path="res://.godot/imported/Despair9Rect.png-ad4526c439c81d56c343741cb4a8f43f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/textures/Anger9Rect.png"
-dest_files=["res://.godot/imported/Anger9Rect.png-a557a3da623ce8ae5a302aeef819bd88.ctex"]
+source_file="res://resources/textures/9rects/Despair9Rect.png"
+dest_files=["res://.godot/imported/Despair9Rect.png-ad4526c439c81d56c343741cb4a8f43f.ctex"]
 
 [params]
 

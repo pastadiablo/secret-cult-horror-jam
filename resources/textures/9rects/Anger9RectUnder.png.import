@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c04hkhk01dkby"
-path="res://.godot/imported/Anger9RectOver.png-85b29437e8d9b53263631772e6b2aef7.ctex"
+uid="uid://bua5y3pcacwl"
+path="res://.godot/imported/Anger9RectUnder.png-c225cdacff0288091fc4b8dbbca832e7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/textures/Anger9RectOver.png"
-dest_files=["res://.godot/imported/Anger9RectOver.png-85b29437e8d9b53263631772e6b2aef7.ctex"]
+source_file="res://resources/textures/9rects/Anger9RectUnder.png"
+dest_files=["res://.godot/imported/Anger9RectUnder.png-c225cdacff0288091fc4b8dbbca832e7.ctex"]
 
 [params]
 
