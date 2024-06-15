@@ -28,7 +28,5 @@ func _process(delta: float) -> void:
 	pass
 	
 func DealHand() -> void:
-	_cards.clear()
 	var random = RandomNumberGenerator.new()
-	for i in hand_size:
-		_cards.append(CardCatalogue.cards[random.randi_range(0, CardCatalogue.cards.size()-1)].duplicate(true))
+	_cards.append(CardCatalogue.cards[random.randi_range(0, CardCatalogue.cards.size()-1)].duplicate(true))

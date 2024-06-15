@@ -38,6 +38,7 @@ corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
 [node name="PanelContainer" type="PanelContainer" node_paths=PackedStringArray("subviewportContainer", "cardRootContainer", "backPanelContainer", "title", "depiction", "effects", "cardBack", "elementContainers", "soulCostContainer")]
+texture_filter = 1
 custom_minimum_size = Vector2(150, 210)
 offset_right = 150.0
 offset_bottom = 210.0
@@ -70,6 +71,7 @@ transparent_bg = true
 handle_input_locally = false
 snap_2d_transforms_to_pixel = true
 snap_2d_vertices_to_pixel = true
+canvas_item_default_texture_filter = 0
 size = Vector2i(150, 210)
 render_target_update_mode = 4
 
@@ -168,6 +170,7 @@ theme_override_constants/h_separation = 1
 alignment = 1
 
 [node name="Soul" type="TextureRect" parent="CardNode/SubViewport/CardRootContainer/BackColorPanelContainer/VBoxContainer/CostPanelContainer/HBoxContainer/SoulCostContainer"]
+texture_filter = 1
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 texture = ExtResource("9_3b6dt")

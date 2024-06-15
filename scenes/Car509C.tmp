@@ -1,0 +1,92 @@
+[gd_scene load_steps=9 format=3 uid="uid://d4hdrw1unx5ru"]
+
+[ext_resource type="Script" path="res://scenes/CardNodeFanoutContainer.gd" id="1_ll7ik"]
+[ext_resource type="PackedScene" uid="uid://cko3vrg67gkay" path="res://scenes/CardNode.tscn" id="2_n6fi6"]
+[ext_resource type="Resource" uid="uid://cl66d4siyoqjp" path="res://resources/cards/Anger_Increase.tres" id="3_ugrow"]
+[ext_resource type="Resource" uid="uid://ccbfjifafxnj0" path="res://resources/cards/Despair_Increase.tres" id="4_rdpfl"]
+[ext_resource type="Script" path="res://scenes/CardNode.gd" id="5_mhvoh"]
+[ext_resource type="Resource" uid="uid://bcgtm5fhnrn2d" path="res://resources/cards/Fear_Increase.tres" id="6_phhr5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s1vl5"]
+
+[sub_resource type="Curve" id="Curve_inf6r"]
+_data = [Vector2(0, 0), 0.0, 3.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="CardNodeFanoutContainer" type="Container"]
+custom_minimum_size = Vector2(500, 250)
+script = ExtResource("1_ll7ik")
+
+[node name="PanelContainer" type="PanelContainer" parent="." node_paths=PackedStringArray("subviewportContainer", "cardRootContainer", "backPanelContainer", "title", "depiction", "effects", "cardBack", "elementContainers", "soulCostContainer") instance=ExtResource("2_n6fi6")]
+texture_filter = 1
+custom_minimum_size = Vector2(150, 210)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxEmpty_s1vl5")
+script = ExtResource("5_mhvoh")
+card = ExtResource("3_ugrow")
+subviewportContainer = NodePath("CardNode")
+cardRootContainer = NodePath("CardNode/SubViewport/CardRootContainer")
+backPanelContainer = NodePath("CardNode/SubViewport/CardRootContainer/BackColorPanelContainer")
+title = NodePath("CardNode/SubViewport/CardRootContainer/BackColorPanelContainer/VBoxContainer/HeaderPanelContainer/TitleLabel")
+depiction = NodePath("CardNode/SubViewport/CardRootContainer/BackColorPanelContainer/VBoxContainer/DepictionPanelContainer/DepictionRect")
+effects = NodePath("CardNode/SubViewport/CardRootContainer/BackColorPanelContainer/VBoxContainer/EffectPanelContainer/VBoxContainer/EffectsLabel")
+cardBack = NodePath("CardNode/SubViewport/CardRootContainer/PanelContainer")
+elementContainers = [NodePath("CardNode/SubViewport/CardRootContainer/BackColorPanelContainer/VBoxContainer/HeaderPanelContainer"), NodePath("CardNode/SubViewport/CardRootContainer/BackColorPanelContainer/VBoxContainer/EffectPanelContainer"), NodePath("CardNode/SubViewport/CardRootContainer/BackColorPanelContainer/VBoxContainer/CostPanelContainer")]
+soulCostContainer = NodePath("CardNode/SubViewport/CardRootContainer/BackColorPanelContainer/VBoxContainer/CostPanelContainer/HBoxContainer/SoulCostContainer")
+targetPosition = Vector2(97.5, 5.04019)
+snapBackCurve = SubResource("Curve_inf6r")
+rotationZ = -5.0
+scaleGrowSpeed = 100.0
+scaleShrinkSpeed = 100.0
+
+[node name="@PanelContainer@45845" type="PanelContainer" parent="." node_paths=PackedStringArray("subviewportContainer", "cardRootContainer", "backPanelContainer", "title", "depiction", "effects", "cardBack", "elementContainers", "soulCostContainer") instance=ExtResource("2_n6fi6")]
+texture_filter = 1
+custom_minimum_size = Vector2(150, 210)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxEmpty_s1vl5")
+script = ExtResource("5_mhvoh")
+card = ExtResource("4_rdpfl")
+subviewportContainer = NodePath("CardNode")
+cardRootContainer = NodePath("CardNode/SubViewport/CardRootContainer")
+backPanelContainer = NodePath("CardNode/SubViewport/CardRootContainer/BackColorPanelContainer")
+title = NodePath("CardNode/SubViewport/CardRootContainer/BackColorPanelContainer/VBoxContainer/HeaderPanelContainer/TitleLabel")
+depiction = NodePath("CardNode/SubViewport/CardRootContainer/BackColorPanelContainer/VBoxContainer/DepictionPanelContainer/DepictionRect")
+effects = NodePath("CardNode/SubViewport/CardRootContainer/BackColorPanelContainer/VBoxContainer/EffectPanelContainer/VBoxContainer/EffectsLabel")
+cardBack = NodePath("CardNode/SubViewport/CardRootContainer/PanelContainer")
+elementContainers = [NodePath("CardNode/SubViewport/CardRootContainer/BackColorPanelContainer/VBoxContainer/HeaderPanelContainer"), NodePath("CardNode/SubViewport/CardRootContainer/BackColorPanelContainer/VBoxContainer/EffectPanelContainer"), NodePath("CardNode/SubViewport/CardRootContainer/BackColorPanelContainer/VBoxContainer/CostPanelContainer")]
+soulCostContainer = NodePath("CardNode/SubViewport/CardRootContainer/BackColorPanelContainer/VBoxContainer/CostPanelContainer/HBoxContainer/SoulCostContainer")
+targetPosition = Vector2(175, 0)
+snapBackCurve = SubResource("Curve_inf6r")
+scaleGrowSpeed = 100.0
+scaleShrinkSpeed = 100.0
+
+[node name="@PanelContainer@45847" type="PanelContainer" parent="." node_paths=PackedStringArray("subviewportContainer", "cardRootContainer", "backPanelContainer", "title", "depiction", "effects", "cardBack", "elementContainers", "soulCostContainer") instance=ExtResource("2_n6fi6")]
+texture_filter = 1
+custom_minimum_size = Vector2(150, 210)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxEmpty_s1vl5")
+script = ExtResource("5_mhvoh")
+card = ExtResource("6_phhr5")
+subviewportContainer = NodePath("CardNode")
+cardRootContainer = NodePath("CardNode/SubViewport/CardRootContainer")
+backPanelContainer = NodePath("CardNode/SubViewport/CardRootContainer/BackColorPanelContainer")
+title = NodePath("CardNode/SubViewport/CardRootContainer/BackColorPanelContainer/VBoxContainer/HeaderPanelContainer/TitleLabel")
+depiction = NodePath("CardNode/SubViewport/CardRootContainer/BackColorPanelContainer/VBoxContainer/DepictionPanelContainer/DepictionRect")
+effects = NodePath("CardNode/SubViewport/CardRootContainer/BackColorPanelContainer/VBoxContainer/EffectPanelContainer/VBoxContainer/EffectsLabel")
+cardBack = NodePath("CardNode/SubViewport/CardRootContainer/PanelContainer")
+elementContainers = [NodePath("CardNode/SubViewport/CardRootContainer/BackColorPanelContainer/VBoxContainer/HeaderPanelContainer"), NodePath("CardNode/SubViewport/CardRootContainer/BackColorPanelContainer/VBoxContainer/EffectPanelContainer"), NodePath("CardNode/SubViewport/CardRootContainer/BackColorPanelContainer/VBoxContainer/CostPanelContainer")]
+soulCostContainer = NodePath("CardNode/SubViewport/CardRootContainer/BackColorPanelContainer/VBoxContainer/CostPanelContainer/HBoxContainer/SoulCostContainer")
+targetPosition = Vector2(252.5, 5.04019)
+snapBackCurve = SubResource("Curve_inf6r")
+rotationZ = 5.0
+scaleGrowSpeed = 100.0
+scaleShrinkSpeed = 100.0

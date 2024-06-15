@@ -23,3 +23,4 @@ tiltDegree = 60.0
 script = ExtResource("2_g82t2")
 circles = Array[ExtResource("1_ad3tv")]([SubResource("Resource_2p1a8"), SubResource("Resource_0etoj")])
 souls = 0
+sacrifices = 0

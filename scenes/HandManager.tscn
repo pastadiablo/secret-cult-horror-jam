@@ -1,11 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://c7x2kayfhkv1d"]
+[gd_scene load_steps=2 format=3 uid="uid://c7x2kayfhkv1d"]
 
 [ext_resource type="Script" path="res://scenes/HandManager.gd" id="1_dt7lf"]
-[ext_resource type="Script" path="res://resources/Card.gd" id="2_j0n14"]
-[ext_resource type="Resource" uid="uid://cl66d4siyoqjp" path="res://resources/cards/Anger_Increase.tres" id="3_0pxc8"]
-[ext_resource type="Resource" uid="uid://ccbfjifafxnj0" path="res://resources/cards/Despair_Increase.tres" id="4_td5kj"]
-[ext_resource type="Resource" uid="uid://bcgtm5fhnrn2d" path="res://resources/cards/Fear_Increase.tres" id="5_k3a8a"]
 
 [node name="HandManager" type="Node"]
 script = ExtResource("1_dt7lf")
-cards = Array[ExtResource("2_j0n14")]([ExtResource("3_0pxc8"), ExtResource("4_td5kj"), ExtResource("5_k3a8a")])

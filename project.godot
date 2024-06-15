@@ -35,14 +35,11 @@ CardCatalogue="*res://scripts/CardCatalogue.gd"
 window/size/viewport_width=1280
 window/size/viewport_height=720
 window/stretch/mode="canvas_items"
+window/stretch/scale_mode="integer"
 
 [dotnet]
 
 project/assembly_name="Secret-Cult-Horror-Jam"
-
-[editor_plugins]
-
-enabled=PackedStringArray("res://addons/resources_spreadsheet_view/plugin.cfg")
 
 [gui]
 

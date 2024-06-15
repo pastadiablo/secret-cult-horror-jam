@@ -4,6 +4,7 @@ class_name SummoningBoard extends Node2D
 @export var summoning: Summoning
 @export var circlesCenter: Vector2
 @export var soulLabel: Label
+@export var sacrificeLabel: Label
 
 var node_map: Dictionary = {} #{Cultist, CultistAgent}
 
@@ -22,13 +23,14 @@ func _ready() -> void:
 		else: summoning = load("res://resources/summonings/Level1.tres")
 	for circle in summoning.circles:
 		_constructCircle(circle)
-	pass # Replace with function body.
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if !soulLabel: return
 	soulLabel.text = "x %s" % summoning.souls
+	
+	if !sacrificeLabel: return
+	sacrificeLabel.text = "x %s" % summoning.sacrifices
 
 func _constructCircle(circle: Circle):
 	var circleSprite = Sprite2D.new()

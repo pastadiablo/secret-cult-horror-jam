@@ -3,6 +3,9 @@ class_name CardNode extends Control
 
 @export var card: Card
 
+signal DragStart(node: CardNode)
+signal DragEnd(node: CardNode)
+
 @export var subviewportContainer: SubViewportContainer
 @export var cardRootContainer: Container
 @export var backPanelContainer: PanelContainer
@@ -23,7 +26,11 @@ class_name CardNode extends Control
 @export var dragTiltMaxAngle = 10.0
 @export var dragTiltSpeed = 2.0
 @export var tiltSnapBackSpeed = 30.0
-@export var inHand = true
+@export var inHand = true:
+	set(value):
+		inHand = value
+		cardRootContainer.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND if inHand else Control.CURSOR_ARROW
+		
 
 @export_range(-360, 360) var rotationX: float:
 	get: return rotationX
@@ -92,6 +99,8 @@ func _process(delta: float) -> void:
 	for container in elementContainers:
 		container.add_theme_stylebox_override("panel", elementStyle)
 		
+	cardRootContainer.modulate = modulate
+	
 	title.text = card.name
 	depiction.texture = card.depiction
 	
@@ -105,7 +114,7 @@ func _process(delta: float) -> void:
 	cardRootContainer.modulate = Color(cardRootContainer.modulate.r, 
 										cardRootContainer.modulate.g, 
 										cardRootContainer.modulate.b, 
-										0.25 if _dragging else 1.0)
+										0.75 - (global_position - targetPosition).length() / 1000 if _dragging else 1.0)
 	
 	if (!_dragging && global_position != targetPosition && _snap_back_active):
 		_snap_back_progress += delta
@@ -146,11 +155,13 @@ func _gui_input(event: InputEvent) -> void:
 			MOUSE_BUTTON_LEFT:
 				if event.is_pressed() && !_dragging:
 					_dragging = true
+					DragStart.emit(self)
 					_drag_offset = (global_position - get_global_mouse_position()) / scale
 					cardRootContainer.mouse_default_cursor_shape = Control.CURSOR_DRAG
 				else:
 					if event.is_released():
 						_dragging = false
+						DragEnd.emit(self)
 						_hovering = false
 						cardRootContainer.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
 						_snap_back_start = global_position
@@ -159,13 +170,12 @@ func _gui_input(event: InputEvent) -> void:
 						_drag_offset = Vector2.ZERO
 
 						if !SummoningBoard.instance: return
-						print("dropping on cultist")
 						var agent = SummoningBoard.instance.GetCultistAtMousePosition()
-						print(agent)
 						if agent && card.CardCanBePlayed(agent.cultist):
-							print("playing card")
 							card.PlayCard(agent.cultist)
 							queue_free()
+						else:
+							pass #TODO: Cardshake / negative feedback here
 						
 				
 func _mouse_entered() -> void:
@@ -173,5 +183,3 @@ func _mouse_entered() -> void:
 	
 func _mouse_exited() -> void:
 	_hovering = false
-	#if _dragging: return
-	#pass
