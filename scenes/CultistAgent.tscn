@@ -1,7 +1,8 @@
-[gd_scene load_steps=17 format=3 uid="uid://bs7mvgg7ql4ty"]
+[gd_scene load_steps=19 format=3 uid="uid://bs7mvgg7ql4ty"]
 
 [ext_resource type="Script" path="res://scenes/CultistAgent.gd" id="1_7ir7w"]
 [ext_resource type="Script" path="res://resources/Cultist.gd" id="2_oo581"]
+[ext_resource type="Shader" path="res://scenes/CultistAgent.gdshader" id="3_aeny8"]
 [ext_resource type="Texture2D" uid="uid://bjuq0xuly1jgj" path="res://resources/textures/AngerCultist.png" id="3_y07wu"]
 [ext_resource type="AnimationNodeStateMachine" uid="uid://bjpnbmnuvwocf" path="res://resources/CultistAgentAnimationSM.tres" id="4_l7jbg"]
 
@@ -10,6 +11,15 @@ script = ExtResource("2_oo581")
 emotion = 2
 state = 0
 souls = 1
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5sjhi"]
+resource_local_to_scene = true
+shader = ExtResource("3_aeny8")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/width = 0.0
+shader_parameter/pattern = 0
+shader_parameter/inside = false
+shader_parameter/add_margins = true
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j7qbx"]
 resource_local_to_scene = true
@@ -194,17 +204,19 @@ animationPlayer = NodePath("AnimationPlayer")
 animationTree = NodePath("AnimationTree")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_5sjhi")
 texture = SubResource("AtlasTexture_j7qbx")
 
 [node name="Button" type="Button" parent="Sprite2D"]
+visible = false
 anchors_preset = 13
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -22.0
-offset_top = -12.0
-offset_right = -10.0
-offset_bottom = -20.0
+offset_left = -25.0
+offset_top = -14.0
+offset_right = -7.0
+offset_bottom = -18.0
 grow_horizontal = 2
 grow_vertical = 2
 focus_mode = 0
@@ -220,8 +232,8 @@ libraries = {
 tree_root = ExtResource("4_l7jbg")
 anim_player = NodePath("../AnimationPlayer")
 parameters/current_length = 2.0
-parameters/current_position = 0.842116
-parameters/current_delta = 0.017461
+parameters/current_position = 1.85799
+parameters/current_delta = 0.008013
 parameters/End/current_length = null
 parameters/End/current_position = null
 parameters/End/current_delta = null
@@ -232,8 +244,8 @@ parameters/chant/current_length = 2.0
 parameters/chant/current_position = 0.16898
 parameters/chant/current_delta = 0.01
 parameters/idle/current_length = 2.0
-parameters/idle/current_position = 0.842116
-parameters/idle/current_delta = 0.017461
+parameters/idle/current_position = 1.85799
+parameters/idle/current_delta = 0.008013
 parameters/ritual/current_length = 2.0
 parameters/ritual/current_position = 0.97125
 parameters/ritual/current_delta = 0.01

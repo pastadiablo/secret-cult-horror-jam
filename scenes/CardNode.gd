@@ -114,7 +114,7 @@ func _process(delta: float) -> void:
 	cardRootContainer.modulate = Color(cardRootContainer.modulate.r, 
 										cardRootContainer.modulate.g, 
 										cardRootContainer.modulate.b, 
-										0.75 - (global_position - targetPosition).length() / 1000 if _dragging else 1.0)
+										0.25 if _dragging else 1.0)
 	
 	if (!_dragging && global_position != targetPosition && _snap_back_active):
 		_snap_back_progress += delta

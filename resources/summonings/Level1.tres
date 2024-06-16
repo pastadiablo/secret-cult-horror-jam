@@ -1,9 +1,11 @@
-[gd_resource type="Resource" script_class="Summoning" load_steps=7 format=3 uid="uid://c8ejxj6xaa5h8"]
+[gd_resource type="Resource" script_class="Summoning" load_steps=10 format=3 uid="uid://c8ejxj6xaa5h8"]
 
 [ext_resource type="Script" path="res://resources/Circle.gd" id="1_ad3tv"]
 [ext_resource type="Script" path="res://resources/Summoning.gd" id="2_g82t2"]
 [ext_resource type="Texture2D" uid="uid://ds87auvq7q4gf" path="res://resources/textures/circles/pentagram.png" id="3_44ovi"]
 [ext_resource type="Texture2D" uid="uid://baixlqavvq21o" path="res://resources/textures/circles/large.png" id="4_f2bt1"]
+[ext_resource type="Script" path="res://resources/Entity.gd" id="4_m52ao"]
+[ext_resource type="Texture2D" uid="uid://ctbggs35yj2ci" path="res://resources/textures/entities/Eldritch.png" id="5_xdbei"]
 
 [sub_resource type="Resource" id="Resource_2p1a8"]
 script = ExtResource("1_ad3tv")
@@ -19,8 +21,16 @@ cultistCount = 8
 cultistOffset = 0.0
 tiltDegree = 60.0
 
+[sub_resource type="Resource" id="Resource_tsmu0"]
+script = ExtResource("4_m52ao")
+texture = ExtResource("5_xdbei")
+fearRequirement = 0
+angerRequirement = 0
+despairRequirement = 0
+
 [resource]
 script = ExtResource("2_g82t2")
 circles = Array[ExtResource("1_ad3tv")]([SubResource("Resource_2p1a8"), SubResource("Resource_0etoj")])
+entity = SubResource("Resource_tsmu0")
 souls = 0
 sacrifices = 0

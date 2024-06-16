@@ -28,7 +28,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	var cards = node_map.keys()
 	var tracked = []
-	if HandManager._instance:
+	if HandManager.instance:
 		tracked = HandManager.cards
 	
 	for card in cards:
@@ -50,8 +50,6 @@ func _addCardNode(card: Card):
 	node_map[card] = node
 	node.tree_entered.connect(_adjustSize)
 	node.tree_exited.connect(_adjustSize)
-	#node.DragStart.connect(_nodeRefresh)
-	#node.DragEnd.connect(_nodeRefresh)
 	add_child(node)
 	node.owner = self
 	await get_tree().process_frame
@@ -83,7 +81,7 @@ func _adjustSize():
 			var interp = ((float)(i)) / (count-1)			
 			child.rotationZ = lerp(-maxCardAngle, maxCardAngle, interp)			
 			child.position.x = i * (childSize + childDistance) + horizontalMargin
-			child.position.y = position.y + radius + radius * sin(deg_to_rad(child.rotationZ-90)) #+ child.size.y
+			child.position.y = position.y + radius + radius * sin(deg_to_rad(child.rotationZ-90)) + yOffset
 			child.targetPosition = child.global_position
 			i += 1
 				

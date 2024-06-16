@@ -4,7 +4,9 @@ class_name SummoningBoard extends Node2D
 @export var summoning: Summoning
 @export var circlesCenter: Vector2
 @export var soulLabel: Label
+@export var cultistLabel: Label
 @export var sacrificeLabel: Label
+@export var sacrificeButton: Button
 
 var node_map: Dictionary = {} #{Cultist, CultistAgent}
 
@@ -23,6 +25,9 @@ func _ready() -> void:
 		else: summoning = load("res://resources/summonings/Level1.tres")
 	for circle in summoning.circles:
 		_constructCircle(circle)
+		
+	if !sacrificeButton: return
+	sacrificeButton.pressed.connect(GenerateSacrifice)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -31,6 +36,13 @@ func _process(delta: float) -> void:
 	
 	if !sacrificeLabel: return
 	sacrificeLabel.text = "x %s" % summoning.sacrifices
+	
+	if !cultistLabel: return
+	var count = 0
+	for child in get_children():
+		if child is CultistAgent && child.cultist.state == Cultist.State.ALIVE:
+			count += 1
+	cultistLabel.text = "x %s" % count
 
 func _constructCircle(circle: Circle):
 	var circleSprite = Sprite2D.new()
@@ -59,6 +71,12 @@ func _constructCircle(circle: Circle):
 		add_child(child)
 		child.owner = self
 
+func CanSacrifice(cultist: CultistAgent)->bool:
+	return TurnManager.instance.currentPhase == TurnManager.instance.TurnPhase.PLAY && summoning.sacrifices > 0
+	
+func GenerateSacrifice():
+	summoning.sacrifices = 1
+	
 func CultistSacrificed(agent: CultistAgent):
 	summoning.souls += agent.cultist.souls
 	pass
