@@ -9,7 +9,7 @@ class_name Card extends Resource
 
 func CardCanBePlayed(cultist: Cultist) -> bool:
 	if !effects: return false
-	var withinCost = SummoningBoard.instance.summoning.souls >= cost
+	var withinCost = SummoningBoard.instance.summoning.souls.size() >= cost
 	var effectsValid = effects.any(func(effect: Effect): return effect.ValidForCultist(cultist))
 	return withinCost && effectsValid
 
@@ -18,5 +18,4 @@ func PlayCard(cultist: Cultist):
 	for effect in effects:
 		if !effect: continue
 		effect.ApplyEffect(emotion, cultist)
-	#SummoningBoard.instance.summoning.souls -= cost
 	SummoningBoard.instance.ConsumeSouls(cost)

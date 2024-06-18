@@ -1,0 +1,85 @@
+[gd_scene load_steps=6 format=3 uid="uid://dbtlkdflqqpja"]
+
+[ext_resource type="Texture2D" uid="uid://c7bv0tq6tabvj" path="res://resources/textures/9rects/Tome.png" id="1_exh7v"]
+[ext_resource type="Script" path="res://RequirementPanel.gd" id="1_jfsqh"]
+[ext_resource type="FontFile" uid="uid://cljyjctp754r2" path="res://resources/fonts/m3x6.ttf" id="3_i4fel"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_b3nmg"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+texture = ExtResource("1_exh7v")
+texture_margin_left = 12.0
+texture_margin_top = 12.0
+texture_margin_right = 12.0
+texture_margin_bottom = 12.0
+axis_stretch_vertical = 2
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_diu14"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+
+[node name="RequirementPanel" type="PanelContainer" node_paths=PackedStringArray("preparedContainer", "requiredContainer")]
+texture_filter = 1
+custom_minimum_size = Vector2(256, 192)
+offset_right = 192.0
+offset_bottom = 128.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_b3nmg")
+script = ExtResource("1_jfsqh")
+preparedContainer = NodePath("HBoxContainer/PanelContainer/VBoxContainer/PreparedContainer")
+requiredContainer = NodePath("HBoxContainer/PanelContainer2/VBoxContainer/RequiredContainer")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_diu14")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_i4fel")
+theme_override_font_sizes/font_size = 32
+text = "Prepared"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="HBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="PreparedContainer" type="HFlowContainer" parent="HBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="PanelContainer2" type="PanelContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_diu14")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/PanelContainer2"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="HBoxContainer/PanelContainer2/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_i4fel")
+theme_override_font_sizes/font_size = 32
+text = "Required"
+horizontal_alignment = 1
+
+[node name="HSeparator2" type="HSeparator" parent="HBoxContainer/PanelContainer2/VBoxContainer"]
+layout_mode = 2
+
+[node name="RequiredContainer" type="HFlowContainer" parent="HBoxContainer/PanelContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1

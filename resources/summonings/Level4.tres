@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="Summoning" load_steps=8 format=3 uid="uid://bl1ohly421iya"]
+
+[ext_resource type="Script" path="res://resources/Circle.gd" id="1_qipv3"]
+[ext_resource type="Texture2D" uid="uid://b752of2rtvplb" path="res://resources/textures/circles/small.png" id="2_d7sqf"]
+[ext_resource type="Texture2D" uid="uid://ds87auvq7q4gf" path="res://resources/textures/circles/pentagram.png" id="3_aiyl5"]
+[ext_resource type="Resource" uid="uid://mqqoxhp65wwn" path="res://resources/summonings/Level5.tres" id="3_gdwlg"]
+[ext_resource type="Script" path="res://resources/Summoning.gd" id="4_e784d"]
+
+[sub_resource type="Resource" id="Resource_0etoj"]
+script = ExtResource("1_qipv3")
+texture = ExtResource("2_d7sqf")
+cultistCount = 8
+cultistOffset = 0.0
+tiltDegree = 60.0
+
+[sub_resource type="Resource" id="Resource_1px5d"]
+script = ExtResource("1_qipv3")
+texture = ExtResource("3_aiyl5")
+cultistCount = 12
+cultistOffset = 15.0
+tiltDegree = 60.0
+
+[resource]
+script = ExtResource("4_e784d")
+uniqueName = "Level4"
+circles = Array[ExtResource("1_qipv3")]([SubResource("Resource_0etoj"), SubResource("Resource_1px5d")])
+entityPath = "res://scenes/entities/LowEldritch4.tscn"
+sacrifices = 0
+zoom = 3
+nextSummoning = ExtResource("3_gdwlg")

@@ -50,6 +50,8 @@ func _addCardNode(card: Card):
 	node_map[card] = node
 	node.tree_entered.connect(_adjustSize)
 	node.tree_exited.connect(_adjustSize)
+	node.DragStart.connect(func(cardNode):HandManager.instance.draggingCard = cardNode)
+	node.DragEnd.connect(func(cardNode):HandManager.instance.draggingCard = null)
 	add_child(node)
 	node.owner = self
 	await get_tree().process_frame
@@ -65,9 +67,12 @@ func _adjustSize():
 	var i = 0
 	var count = get_children().size()
 	if count < 1: return
-	if count < 4:
-		i = 1
-		count = 5
+	if count % 2 == 0 && count < 8: # for even hands we calculate center differently
+		i = 4 - count/2
+		count = 8
+	else: if count % 2 == 1 && count < 7:
+		i = 3 - count/2
+		count = 7
 	var childSize = get_children()[0].size.x
 	var children = get_children()
 	for child in get_children(): # We only operate on equally-sized controls in a fanout container

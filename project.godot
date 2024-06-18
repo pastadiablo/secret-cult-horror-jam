@@ -21,7 +21,7 @@ resources_spreadsheet_view/context_menu_on_leftclick=false
 [application]
 
 config/name="Secret-Cult-Horror-Jam"
-run/main_scene="res://main.tscn"
+run/main_scene="res://scenes/MainMenu.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -29,12 +29,14 @@ config/icon="res://icon.svg"
 
 CursorSetter="*res://scripts/CursorSetter.gd"
 CardCatalogue="*res://scripts/CardCatalogue.gd"
+SceneLoader="*res://scripts/SceneLoader.gd"
+CultMusicAudioStreamPlayer="*res://scripts/CultMusicAudioStreamPlayer.gd"
 
 [display]
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
-window/stretch/mode="canvas_items"
+window/stretch/mode="viewport"
 window/stretch/scale_mode="integer"
 
 [dotnet]

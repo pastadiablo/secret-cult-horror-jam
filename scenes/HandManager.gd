@@ -4,9 +4,11 @@ class_name HandManager extends Node
 @export var _cards : Array[Card] = []
 @export var hand_size: int = 3
 @export var dealButton: Button
-
+@export var dualButton: Button
 
 static var instance: HandManager = self
+
+var draggingCard: CardNode = null
 
 static var cards: Array[Card]:
 	get:
@@ -20,13 +22,15 @@ static var cards: Array[Card]:
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	instance = self
-	dealButton.pressed.connect(DrawCard)
+	dealButton.pressed.connect(func(): DrawCards(2))
+	dualButton.pressed.connect(func(): DrawCards(1))
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
 	
-func DrawCard() -> void:
+func DrawCards(amount: int) -> void:
 	var random = RandomNumberGenerator.new()
-	_cards.append(CardCatalogue.cards[random.randi_range(0, CardCatalogue.cards.size()-1)].duplicate(true))
+	for i in amount:
+		_cards.append(CardCatalogue.cards[random.randi_range(0, CardCatalogue.cards.size()-1)].duplicate(true))

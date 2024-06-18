@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://cdgg0tlah1ms6"]
-
-[ext_resource type="Script" path="res://scenes/EntityAgent.gd" id="1_qcpq4"]
-
-[node name="EntityAgent" type="Node2D"]
-script = ExtResource("1_qcpq4")

@@ -1,7 +1,11 @@
 @tool
 class_name Summoning extends Resource
 
+@export var uniqueName: String
 @export var circles: Array[Circle] = []
-@export var entity: Entity
-@export var souls: int
-@export var sacrifices: int
+@export var entityPath: String = ""
+@export var sacrifices: int = 0
+@export var zoom: int = 1
+@export var nextSummoning: Summoning
+
+var souls: Array[CultistAgent] = []

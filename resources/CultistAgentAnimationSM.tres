@@ -1,7 +1,10 @@
-[gd_resource type="AnimationNodeStateMachine" load_steps=20 format=3 uid="uid://bjpnbmnuvwocf"]
+[gd_resource type="AnimationNodeStateMachine" load_steps=22 format=3 uid="uid://bjpnbmnuvwocf"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0vtuj"]
 animation = &"chant"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8yl7h"]
+animation = &"dead"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_dr17d"]
 animation = &"idle"
@@ -56,11 +59,16 @@ switch_mode = 1
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_a0x0q"]
 switch_mode = 2
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_f1yhw"]
+switch_mode = 2
+
 [resource]
 states/End/position = Vector2(896, 160)
 states/Start/position = Vector2(201, 100)
 states/chant/node = SubResource("AnimationNodeAnimation_0vtuj")
 states/chant/position = Vector2(342, -32)
+states/dead/node = SubResource("AnimationNodeAnimation_8yl7h")
+states/dead/position = Vector2(201, 239)
 states/idle/node = SubResource("AnimationNodeAnimation_dr17d")
 states/idle/position = Vector2(370, 100)
 states/ritual/node = SubResource("AnimationNodeAnimation_vjs6r")
@@ -73,5 +81,5 @@ states/soul_consume/node = SubResource("AnimationNodeAnimation_ekjeq")
 states/soul_consume/position = Vector2(651, 160)
 states/soul_idle/node = SubResource("AnimationNodeAnimation_n4r4i")
 states/soul_idle/position = Vector2(556, 291)
-transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_y66cv"), "chant", "ritual", SubResource("AnimationNodeStateMachineTransition_7wg4f"), "ritual", "chant", SubResource("AnimationNodeStateMachineTransition_psrx4"), "ritual", "idle", SubResource("AnimationNodeStateMachineTransition_1k87b"), "idle", "ritual", SubResource("AnimationNodeStateMachineTransition_tayat"), "idle", "sacrifice", SubResource("AnimationNodeStateMachineTransition_ofpb7"), "sacrifice", "soul_birth", SubResource("AnimationNodeStateMachineTransition_d8y2d"), "soul_birth", "soul_idle", SubResource("AnimationNodeStateMachineTransition_0ax3c"), "idle", "chant", SubResource("AnimationNodeStateMachineTransition_tb0i2"), "chant", "idle", SubResource("AnimationNodeStateMachineTransition_p2wim"), "soul_idle", "soul_consume", SubResource("AnimationNodeStateMachineTransition_2tkll"), "soul_birth", "soul_consume", SubResource("AnimationNodeStateMachineTransition_a0x0q")]
-graph_offset = Vector2(65, -16)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_y66cv"), "chant", "ritual", SubResource("AnimationNodeStateMachineTransition_7wg4f"), "ritual", "chant", SubResource("AnimationNodeStateMachineTransition_psrx4"), "ritual", "idle", SubResource("AnimationNodeStateMachineTransition_1k87b"), "idle", "ritual", SubResource("AnimationNodeStateMachineTransition_tayat"), "idle", "sacrifice", SubResource("AnimationNodeStateMachineTransition_ofpb7"), "sacrifice", "soul_birth", SubResource("AnimationNodeStateMachineTransition_d8y2d"), "soul_birth", "soul_idle", SubResource("AnimationNodeStateMachineTransition_0ax3c"), "idle", "chant", SubResource("AnimationNodeStateMachineTransition_tb0i2"), "chant", "idle", SubResource("AnimationNodeStateMachineTransition_p2wim"), "soul_idle", "soul_consume", SubResource("AnimationNodeStateMachineTransition_2tkll"), "soul_birth", "soul_consume", SubResource("AnimationNodeStateMachineTransition_a0x0q"), "sacrifice", "dead", SubResource("AnimationNodeStateMachineTransition_f1yhw")]
+graph_offset = Vector2(-162, 1)

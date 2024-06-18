@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Entity" load_steps=3 format=3 uid="uid://bc1xh6xw6kako"]
+
+[ext_resource type="AudioStream" uid="uid://q8h27cwk0hmq" path="res://resources/sounds/music/SCP-x4x.mp3" id="1_kfib6"]
+[ext_resource type="Script" path="res://resources/Entity.gd" id="2_x1gp7"]
+
+[resource]
+script = ExtResource("2_x1gp7")
+name = "He Who Hungers"
+fearRequirement = 3
+angerRequirement = 3
+despairRequirement = 2
+greeting = "whatdoesittastelikeisitscrumptiousisitmoist"
+converse = Array[String](["wewilleattheworld", "mustconsumetheflesh", "weneedmoremoremore", "hungerhungerhungerhungerhungerhungerhungerhungerhungerhungerhungerhungerhungerhunger"])
+plead = "somuchwedidnottasteyet"
+submit = "weshallconsumeyourenemies"
+victory = "theirfleshwasdeliciousthankyouverymuch"
+bgmusic = ExtResource("1_kfib6")

@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="Summoning" load_steps=7 format=3 uid="uid://mqqoxhp65wwn"]
+
+[ext_resource type="Script" path="res://resources/Circle.gd" id="1_mjxd0"]
+[ext_resource type="Texture2D" uid="uid://ds87auvq7q4gf" path="res://resources/textures/circles/pentagram.png" id="2_yvivw"]
+[ext_resource type="Texture2D" uid="uid://64bf0pu6kqgk" path="res://resources/textures/circles/concentrics.png" id="3_ieibb"]
+[ext_resource type="Script" path="res://resources/Summoning.gd" id="4_t45ot"]
+
+[sub_resource type="Resource" id="Resource_0etoj"]
+script = ExtResource("1_mjxd0")
+texture = ExtResource("2_yvivw")
+cultistCount = 12
+cultistOffset = 0.0
+tiltDegree = 60.0
+
+[sub_resource type="Resource" id="Resource_pika5"]
+script = ExtResource("1_mjxd0")
+texture = ExtResource("3_ieibb")
+cultistCount = 16
+cultistOffset = 10.0
+tiltDegree = 60.0
+
+[resource]
+script = ExtResource("4_t45ot")
+uniqueName = "Level5"
+circles = Array[ExtResource("1_mjxd0")]([SubResource("Resource_0etoj"), SubResource("Resource_pika5")])
+entityPath = "res://scenes/entities/MedEldritch.tscn"
+sacrifices = 0
+zoom = 2

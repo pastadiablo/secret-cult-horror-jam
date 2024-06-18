@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Entity" load_steps=3 format=3 uid="uid://dbk2p51coiu7d"]
+
+[ext_resource type="AudioStream" uid="uid://4bvq7hu6r736" path="res://resources/sounds/music/SCP-x1x.mp3" id="1_tfono"]
+[ext_resource type="Script" path="res://resources/Entity.gd" id="2_lyjf0"]
+
+[resource]
+script = ExtResource("2_lyjf0")
+name = "Eye of the Past"
+fearRequirement = 2
+angerRequirement = 1
+despairRequirement = 1
+greeting = "... THIS ... HAS ... HAPPENED ... BEFORE ..."
+converse = Array[String](["...THE UNIVERSE SANG...", "...FLESH ROTS...", "...TIME FLIES ON WINGS OF BONE...", "...MOST GENEROUS BLOOD..."])
+plead = "... IT HAS NEVER BEEN LIKE THIS ..."
+submit = "... SOMETHING NEW AT LAST ..."
+victory = "... THE CYCLE CONTINUES ..."
+bgmusic = ExtResource("1_tfono")

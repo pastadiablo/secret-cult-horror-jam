@@ -16,6 +16,10 @@ signal ExitingCultist(agent: CultistAgent)
 	set(value): 
 		playerTurn = value
 		ResetAnimation()
+		
+@export var screamPlayer: AudioStreamPlayer
+@export var squishPlayer: AudioStreamPlayer
+@export var breathPlayer: AudioStreamPlayer
 
 var _stateMachine: AnimationNodeStateMachinePlayback
 
@@ -39,20 +43,20 @@ func _ready() -> void:
 	button.pressed.connect(SacrificeCultist)
 	_stateMachine = animationTree["parameters/playback"]
 	ResetAnimation()
-	#button.mouse_entered.connect(_mouse_entered)
-	#button.mouse_exited.connect(_mouse_exited)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	button.visible = SummoningBoard.instance.CanSacrifice(self)
+	if SummoningBoard.instance && !Engine.is_editor_hint():
+		button.visible = SummoningBoard.instance.CanSacrifice(self)
 	if !sprite.texture: return
 	if sprite.texture.atlas != textures[cultist.emotion]:
 		sprite.texture.atlas = textures[cultist.emotion]	
 	pass
 
 func _input(event: InputEvent):
-	#if TurnManager.instance.currentPhase != TurnManager.TurnPhase.PLAY: return
+	if !TurnManager.instance: return
+	if TurnManager.instance.currentPhase != TurnManager.TurnPhase.PLAY: return
 	if event is InputEventMouseMotion:
 		var motion: InputEventMouseMotion = event
 		if button.get_global_rect().has_point(motion.global_position):
@@ -67,19 +71,42 @@ func _input(event: InputEvent):
 func _mouse_entered():
 	if cultist.state != Cultist.State.ALIVE: return
 	DanceAnimation()
-	sprite.material.set("shader_parameter/width", 1)
+	ShaderParams(Color.WHITE, 1, false)
 	EnteringCultist.emit(self)
 
 func _mouse_exited():
 	if cultist.state != Cultist.State.ALIVE: return
 	ResetAnimation()
-	sprite.material.set("shader_parameter/width", 0)
+	ShaderParams(Color.WHITE, 0, false)
 	ExitingCultist.emit(self)
+	
+func HighlightSoulForConsumption():
+	if cultist.state != Cultist.State.SACRIFICED: return
+	ShaderParams(Color.WHITE, 1, true)
+
+func RemoveSoulHighlight():
+	if cultist.state != Cultist.State.SACRIFICED: return	
+	ShaderParams(Color.WHITE, 0, false)
+
+func KillCultist(callUponComplete: Callable) -> void:
+	if cultist.state != Cultist.State.ALIVE: return
+	ShaderParams(Color.WHITE, 0, false)
+	cultist.state = Cultist.State.DEAD
+	screamPlayer.play()
+	squishPlayer.play()
+	button.mouse_default_cursor_shape = Control.CURSOR_ARROW
+	_stateMachine.travel(&"dead")
+	var callback = func(animation: StringName):
+		if animation != &"dead": return
+		callUponComplete.call()
+	animationTree.connect("animation_finished", callback)
 
 func SacrificeCultist() -> void:
 	if cultist.state != Cultist.State.ALIVE: return
 	SummoningBoard.instance.summoning.sacrifices -= 1
-	sprite.material.set("shader_parameter/width", 0)
+	ShaderParams(Color.WHITE, 0, false)
+	screamPlayer.play()
+	squishPlayer.play()
 	_stateMachine.travel(&"soul_idle")
 	cultist.state = Cultist.State.SACRIFICED
 	button.mouse_default_cursor_shape = Control.CURSOR_ARROW
@@ -87,11 +114,16 @@ func SacrificeCultist() -> void:
 
 func ConsumeSoul() -> void:
 	if (cultist.state == Cultist.State.SACRIFICED):
-		_stateMachine.travel(&"soul_consume")		
+		_stateMachine.travel(&"soul_consume")
+	breathPlayer.play()
 	cultist.state = Cultist.State.DEAD
 	button.mouse_default_cursor_shape = Control.CURSOR_ARROW
 	Consumed.emit(self)
-	pass
+
+func ShaderParams(color: Color, width: int, inside: bool):
+	sprite.material.set("shader_parameter/color", color)
+	sprite.material.set("shader_parameter/width", width)
+	sprite.material.set("shader_parameter/inside", inside)
 
 func ResetAnimation() -> void:
 	if _stateMachine:

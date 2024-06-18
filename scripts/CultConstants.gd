@@ -14,6 +14,8 @@ static var EmotionColorsLight = {
 	Emotion.DESPAIR: Color("#8f8da2"),
 }
 
+static var CultBlack = Color("#100e0c")
+
 static var IncreaseColor = Color("#ffffff")
 static var DecreaseColor = Color("#b83636")
 

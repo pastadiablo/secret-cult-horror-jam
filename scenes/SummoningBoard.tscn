@@ -1,201 +1,132 @@
-[gd_scene load_steps=40 format=3 uid="uid://dor22jdcwtvbn"]
+[gd_scene load_steps=31 format=3 uid="uid://dor22jdcwtvbn"]
 
 [ext_resource type="Script" path="res://scenes/SummoningBoard.gd" id="1_3yrfo"]
-[ext_resource type="Resource" uid="uid://c8ejxj6xaa5h8" path="res://resources/summonings/Level1.tres" id="2_ku8mu"]
-[ext_resource type="PackedScene" uid="uid://bs7mvgg7ql4ty" path="res://scenes/CultistAgent.tscn" id="5_ccokj"]
-[ext_resource type="Script" path="res://scenes/CultistAgent.gd" id="6_bftkr"]
-[ext_resource type="Script" path="res://resources/Cultist.gd" id="7_ppb0e"]
-[ext_resource type="Texture2D" uid="uid://ds87auvq7q4gf" path="res://resources/textures/circles/pentagram.png" id="8_g813u"]
-[ext_resource type="Texture2D" uid="uid://baixlqavvq21o" path="res://resources/textures/circles/large.png" id="9_woc07"]
+[ext_resource type="Resource" uid="uid://bl1ohly421iya" path="res://resources/summonings/Level4.tres" id="2_qkbot"]
+[ext_resource type="PackedScene" uid="uid://deqe5ww7tq4qh" path="res://scenes/entities/LowEldritch4.tscn" id="3_4ae2i"]
+[ext_resource type="Script" path="res://scenes/entities/LowEldritch.gd" id="4_qjes5"]
+[ext_resource type="Resource" uid="uid://b66lpy6hbk1x1" path="res://scenes/entities/TheLiddedOne.tres" id="5_q8tt1"]
+[ext_resource type="Texture2D" uid="uid://b752of2rtvplb" path="res://resources/textures/circles/small.png" id="6_citsp"]
+[ext_resource type="PackedScene" uid="uid://bs7mvgg7ql4ty" path="res://scenes/CultistAgent.tscn" id="7_cwbgv"]
+[ext_resource type="Script" path="res://scenes/CultistAgent.gd" id="8_fi6wr"]
+[ext_resource type="Script" path="res://resources/Cultist.gd" id="9_po0aj"]
+[ext_resource type="Texture2D" uid="uid://ds87auvq7q4gf" path="res://resources/textures/circles/pentagram.png" id="10_mt2nq"]
 
-[sub_resource type="Resource" id="Resource_xkoar"]
-script = ExtResource("7_ppb0e")
+[sub_resource type="Resource" id="Resource_5d3k3"]
+script = ExtResource("9_po0aj")
 emotion = 0
 state = 0
 souls = 1
 
-[sub_resource type="Resource" id="Resource_ml6r0"]
-script = ExtResource("7_ppb0e")
+[sub_resource type="Resource" id="Resource_6csta"]
+script = ExtResource("9_po0aj")
 emotion = 0
 state = 0
 souls = 1
 
-[sub_resource type="Resource" id="Resource_8ilfo"]
-script = ExtResource("7_ppb0e")
+[sub_resource type="Resource" id="Resource_03q4h"]
+script = ExtResource("9_po0aj")
 emotion = 0
 state = 0
 souls = 1
 
-[sub_resource type="Resource" id="Resource_n7nuy"]
-script = ExtResource("7_ppb0e")
+[sub_resource type="Resource" id="Resource_5ic26"]
+script = ExtResource("9_po0aj")
 emotion = 0
 state = 0
 souls = 1
 
-[sub_resource type="Resource" id="Resource_5xlxt"]
-script = ExtResource("7_ppb0e")
+[sub_resource type="Resource" id="Resource_dkeld"]
+script = ExtResource("9_po0aj")
 emotion = 0
 state = 0
 souls = 1
 
-[sub_resource type="Resource" id="Resource_7ra51"]
-script = ExtResource("7_ppb0e")
+[sub_resource type="Resource" id="Resource_ypie2"]
+script = ExtResource("9_po0aj")
 emotion = 0
 state = 0
 souls = 1
 
-[sub_resource type="Resource" id="Resource_c74dx"]
-script = ExtResource("7_ppb0e")
+[sub_resource type="Resource" id="Resource_2i75e"]
+script = ExtResource("9_po0aj")
 emotion = 0
 state = 0
 souls = 1
 
-[sub_resource type="Resource" id="Resource_y284k"]
-script = ExtResource("7_ppb0e")
+[sub_resource type="Resource" id="Resource_w2div"]
+script = ExtResource("9_po0aj")
 emotion = 0
 state = 0
 souls = 1
 
-[sub_resource type="Resource" id="Resource_jci03"]
-script = ExtResource("7_ppb0e")
+[sub_resource type="Resource" id="Resource_2yp8a"]
+script = ExtResource("9_po0aj")
 emotion = 0
 state = 0
 souls = 1
 
-[sub_resource type="Resource" id="Resource_fxk64"]
-script = ExtResource("7_ppb0e")
+[sub_resource type="Resource" id="Resource_4koc5"]
+script = ExtResource("9_po0aj")
 emotion = 0
 state = 0
 souls = 1
 
-[sub_resource type="Resource" id="Resource_8x7sq"]
-script = ExtResource("7_ppb0e")
+[sub_resource type="Resource" id="Resource_to8qe"]
+script = ExtResource("9_po0aj")
 emotion = 0
 state = 0
 souls = 1
 
-[sub_resource type="Resource" id="Resource_dbbn6"]
-script = ExtResource("7_ppb0e")
+[sub_resource type="Resource" id="Resource_epxf0"]
+script = ExtResource("9_po0aj")
 emotion = 0
 state = 0
 souls = 1
 
-[sub_resource type="Resource" id="Resource_s7o78"]
-script = ExtResource("7_ppb0e")
+[sub_resource type="Resource" id="Resource_jp0fq"]
+script = ExtResource("9_po0aj")
 emotion = 0
 state = 0
 souls = 1
 
-[sub_resource type="Resource" id="Resource_1xr6o"]
-script = ExtResource("7_ppb0e")
+[sub_resource type="Resource" id="Resource_thugf"]
+script = ExtResource("9_po0aj")
 emotion = 0
 state = 0
 souls = 1
 
-[sub_resource type="Resource" id="Resource_bdjtn"]
-script = ExtResource("7_ppb0e")
+[sub_resource type="Resource" id="Resource_2wle6"]
+script = ExtResource("9_po0aj")
 emotion = 0
 state = 0
 souls = 1
 
-[sub_resource type="Resource" id="Resource_mx8qa"]
-script = ExtResource("7_ppb0e")
+[sub_resource type="Resource" id="Resource_mcrns"]
+script = ExtResource("9_po0aj")
 emotion = 0
 state = 0
 souls = 1
 
-[sub_resource type="Resource" id="Resource_akvxx"]
-script = ExtResource("7_ppb0e")
+[sub_resource type="Resource" id="Resource_hk65o"]
+script = ExtResource("9_po0aj")
 emotion = 0
 state = 0
 souls = 1
 
-[sub_resource type="Resource" id="Resource_ypbd7"]
-script = ExtResource("7_ppb0e")
+[sub_resource type="Resource" id="Resource_vpfut"]
+script = ExtResource("9_po0aj")
 emotion = 0
 state = 0
 souls = 1
 
-[sub_resource type="Resource" id="Resource_72r3e"]
-script = ExtResource("7_ppb0e")
+[sub_resource type="Resource" id="Resource_amnph"]
+script = ExtResource("9_po0aj")
 emotion = 0
 state = 0
 souls = 1
 
-[sub_resource type="Resource" id="Resource_4j3dd"]
-script = ExtResource("7_ppb0e")
-emotion = 0
-state = 0
-souls = 1
-
-[sub_resource type="Resource" id="Resource_7cegy"]
-script = ExtResource("7_ppb0e")
-emotion = 0
-state = 0
-souls = 1
-
-[sub_resource type="Resource" id="Resource_5bjiy"]
-script = ExtResource("7_ppb0e")
-emotion = 0
-state = 0
-souls = 1
-
-[sub_resource type="Resource" id="Resource_l3gf1"]
-script = ExtResource("7_ppb0e")
-emotion = 0
-state = 0
-souls = 1
-
-[sub_resource type="Resource" id="Resource_odiu6"]
-script = ExtResource("7_ppb0e")
-emotion = 0
-state = 0
-souls = 1
-
-[sub_resource type="Resource" id="Resource_1aks3"]
-script = ExtResource("7_ppb0e")
-emotion = 0
-state = 0
-souls = 1
-
-[sub_resource type="Resource" id="Resource_81ydx"]
-script = ExtResource("7_ppb0e")
-emotion = 0
-state = 0
-souls = 1
-
-[sub_resource type="Resource" id="Resource_ubv0u"]
-script = ExtResource("7_ppb0e")
-emotion = 0
-state = 0
-souls = 1
-
-[sub_resource type="Resource" id="Resource_ulghw"]
-script = ExtResource("7_ppb0e")
-emotion = 0
-state = 0
-souls = 1
-
-[sub_resource type="Resource" id="Resource_f6pc8"]
-script = ExtResource("7_ppb0e")
-emotion = 0
-state = 0
-souls = 1
-
-[sub_resource type="Resource" id="Resource_fmhyp"]
-script = ExtResource("7_ppb0e")
-emotion = 0
-state = 0
-souls = 1
-
-[sub_resource type="Resource" id="Resource_x6wkx"]
-script = ExtResource("7_ppb0e")
-emotion = 0
-state = 0
-souls = 1
-
-[sub_resource type="Resource" id="Resource_i6edy"]
-script = ExtResource("7_ppb0e")
+[sub_resource type="Resource" id="Resource_3rl4p"]
+script = ExtResource("9_po0aj")
 emotion = 0
 state = 0
 souls = 1
@@ -205,398 +136,324 @@ y_sort_enabled = true
 texture_filter = 1
 position = Vector2(640, 360)
 script = ExtResource("1_3yrfo")
-summoning = ExtResource("2_ku8mu")
+summoning = ExtResource("2_qkbot")
 
-[node name="@Sprite2D@17748" type="Sprite2D" parent="."]
+[node name="EntityAgent" type="Node2D" parent="." node_paths=PackedStringArray("sprite", "animationPlayer", "animationTree", "growlPlayer") instance=ExtResource("3_4ae2i")]
+texture_filter = 1
+scale = Vector2(3, 3)
+script = ExtResource("4_qjes5")
+entity = ExtResource("5_q8tt1")
+sprite = NodePath("Sprite2D")
+animationPlayer = NodePath("AnimationPlayer")
+animationTree = NodePath("AnimationTree")
+growlPlayer = NodePath("GrowlPlayer")
+
+[node name="@Sprite2D@25430" type="Sprite2D" parent="."]
 z_index = -1
-scale = Vector2(1, 0.5)
-texture = ExtResource("9_woc07")
+scale = Vector2(3, 1.5)
+texture = ExtResource("6_citsp")
 
-[node name="@Node2D@17749" type="Node2D" parent="." node_paths=PackedStringArray("sprite", "button", "animationPlayer", "animationTree") instance=ExtResource("5_ccokj")]
+[node name="Cultist" type="Node2D" parent="." node_paths=PackedStringArray("sprite", "button", "animationPlayer", "animationTree", "screamPlayer", "squishPlayer", "breathPlayer") instance=ExtResource("7_cwbgv")]
 texture_filter = 1
-position = Vector2(256, -24.0113)
-scale = Vector2(2, 2)
-script = ExtResource("6_bftkr")
-cultist = SubResource("Resource_xkoar")
+position = Vector2(144, -22)
+scale = Vector2(3, 3)
+script = ExtResource("8_fi6wr")
+cultist = SubResource("Resource_5d3k3")
 sprite = NodePath("Sprite2D")
 button = NodePath("Sprite2D/Button")
 animationPlayer = NodePath("AnimationPlayer")
 animationTree = NodePath("AnimationTree")
 playerTurn = true
+screamPlayer = NodePath("ScreamPlayer")
+squishPlayer = NodePath("SquishPlayer")
+breathPlayer = NodePath("BreathPlayer")
 
-[node name="@Node2D@17750" type="Node2D" parent="." node_paths=PackedStringArray("sprite", "button", "animationPlayer", "animationTree") instance=ExtResource("5_ccokj")]
+[node name="@Node2D@25431" type="Node2D" parent="." node_paths=PackedStringArray("sprite", "button", "animationPlayer", "animationTree", "screamPlayer", "squishPlayer", "breathPlayer") instance=ExtResource("7_cwbgv")]
 texture_filter = 1
-position = Vector2(247.277, 9.11751)
-scale = Vector2(2, 2)
-script = ExtResource("6_bftkr")
-cultist = SubResource("Resource_ml6r0")
+position = Vector2(102, 29)
+scale = Vector2(3, 3)
+script = ExtResource("8_fi6wr")
+cultist = SubResource("Resource_6csta")
 sprite = NodePath("Sprite2D")
 button = NodePath("Sprite2D/Button")
 animationPlayer = NodePath("AnimationPlayer")
 animationTree = NodePath("AnimationTree")
 playerTurn = true
+screamPlayer = NodePath("ScreamPlayer")
+squishPlayer = NodePath("SquishPlayer")
+breathPlayer = NodePath("BreathPlayer")
 
-[node name="@Node2D@17751" type="Node2D" parent="." node_paths=PackedStringArray("sprite", "button", "animationPlayer", "animationTree") instance=ExtResource("5_ccokj")]
+[node name="@Node2D@25432" type="Node2D" parent="." node_paths=PackedStringArray("sprite", "button", "animationPlayer", "animationTree", "screamPlayer", "squishPlayer", "breathPlayer") instance=ExtResource("7_cwbgv")]
 texture_filter = 1
-position = Vector2(221.702, 39.9887)
-scale = Vector2(2, 2)
-script = ExtResource("6_bftkr")
-cultist = SubResource("Resource_8ilfo")
+position = Vector2(0, 50)
+scale = Vector2(3, 3)
+script = ExtResource("8_fi6wr")
+cultist = SubResource("Resource_03q4h")
 sprite = NodePath("Sprite2D")
 button = NodePath("Sprite2D/Button")
 animationPlayer = NodePath("AnimationPlayer")
 animationTree = NodePath("AnimationTree")
 playerTurn = true
+screamPlayer = NodePath("ScreamPlayer")
+squishPlayer = NodePath("SquishPlayer")
+breathPlayer = NodePath("BreathPlayer")
 
-[node name="@Node2D@17752" type="Node2D" parent="." node_paths=PackedStringArray("sprite", "button", "animationPlayer", "animationTree") instance=ExtResource("5_ccokj")]
+[node name="@Node2D@25433" type="Node2D" parent="." node_paths=PackedStringArray("sprite", "button", "animationPlayer", "animationTree", "screamPlayer", "squishPlayer", "breathPlayer") instance=ExtResource("7_cwbgv")]
 texture_filter = 1
-position = Vector2(181.019, 66.4983)
-scale = Vector2(2, 2)
-script = ExtResource("6_bftkr")
-cultist = SubResource("Resource_n7nuy")
+position = Vector2(-102, 29)
+scale = Vector2(3, 3)
+script = ExtResource("8_fi6wr")
+cultist = SubResource("Resource_5ic26")
 sprite = NodePath("Sprite2D")
 button = NodePath("Sprite2D/Button")
 animationPlayer = NodePath("AnimationPlayer")
 animationTree = NodePath("AnimationTree")
 playerTurn = true
+screamPlayer = NodePath("ScreamPlayer")
+squishPlayer = NodePath("SquishPlayer")
+breathPlayer = NodePath("BreathPlayer")
 
-[node name="@Node2D@17753" type="Node2D" parent="." node_paths=PackedStringArray("sprite", "button", "animationPlayer", "animationTree") instance=ExtResource("5_ccokj")]
+[node name="@Node2D@25434" type="Node2D" parent="." node_paths=PackedStringArray("sprite", "button", "animationPlayer", "animationTree", "screamPlayer", "squishPlayer", "breathPlayer") instance=ExtResource("7_cwbgv")]
 texture_filter = 1
-position = Vector2(128, 86.8399)
-scale = Vector2(2, 2)
-script = ExtResource("6_bftkr")
-cultist = SubResource("Resource_5xlxt")
+position = Vector2(-144, -22)
+scale = Vector2(3, 3)
+script = ExtResource("8_fi6wr")
+cultist = SubResource("Resource_dkeld")
 sprite = NodePath("Sprite2D")
 button = NodePath("Sprite2D/Button")
 animationPlayer = NodePath("AnimationPlayer")
 animationTree = NodePath("AnimationTree")
 playerTurn = true
+screamPlayer = NodePath("ScreamPlayer")
+squishPlayer = NodePath("SquishPlayer")
+breathPlayer = NodePath("BreathPlayer")
 
-[node name="@Node2D@17754" type="Node2D" parent="." node_paths=PackedStringArray("sprite", "button", "animationPlayer", "animationTree") instance=ExtResource("5_ccokj")]
+[node name="@Node2D@25435" type="Node2D" parent="." node_paths=PackedStringArray("sprite", "button", "animationPlayer", "animationTree", "screamPlayer", "squishPlayer", "breathPlayer") instance=ExtResource("7_cwbgv")]
 texture_filter = 1
-position = Vector2(66.2577, 99.6272)
-scale = Vector2(2, 2)
-script = ExtResource("6_bftkr")
-cultist = SubResource("Resource_7ra51")
+position = Vector2(-102, -72)
+scale = Vector2(3, 3)
+script = ExtResource("8_fi6wr")
+cultist = SubResource("Resource_ypie2")
 sprite = NodePath("Sprite2D")
 button = NodePath("Sprite2D/Button")
 animationPlayer = NodePath("AnimationPlayer")
 animationTree = NodePath("AnimationTree")
 playerTurn = true
+screamPlayer = NodePath("ScreamPlayer")
+squishPlayer = NodePath("SquishPlayer")
+breathPlayer = NodePath("BreathPlayer")
 
-[node name="@Node2D@17755" type="Node2D" parent="." node_paths=PackedStringArray("sprite", "button", "animationPlayer", "animationTree") instance=ExtResource("5_ccokj")]
+[node name="@Node2D@25436" type="Node2D" parent="." node_paths=PackedStringArray("sprite", "button", "animationPlayer", "animationTree", "screamPlayer", "squishPlayer", "breathPlayer") instance=ExtResource("7_cwbgv")]
 texture_filter = 1
-position = Vector2(1.5675e-14, 103.989)
-scale = Vector2(2, 2)
-script = ExtResource("6_bftkr")
-cultist = SubResource("Resource_c74dx")
+position = Vector2(0, -94)
+scale = Vector2(3, 3)
+script = ExtResource("8_fi6wr")
+cultist = SubResource("Resource_2i75e")
 sprite = NodePath("Sprite2D")
 button = NodePath("Sprite2D/Button")
 animationPlayer = NodePath("AnimationPlayer")
 animationTree = NodePath("AnimationTree")
 playerTurn = true
+screamPlayer = NodePath("ScreamPlayer")
+squishPlayer = NodePath("SquishPlayer")
+breathPlayer = NodePath("BreathPlayer")
 
-[node name="@Node2D@17756" type="Node2D" parent="." node_paths=PackedStringArray("sprite", "button", "animationPlayer", "animationTree") instance=ExtResource("5_ccokj")]
+[node name="@Node2D@25437" type="Node2D" parent="." node_paths=PackedStringArray("sprite", "button", "animationPlayer", "animationTree", "screamPlayer", "squishPlayer", "breathPlayer") instance=ExtResource("7_cwbgv")]
 texture_filter = 1
-position = Vector2(-66.2577, 99.6272)
-scale = Vector2(2, 2)
-script = ExtResource("6_bftkr")
-cultist = SubResource("Resource_y284k")
+position = Vector2(102, -72)
+scale = Vector2(3, 3)
+script = ExtResource("8_fi6wr")
+cultist = SubResource("Resource_w2div")
 sprite = NodePath("Sprite2D")
 button = NodePath("Sprite2D/Button")
 animationPlayer = NodePath("AnimationPlayer")
 animationTree = NodePath("AnimationTree")
 playerTurn = true
+screamPlayer = NodePath("ScreamPlayer")
+squishPlayer = NodePath("SquishPlayer")
+breathPlayer = NodePath("BreathPlayer")
 
-[node name="@Node2D@17757" type="Node2D" parent="." node_paths=PackedStringArray("sprite", "button", "animationPlayer", "animationTree") instance=ExtResource("5_ccokj")]
-texture_filter = 1
-position = Vector2(-128, 86.8399)
-scale = Vector2(2, 2)
-script = ExtResource("6_bftkr")
-cultist = SubResource("Resource_jci03")
-sprite = NodePath("Sprite2D")
-button = NodePath("Sprite2D/Button")
-animationPlayer = NodePath("AnimationPlayer")
-animationTree = NodePath("AnimationTree")
-playerTurn = true
-
-[node name="@Node2D@17758" type="Node2D" parent="." node_paths=PackedStringArray("sprite", "button", "animationPlayer", "animationTree") instance=ExtResource("5_ccokj")]
-texture_filter = 1
-position = Vector2(-181.019, 66.4983)
-scale = Vector2(2, 2)
-script = ExtResource("6_bftkr")
-cultist = SubResource("Resource_fxk64")
-sprite = NodePath("Sprite2D")
-button = NodePath("Sprite2D/Button")
-animationPlayer = NodePath("AnimationPlayer")
-animationTree = NodePath("AnimationTree")
-playerTurn = true
-
-[node name="@Node2D@17759" type="Node2D" parent="." node_paths=PackedStringArray("sprite", "button", "animationPlayer", "animationTree") instance=ExtResource("5_ccokj")]
-texture_filter = 1
-position = Vector2(-221.702, 39.9887)
-scale = Vector2(2, 2)
-script = ExtResource("6_bftkr")
-cultist = SubResource("Resource_8x7sq")
-sprite = NodePath("Sprite2D")
-button = NodePath("Sprite2D/Button")
-animationPlayer = NodePath("AnimationPlayer")
-animationTree = NodePath("AnimationTree")
-playerTurn = true
-
-[node name="@Node2D@17760" type="Node2D" parent="." node_paths=PackedStringArray("sprite", "button", "animationPlayer", "animationTree") instance=ExtResource("5_ccokj")]
-texture_filter = 1
-position = Vector2(-247.277, 9.11751)
-scale = Vector2(2, 2)
-script = ExtResource("6_bftkr")
-cultist = SubResource("Resource_dbbn6")
-sprite = NodePath("Sprite2D")
-button = NodePath("Sprite2D/Button")
-animationPlayer = NodePath("AnimationPlayer")
-animationTree = NodePath("AnimationTree")
-playerTurn = true
-
-[node name="@Node2D@17761" type="Node2D" parent="." node_paths=PackedStringArray("sprite", "button", "animationPlayer", "animationTree") instance=ExtResource("5_ccokj")]
-texture_filter = 1
-position = Vector2(-256, -24.0113)
-scale = Vector2(2, 2)
-script = ExtResource("6_bftkr")
-cultist = SubResource("Resource_s7o78")
-sprite = NodePath("Sprite2D")
-button = NodePath("Sprite2D/Button")
-animationPlayer = NodePath("AnimationPlayer")
-animationTree = NodePath("AnimationTree")
-playerTurn = true
-
-[node name="@Node2D@17762" type="Node2D" parent="." node_paths=PackedStringArray("sprite", "button", "animationPlayer", "animationTree") instance=ExtResource("5_ccokj")]
-texture_filter = 1
-position = Vector2(-247.277, -57.1402)
-scale = Vector2(2, 2)
-script = ExtResource("6_bftkr")
-cultist = SubResource("Resource_1xr6o")
-sprite = NodePath("Sprite2D")
-button = NodePath("Sprite2D/Button")
-animationPlayer = NodePath("AnimationPlayer")
-animationTree = NodePath("AnimationTree")
-playerTurn = true
-
-[node name="@Node2D@17763" type="Node2D" parent="." node_paths=PackedStringArray("sprite", "button", "animationPlayer", "animationTree") instance=ExtResource("5_ccokj")]
-texture_filter = 1
-position = Vector2(-221.702, -88.0113)
-scale = Vector2(2, 2)
-script = ExtResource("6_bftkr")
-cultist = SubResource("Resource_bdjtn")
-sprite = NodePath("Sprite2D")
-button = NodePath("Sprite2D/Button")
-animationPlayer = NodePath("AnimationPlayer")
-animationTree = NodePath("AnimationTree")
-playerTurn = true
-
-[node name="@Node2D@17764" type="Node2D" parent="." node_paths=PackedStringArray("sprite", "button", "animationPlayer", "animationTree") instance=ExtResource("5_ccokj")]
-texture_filter = 1
-position = Vector2(-181.019, -114.521)
-scale = Vector2(2, 2)
-script = ExtResource("6_bftkr")
-cultist = SubResource("Resource_mx8qa")
-sprite = NodePath("Sprite2D")
-button = NodePath("Sprite2D/Button")
-animationPlayer = NodePath("AnimationPlayer")
-animationTree = NodePath("AnimationTree")
-playerTurn = true
-
-[node name="@Node2D@17765" type="Node2D" parent="." node_paths=PackedStringArray("sprite", "button", "animationPlayer", "animationTree") instance=ExtResource("5_ccokj")]
-texture_filter = 1
-position = Vector2(-128, -134.863)
-scale = Vector2(2, 2)
-script = ExtResource("6_bftkr")
-cultist = SubResource("Resource_akvxx")
-sprite = NodePath("Sprite2D")
-button = NodePath("Sprite2D/Button")
-animationPlayer = NodePath("AnimationPlayer")
-animationTree = NodePath("AnimationTree")
-playerTurn = true
-
-[node name="@Node2D@17766" type="Node2D" parent="." node_paths=PackedStringArray("sprite", "button", "animationPlayer", "animationTree") instance=ExtResource("5_ccokj")]
-texture_filter = 1
-position = Vector2(-66.2577, -147.65)
-scale = Vector2(2, 2)
-script = ExtResource("6_bftkr")
-cultist = SubResource("Resource_ypbd7")
-sprite = NodePath("Sprite2D")
-button = NodePath("Sprite2D/Button")
-animationPlayer = NodePath("AnimationPlayer")
-animationTree = NodePath("AnimationTree")
-playerTurn = true
-
-[node name="@Node2D@17767" type="Node2D" parent="." node_paths=PackedStringArray("sprite", "button", "animationPlayer", "animationTree") instance=ExtResource("5_ccokj")]
-texture_filter = 1
-position = Vector2(-4.70249e-14, -152.011)
-scale = Vector2(2, 2)
-script = ExtResource("6_bftkr")
-cultist = SubResource("Resource_72r3e")
-sprite = NodePath("Sprite2D")
-button = NodePath("Sprite2D/Button")
-animationPlayer = NodePath("AnimationPlayer")
-animationTree = NodePath("AnimationTree")
-playerTurn = true
-
-[node name="@Node2D@17768" type="Node2D" parent="." node_paths=PackedStringArray("sprite", "button", "animationPlayer", "animationTree") instance=ExtResource("5_ccokj")]
-texture_filter = 1
-position = Vector2(66.2577, -147.65)
-scale = Vector2(2, 2)
-script = ExtResource("6_bftkr")
-cultist = SubResource("Resource_4j3dd")
-sprite = NodePath("Sprite2D")
-button = NodePath("Sprite2D/Button")
-animationPlayer = NodePath("AnimationPlayer")
-animationTree = NodePath("AnimationTree")
-playerTurn = true
-
-[node name="@Node2D@17769" type="Node2D" parent="." node_paths=PackedStringArray("sprite", "button", "animationPlayer", "animationTree") instance=ExtResource("5_ccokj")]
-texture_filter = 1
-position = Vector2(128, -134.863)
-scale = Vector2(2, 2)
-script = ExtResource("6_bftkr")
-cultist = SubResource("Resource_7cegy")
-sprite = NodePath("Sprite2D")
-button = NodePath("Sprite2D/Button")
-animationPlayer = NodePath("AnimationPlayer")
-animationTree = NodePath("AnimationTree")
-playerTurn = true
-
-[node name="@Node2D@17770" type="Node2D" parent="." node_paths=PackedStringArray("sprite", "button", "animationPlayer", "animationTree") instance=ExtResource("5_ccokj")]
-texture_filter = 1
-position = Vector2(181.019, -114.521)
-scale = Vector2(2, 2)
-script = ExtResource("6_bftkr")
-cultist = SubResource("Resource_5bjiy")
-sprite = NodePath("Sprite2D")
-button = NodePath("Sprite2D/Button")
-animationPlayer = NodePath("AnimationPlayer")
-animationTree = NodePath("AnimationTree")
-playerTurn = true
-
-[node name="@Node2D@17771" type="Node2D" parent="." node_paths=PackedStringArray("sprite", "button", "animationPlayer", "animationTree") instance=ExtResource("5_ccokj")]
-texture_filter = 1
-position = Vector2(221.702, -88.0113)
-scale = Vector2(2, 2)
-script = ExtResource("6_bftkr")
-cultist = SubResource("Resource_l3gf1")
-sprite = NodePath("Sprite2D")
-button = NodePath("Sprite2D/Button")
-animationPlayer = NodePath("AnimationPlayer")
-animationTree = NodePath("AnimationTree")
-playerTurn = true
-
-[node name="@Node2D@17772" type="Node2D" parent="." node_paths=PackedStringArray("sprite", "button", "animationPlayer", "animationTree") instance=ExtResource("5_ccokj")]
-texture_filter = 1
-position = Vector2(247.277, -57.1402)
-scale = Vector2(2, 2)
-script = ExtResource("6_bftkr")
-cultist = SubResource("Resource_odiu6")
-sprite = NodePath("Sprite2D")
-button = NodePath("Sprite2D/Button")
-animationPlayer = NodePath("AnimationPlayer")
-animationTree = NodePath("AnimationTree")
-playerTurn = true
-
-[node name="@Sprite2D@17773" type="Sprite2D" parent="."]
+[node name="@Sprite2D@25438" type="Sprite2D" parent="."]
 z_index = -1
-scale = Vector2(1, 0.5)
-texture = ExtResource("8_g813u")
+scale = Vector2(3, 1.5)
+texture = ExtResource("10_mt2nq")
 
-[node name="@Node2D@17774" type="Node2D" parent="." node_paths=PackedStringArray("sprite", "button", "animationPlayer", "animationTree") instance=ExtResource("5_ccokj")]
+[node name="@Node2D@25439" type="Node2D" parent="." node_paths=PackedStringArray("sprite", "button", "animationPlayer", "animationTree", "screamPlayer", "squishPlayer", "breathPlayer") instance=ExtResource("7_cwbgv")]
 texture_filter = 1
-position = Vector2(64, -18.0085)
-scale = Vector2(2, 2)
-script = ExtResource("6_bftkr")
-cultist = SubResource("Resource_1aks3")
+position = Vector2(294, -25)
+scale = Vector2(3, 3)
+script = ExtResource("8_fi6wr")
+cultist = SubResource("Resource_2yp8a")
 sprite = NodePath("Sprite2D")
 button = NodePath("Sprite2D/Button")
 animationPlayer = NodePath("AnimationPlayer")
 animationTree = NodePath("AnimationTree")
 playerTurn = true
+screamPlayer = NodePath("ScreamPlayer")
+squishPlayer = NodePath("SquishPlayer")
+breathPlayer = NodePath("BreathPlayer")
 
-[node name="@Node2D@17775" type="Node2D" parent="." node_paths=PackedStringArray("sprite", "button", "animationPlayer", "animationTree") instance=ExtResource("5_ccokj")]
+[node name="@Node2D@25440" type="Node2D" parent="." node_paths=PackedStringArray("sprite", "button", "animationPlayer", "animationTree", "screamPlayer", "squishPlayer", "breathPlayer") instance=ExtResource("7_cwbgv")]
 texture_filter = 1
-position = Vector2(45.2548, 4.61892)
-scale = Vector2(2, 2)
-script = ExtResource("6_bftkr")
-cultist = SubResource("Resource_81ydx")
+position = Vector2(255, 49)
+scale = Vector2(3, 3)
+script = ExtResource("8_fi6wr")
+cultist = SubResource("Resource_4koc5")
 sprite = NodePath("Sprite2D")
 button = NodePath("Sprite2D/Button")
 animationPlayer = NodePath("AnimationPlayer")
 animationTree = NodePath("AnimationTree")
 playerTurn = true
+screamPlayer = NodePath("ScreamPlayer")
+squishPlayer = NodePath("SquishPlayer")
+breathPlayer = NodePath("BreathPlayer")
 
-[node name="@Node2D@17776" type="Node2D" parent="." node_paths=PackedStringArray("sprite", "button", "animationPlayer", "animationTree") instance=ExtResource("5_ccokj")]
+[node name="@Node2D@25441" type="Node2D" parent="." node_paths=PackedStringArray("sprite", "button", "animationPlayer", "animationTree", "screamPlayer", "squishPlayer", "breathPlayer") instance=ExtResource("7_cwbgv")]
 texture_filter = 1
-position = Vector2(3.91874e-15, 13.9915)
-scale = Vector2(2, 2)
-script = ExtResource("6_bftkr")
-cultist = SubResource("Resource_ubv0u")
+position = Vector2(147, 103)
+scale = Vector2(3, 3)
+script = ExtResource("8_fi6wr")
+cultist = SubResource("Resource_to8qe")
 sprite = NodePath("Sprite2D")
 button = NodePath("Sprite2D/Button")
 animationPlayer = NodePath("AnimationPlayer")
 animationTree = NodePath("AnimationTree")
 playerTurn = true
+screamPlayer = NodePath("ScreamPlayer")
+squishPlayer = NodePath("SquishPlayer")
+breathPlayer = NodePath("BreathPlayer")
 
-[node name="@Node2D@17777" type="Node2D" parent="." node_paths=PackedStringArray("sprite", "button", "animationPlayer", "animationTree") instance=ExtResource("5_ccokj")]
+[node name="@Node2D@25442" type="Node2D" parent="." node_paths=PackedStringArray("sprite", "button", "animationPlayer", "animationTree", "screamPlayer", "squishPlayer", "breathPlayer") instance=ExtResource("7_cwbgv")]
 texture_filter = 1
-position = Vector2(-45.2548, 4.61892)
-scale = Vector2(2, 2)
-script = ExtResource("6_bftkr")
-cultist = SubResource("Resource_ulghw")
+position = Vector2(0, 122)
+scale = Vector2(3, 3)
+script = ExtResource("8_fi6wr")
+cultist = SubResource("Resource_epxf0")
 sprite = NodePath("Sprite2D")
 button = NodePath("Sprite2D/Button")
 animationPlayer = NodePath("AnimationPlayer")
 animationTree = NodePath("AnimationTree")
 playerTurn = true
+screamPlayer = NodePath("ScreamPlayer")
+squishPlayer = NodePath("SquishPlayer")
+breathPlayer = NodePath("BreathPlayer")
 
-[node name="@Node2D@17778" type="Node2D" parent="." node_paths=PackedStringArray("sprite", "button", "animationPlayer", "animationTree") instance=ExtResource("5_ccokj")]
+[node name="@Node2D@25443" type="Node2D" parent="." node_paths=PackedStringArray("sprite", "button", "animationPlayer", "animationTree", "screamPlayer", "squishPlayer", "breathPlayer") instance=ExtResource("7_cwbgv")]
 texture_filter = 1
-position = Vector2(-64, -18.0085)
-scale = Vector2(2, 2)
-script = ExtResource("6_bftkr")
-cultist = SubResource("Resource_f6pc8")
+position = Vector2(-147, 103)
+scale = Vector2(3, 3)
+script = ExtResource("8_fi6wr")
+cultist = SubResource("Resource_jp0fq")
 sprite = NodePath("Sprite2D")
 button = NodePath("Sprite2D/Button")
 animationPlayer = NodePath("AnimationPlayer")
 animationTree = NodePath("AnimationTree")
 playerTurn = true
+screamPlayer = NodePath("ScreamPlayer")
+squishPlayer = NodePath("SquishPlayer")
+breathPlayer = NodePath("BreathPlayer")
 
-[node name="@Node2D@17779" type="Node2D" parent="." node_paths=PackedStringArray("sprite", "button", "animationPlayer", "animationTree") instance=ExtResource("5_ccokj")]
+[node name="@Node2D@25444" type="Node2D" parent="." node_paths=PackedStringArray("sprite", "button", "animationPlayer", "animationTree", "screamPlayer", "squishPlayer", "breathPlayer") instance=ExtResource("7_cwbgv")]
 texture_filter = 1
-position = Vector2(-45.2548, -40.6359)
-scale = Vector2(2, 2)
-script = ExtResource("6_bftkr")
-cultist = SubResource("Resource_fmhyp")
+position = Vector2(-255, 49)
+scale = Vector2(3, 3)
+script = ExtResource("8_fi6wr")
+cultist = SubResource("Resource_thugf")
 sprite = NodePath("Sprite2D")
 button = NodePath("Sprite2D/Button")
 animationPlayer = NodePath("AnimationPlayer")
 animationTree = NodePath("AnimationTree")
 playerTurn = true
+screamPlayer = NodePath("ScreamPlayer")
+squishPlayer = NodePath("SquishPlayer")
+breathPlayer = NodePath("BreathPlayer")
 
-[node name="@Node2D@17780" type="Node2D" parent="." node_paths=PackedStringArray("sprite", "button", "animationPlayer", "animationTree") instance=ExtResource("5_ccokj")]
+[node name="@Node2D@25445" type="Node2D" parent="." node_paths=PackedStringArray("sprite", "button", "animationPlayer", "animationTree", "screamPlayer", "squishPlayer", "breathPlayer") instance=ExtResource("7_cwbgv")]
 texture_filter = 1
-position = Vector2(-1.17562e-14, -50.0085)
-scale = Vector2(2, 2)
-script = ExtResource("6_bftkr")
-cultist = SubResource("Resource_x6wkx")
+position = Vector2(-294, -25)
+scale = Vector2(3, 3)
+script = ExtResource("8_fi6wr")
+cultist = SubResource("Resource_2wle6")
 sprite = NodePath("Sprite2D")
 button = NodePath("Sprite2D/Button")
 animationPlayer = NodePath("AnimationPlayer")
 animationTree = NodePath("AnimationTree")
 playerTurn = true
+screamPlayer = NodePath("ScreamPlayer")
+squishPlayer = NodePath("SquishPlayer")
+breathPlayer = NodePath("BreathPlayer")
 
-[node name="@Node2D@17781" type="Node2D" parent="." node_paths=PackedStringArray("sprite", "button", "animationPlayer", "animationTree") instance=ExtResource("5_ccokj")]
+[node name="@Node2D@25446" type="Node2D" parent="." node_paths=PackedStringArray("sprite", "button", "animationPlayer", "animationTree", "screamPlayer", "squishPlayer", "breathPlayer") instance=ExtResource("7_cwbgv")]
 texture_filter = 1
-position = Vector2(45.2548, -40.6359)
-scale = Vector2(2, 2)
-script = ExtResource("6_bftkr")
-cultist = SubResource("Resource_i6edy")
+position = Vector2(-255, -98)
+scale = Vector2(3, 3)
+script = ExtResource("8_fi6wr")
+cultist = SubResource("Resource_mcrns")
 sprite = NodePath("Sprite2D")
 button = NodePath("Sprite2D/Button")
 animationPlayer = NodePath("AnimationPlayer")
 animationTree = NodePath("AnimationTree")
 playerTurn = true
+screamPlayer = NodePath("ScreamPlayer")
+squishPlayer = NodePath("SquishPlayer")
+breathPlayer = NodePath("BreathPlayer")
+
+[node name="@Node2D@25447" type="Node2D" parent="." node_paths=PackedStringArray("sprite", "button", "animationPlayer", "animationTree", "screamPlayer", "squishPlayer", "breathPlayer") instance=ExtResource("7_cwbgv")]
+texture_filter = 1
+position = Vector2(-147, -152)
+scale = Vector2(3, 3)
+script = ExtResource("8_fi6wr")
+cultist = SubResource("Resource_hk65o")
+sprite = NodePath("Sprite2D")
+button = NodePath("Sprite2D/Button")
+animationPlayer = NodePath("AnimationPlayer")
+animationTree = NodePath("AnimationTree")
+playerTurn = true
+screamPlayer = NodePath("ScreamPlayer")
+squishPlayer = NodePath("SquishPlayer")
+breathPlayer = NodePath("BreathPlayer")
+
+[node name="@Node2D@25448" type="Node2D" parent="." node_paths=PackedStringArray("sprite", "button", "animationPlayer", "animationTree", "screamPlayer", "squishPlayer", "breathPlayer") instance=ExtResource("7_cwbgv")]
+texture_filter = 1
+position = Vector2(0, -172)
+scale = Vector2(3, 3)
+script = ExtResource("8_fi6wr")
+cultist = SubResource("Resource_vpfut")
+sprite = NodePath("Sprite2D")
+button = NodePath("Sprite2D/Button")
+animationPlayer = NodePath("AnimationPlayer")
+animationTree = NodePath("AnimationTree")
+playerTurn = true
+screamPlayer = NodePath("ScreamPlayer")
+squishPlayer = NodePath("SquishPlayer")
+breathPlayer = NodePath("BreathPlayer")
+
+[node name="@Node2D@25449" type="Node2D" parent="." node_paths=PackedStringArray("sprite", "button", "animationPlayer", "animationTree", "screamPlayer", "squishPlayer", "breathPlayer") instance=ExtResource("7_cwbgv")]
+texture_filter = 1
+position = Vector2(147, -152)
+scale = Vector2(3, 3)
+script = ExtResource("8_fi6wr")
+cultist = SubResource("Resource_amnph")
+sprite = NodePath("Sprite2D")
+button = NodePath("Sprite2D/Button")
+animationPlayer = NodePath("AnimationPlayer")
+animationTree = NodePath("AnimationTree")
+playerTurn = true
+screamPlayer = NodePath("ScreamPlayer")
+squishPlayer = NodePath("SquishPlayer")
+breathPlayer = NodePath("BreathPlayer")
+
+[node name="@Node2D@25450" type="Node2D" parent="." node_paths=PackedStringArray("sprite", "button", "animationPlayer", "animationTree", "screamPlayer", "squishPlayer", "breathPlayer") instance=ExtResource("7_cwbgv")]
+texture_filter = 1
+position = Vector2(255, -98)
+scale = Vector2(3, 3)
+script = ExtResource("8_fi6wr")
+cultist = SubResource("Resource_3rl4p")
+sprite = NodePath("Sprite2D")
+button = NodePath("Sprite2D/Button")
+animationPlayer = NodePath("AnimationPlayer")
+animationTree = NodePath("AnimationTree")
+playerTurn = true
+screamPlayer = NodePath("ScreamPlayer")
+squishPlayer = NodePath("SquishPlayer")
+breathPlayer = NodePath("BreathPlayer")

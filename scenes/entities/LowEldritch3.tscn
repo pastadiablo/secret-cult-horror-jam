@@ -1,0 +1,186 @@
+[gd_scene load_steps=22 format=3 uid="uid://ba8wba616fdct"]
+
+[ext_resource type="Script" path="res://scenes/entities/LowEldritch.gd" id="1_arj7c"]
+[ext_resource type="Resource" uid="uid://dbk2p51coiu7d" path="res://scenes/entities/EyeOfThePast.tres" id="2_1q6wg"]
+[ext_resource type="Texture2D" uid="uid://b60rptgkqnqx3" path="res://resources/textures/entities/LowEldritch.png" id="3_f52to"]
+[ext_resource type="AudioStream" uid="uid://dyf4ni6y0cx2l" path="res://resources/sounds/growl1.mp3" id="4_j6wib"]
+
+[sub_resource type="Animation" id="Animation_4cne2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_ugis6"]
+resource_name = "attack"
+length = 0.6
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.1999, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 3, 4, 5, 4, 3]
+}
+
+[sub_resource type="Animation" id="Animation_bpbdu"]
+resource_name = "bind_idle"
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [11, 12, 11, 13, 11]
+}
+
+[sub_resource type="Animation" id="Animation_tm2y1"]
+resource_name = "binding"
+length = 1.8
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.9, 1.2, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [6, 7, 8, 9, 10, 11]
+}
+
+[sub_resource type="Animation" id="Animation_f0lfd"]
+resource_name = "idle"
+length = 1.6
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [1, 0, 1, 2]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_iuqra"]
+_data = {
+"RESET": SubResource("Animation_4cne2"),
+"attack": SubResource("Animation_ugis6"),
+"bind_idle": SubResource("Animation_bpbdu"),
+"binding": SubResource("Animation_tm2y1"),
+"idle": SubResource("Animation_f0lfd")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_glwjx"]
+animation = &"attack"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2kpse"]
+animation = &"bind_idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_4dlgu"]
+animation = &"binding"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_soe5f"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_camlv"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_umriy"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ts8d0"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ugcak"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_20i17"]
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_yea27"]
+states/attack/node = SubResource("AnimationNodeAnimation_glwjx")
+states/attack/position = Vector2(521, 166)
+states/bind_idle/node = SubResource("AnimationNodeAnimation_2kpse")
+states/bind_idle/position = Vector2(818, 166)
+states/binding/node = SubResource("AnimationNodeAnimation_4dlgu")
+states/binding/position = Vector2(673, 112)
+states/idle/node = SubResource("AnimationNodeAnimation_soe5f")
+states/idle/position = Vector2(415, 74)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_camlv"), "idle", "attack", SubResource("AnimationNodeStateMachineTransition_umriy"), "attack", "idle", SubResource("AnimationNodeStateMachineTransition_ts8d0"), "binding", "bind_idle", SubResource("AnimationNodeStateMachineTransition_ugcak"), "idle", "binding", SubResource("AnimationNodeStateMachineTransition_20i17")]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_wpaty"]
+streams_count = 1
+stream_0/stream = ExtResource("4_j6wib")
+
+[node name="EntityAgent" type="Node2D" node_paths=PackedStringArray("sprite", "animationPlayer", "animationTree", "growlPlayer")]
+texture_filter = 1
+script = ExtResource("1_arj7c")
+entity = ExtResource("2_1q6wg")
+sprite = NodePath("Sprite2D")
+animationPlayer = NodePath("AnimationPlayer")
+animationTree = NodePath("AnimationTree")
+growlPlayer = NodePath("GrowlPlayer")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("3_f52to")
+hframes = 3
+vframes = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_iuqra")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_yea27")
+anim_player = NodePath("../AnimationPlayer")
+parameters/current_length = 0.0
+parameters/current_position = 0.0
+parameters/current_delta = 0.0
+parameters/End/current_length = null
+parameters/End/current_position = null
+parameters/End/current_delta = null
+parameters/Start/current_length = 0.0
+parameters/Start/current_position = 0.0
+parameters/Start/current_delta = 0.0
+parameters/attack/current_length = 0.6
+parameters/attack/current_position = 0.0902923
+parameters/attack/current_delta = 0.01
+parameters/bind_idle/current_length = 1.0
+parameters/bind_idle/current_position = 0.613109
+parameters/bind_idle/current_delta = 0.01
+parameters/binding/current_length = 1.8
+parameters/binding/current_position = 1.8
+parameters/binding/current_delta = 0.0157527
+parameters/idle/current_length = 1.6
+parameters/idle/current_position = 0.388203
+parameters/idle/current_delta = 0.007016
+
+[node name="GrowlPlayer" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_wpaty")

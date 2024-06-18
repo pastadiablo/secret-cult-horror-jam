@@ -1,0 +1,105 @@
+[gd_scene load_steps=5 format=3 uid="uid://d0jw4pb2ycf4a"]
+
+[ext_resource type="Texture2D" uid="uid://xaryq1uw14jh" path="res://resources/textures/backgrounds/Dungeon1.png" id="1_hxi1v"]
+[ext_resource type="Script" path="res://scenes/Credits.gd" id="2_rs4gu"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mgnt0"]
+texture = ExtResource("1_hxi1v")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h0arc"]
+content_margin_bottom = 5.0
+
+[node name="Credits" type="PanelContainer" node_paths=PackedStringArray("returnButton", "credits", "scroll")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_mgnt0")
+script = ExtResource("2_rs4gu")
+returnButton = NodePath("Button")
+credits = NodePath("VBoxContainer/ScrollContainer/RichTextLabel")
+scroll = NodePath("VBoxContainer/ScrollContainer")
+scrollSpeed = 100.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 128
+text = "The Summoning"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="VBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Design, Code, Art,
+ pastadiablo
+
+Testing
+newbhope, falyra, stealth
+
+Engine
+Godot 4.3 Beta 1
+
+Shaders
+Hei: https://godotshaders.com/shader/2d-perspective/
+Juulpower: https://godotshaders.com/shader/2d-outline-inline/
+"
+horizontal_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(1280, 600)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_h0arc")
+horizontal_scroll_mode = 0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/ScrollContainer"]
+custom_minimum_size = Vector2(1280, 0)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/italics_font_size = 64
+theme_override_font_sizes/normal_font_size = 64
+theme_override_font_sizes/bold_font_size = 64
+bbcode_enabled = true
+text = "[center][i]Design, Code, Art[/i]
+ [url=https://pastadiablo.com]pastadiablo[/url]
+
+[i]Testing[/i]
+newbhope, falyra, stealth
+
+[i]Engine[/i]
+[url=https://godotengine.org/article/dev-snapshot-godot-4-3-beta-1/]Godot 4.3 Beta 1[/url]
+
+[i]Music[/i]
+[url=https://incompetech.com/]Kevin MacLeod[/url]
+[ul]
+Gathering Darkness
+SCP-x1x
+SCP-x2x
+SCP-x4x
+[/ul]
+
+[i]Sound Effects[/i]
+[url=https://www.zapsplat.com]Zapsplat Sounds[/url]
+[url=https://en.wikipedia.org/wiki/File:Wilhelm_Scream.ogg]Wilheml Scream[/url]
+
+[i]Shaders[/i]
+Hei: [url=https://godotshaders.com/shader/2d-perspective/]2d-perspective Shader[/url]  
+Juulpower: [url=https://godotshaders.com/shader/2d-outline-inline/]2d-Outline-Inline Shader[/url]
+
+[/center]"
+fit_content = true
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 32
+text = "Return To Menu"
+flat = true

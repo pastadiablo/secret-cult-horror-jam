@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Entity" load_steps=3 format=3 uid="uid://d03dt252unhg0"]
+
+[ext_resource type="AudioStream" uid="uid://4bvq7hu6r736" path="res://resources/sounds/music/SCP-x1x.mp3" id="1_gd01a"]
+[ext_resource type="Script" path="res://resources/Entity.gd" id="2_qg235"]
+
+[resource]
+script = ExtResource("2_qg235")
+name = "Seer"
+fearRequirement = 2
+angerRequirement = 0
+despairRequirement = 0
+greeting = "YOUR BONES ARE TRANSPARENT"
+converse = Array[String](["...GENEROUS SIGHTS...", "...TRANSFIXED IN MY GAZE...", "...I HAVE SEEN YOU PERISH...", "...THE END IS INEVITABLE..."])
+plead = "... THIS WAS NOT THE FUTURE ..."
+submit = "...YOUR ... FUTURE ... IS ... BRIGHT ..."
+victory = "... AS I SAW ..."
+bgmusic = ExtResource("1_gd01a")

@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="Summoning" load_steps=6 format=3 uid="uid://ci8f8fxbojlbh"]
+
+[ext_resource type="Script" path="res://resources/Circle.gd" id="1_6r0c2"]
+[ext_resource type="Texture2D" uid="uid://b752of2rtvplb" path="res://resources/textures/circles/small.png" id="2_5bsrk"]
+[ext_resource type="Script" path="res://resources/Summoning.gd" id="3_5tao8"]
+[ext_resource type="Resource" uid="uid://dkayy0mk420nm" path="res://resources/summonings/Level3.tres" id="3_yuhva"]
+
+[sub_resource type="Resource" id="Resource_0etoj"]
+script = ExtResource("1_6r0c2")
+texture = ExtResource("2_5bsrk")
+cultistCount = 8
+cultistOffset = 0.0
+tiltDegree = 60.0
+
+[resource]
+script = ExtResource("3_5tao8")
+uniqueName = "Level2"
+circles = Array[ExtResource("1_6r0c2")]([SubResource("Resource_0etoj")])
+entityPath = "res://scenes/entities/LowEldritch2.tscn"
+sacrifices = 0
+zoom = 3
+nextSummoning = ExtResource("3_yuhva")

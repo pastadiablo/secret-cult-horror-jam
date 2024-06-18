@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Entity" load_steps=3 format=3 uid="uid://2n0f8wy6u56l"]
+
+[ext_resource type="AudioStream" uid="uid://4bvq7hu6r736" path="res://resources/sounds/music/SCP-x1x.mp3" id="1_bkfqx"]
+[ext_resource type="Script" path="res://resources/Entity.gd" id="2_te515"]
+
+[resource]
+script = ExtResource("2_te515")
+name = "Watcher"
+fearRequirement = 1
+angerRequirement = 0
+despairRequirement = 0
+greeting = "... I ... SEE ... YOU..."
+converse = Array[String](["...THE STARS ALIGN...", "...SEE THE BLOOD SPILL...", "...WATCH YOUR FOLLOWERS PERISH...", "...THE UNIVERSE WATCHES THE WATCHER WATCHING WATCHES WHO WATCH WHILE WATCHING WATCHERS..."])
+plead = "... I COULD HAVE SEEN SO MUCH MORE ..."
+submit = "...I ... WATCH ... FOR ... YOU ... MASTER ..."
+victory = "... I HAVE PERCEIVED YOU ..."
+bgmusic = ExtResource("1_bkfqx")
